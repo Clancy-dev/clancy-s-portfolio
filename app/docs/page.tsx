@@ -1,3 +1,4 @@
+import CodeLibrary from '@/components/CodeLibrary'
 import AnimatedSection from '../../components/AnimatedSection'
 
 export default function Docs() {
@@ -8,9 +9,11 @@ export default function Docs() {
         <p className="mb-4">
           Welcome to my documentation page. Here, you'll find reusable code snippets and explanations for various projects and technologies I work with.
         </p>
-        <p>
-          This section is currently under construction. Check back soon for updates!
-        </p>
+        
+      </AnimatedSection>
+
+      <AnimatedSection>
+        <CodeLibrary/>
       </AnimatedSection>
     </AnimatedSection>
   )

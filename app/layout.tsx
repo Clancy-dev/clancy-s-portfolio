@@ -1,4 +1,4 @@
-import './globals.css'
+import '../styles/style.scss'
 import { Inter } from 'next/font/google'
 import { ThemeProvider } from 'next-themes'
 import Header from '../components/Header'

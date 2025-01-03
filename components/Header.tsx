@@ -12,7 +12,7 @@ const Header = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white dark:bg-gray-800 shadow-md z-20">
+    <header className="fixed top-0 left-0 right-0 bg-white dark:bg-gray-800 shadow-md z-20 w-[100%]">
       <nav className="container mx-auto px-6 py-3">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
