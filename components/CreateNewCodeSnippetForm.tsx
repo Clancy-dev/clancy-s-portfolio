@@ -47,14 +47,14 @@ export default function CreateNewCodeSnippetForm() {
   }
 
   return (
-    <Card className="w-full max-w-2xl mx-auto bg-gradient-to-br from-blue-400 to-blue-600 shadow-xl">
+    <Card className="w-full max-w-2xl mx-auto bg-gradient-to-br from-blue-500 to-blue-900 shadow-xl">
       <CardHeader className="text-white">
-        <CardTitle className="text-2xl font-bold text-center">Create New Code Snippet</CardTitle>
+        <CardTitle className="text-2xl font-bold text-center mb-2">Create New Code Snippet</CardTitle>
       </CardHeader>
       <CardContent className="bg-white bg-opacity-90 rounded-b-lg">
         <form className="space-y-6" onSubmit={handleSubmit(saveData)}>
           <div className="space-y-2">
-            <Label htmlFor="title" className="text-gray-700 mt-1">Snippet Title</Label>
+            <Label htmlFor="title" className="text-gray-700">Snippet Title</Label>
             <Input
               type="text"
               id="title"
