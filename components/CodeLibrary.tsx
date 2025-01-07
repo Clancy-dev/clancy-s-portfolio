@@ -35,7 +35,7 @@ export default function CodeLibrary({codeData}: {codeData: CodeSnippet[]}) {
       </div>
 
       <div className="w-full p-[0.5rem] flex items-center justify-start">
-      <Link href="/create-new-code-snippet" className="bg-blue-900 mb-2 text-white border-white rounded-[10px] border-b-[1px] border-l-[1px] p-2">
+      <Link href="/new" className="bg-blue-900 mb-2 text-white border-white rounded-[10px] border-b-[1px] border-l-[1px] p-2">
       <button>
         <p>Create New Snippet</p>
       </button>
