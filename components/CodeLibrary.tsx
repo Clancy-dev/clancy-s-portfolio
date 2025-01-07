@@ -1,103 +1,91 @@
-"use client";
+
+"use client"
+
 import React, { useState } from "react";
+import Link from "next/link";
+import { CodeSnippet } from "@prisma/client";
+import CodeSnippetCard from "./CodeSnippet";
 
-const CodeSnippetsSection: React.FC = () => {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [snippets] = useState([
-    {
-      id: 1,
-      title: "Responsive Navbar",
-      description: "A fully responsive navigation bar using Flexbox.",
-      code: `<nav class="flex justify-between p-4 bg-blue-600 text-white">...</nav>`,
-      keywords: ["navbar", "responsive", "flexbox"],
-    },
-    {
-      id: 2,
-      title: "Dark Mode Toggle",
-      description: "A simple dark mode toggle using CSS and JavaScript.",
-      code: `function toggleDarkMode() { document.body.classList.toggle('dark'); }`,
-      keywords: ["dark mode", "toggle", "javascript"],
-    },
-    {
-      id: 3,
-      title: "Fetch API Example",
-      description: "Using the Fetch API to get data from a REST API.",
-      code: `fetch('https://api.example.com/data').then(res => res.json()).then(data => console.log(data));`,
-      keywords: ["fetch", "api", "javascript"],
-    },
-  ]);
-  const [copiedId, setCopiedId] = useState<number | null>(null);
+export default function CodeLibrary({codeData}: {codeData: CodeSnippet[]}) {
+  const [search, setSearch] = useState("");
 
-  const handleCopy = async (id: number, code: string) => {
-    try {
-      await navigator.clipboard.writeText(code);
-      setCopiedId(id);
-      setTimeout(() => setCopiedId(null), 2000); // Revert after 2 seconds
-    } catch (error) {
-      console.error("Failed to copy:", error);
-    }
+  const snippets = [
+    {
+      title: "Greet Function",
+      code: `function greet(name: string): string {
+  return \`Hello, \${name}!\`;
+}
+console.log(greet('World'));`,
+      description: "This function takes a name as input and returns a greeting message.",
+    },
+    {
+      title: "Arrow Function Example",
+      code: `const add = (a: number, b: number): number => a + b;
+console.log(add(5, 3));`,
+      description: "This example demonstrates the use of arrow functions in TypeScript to perform addition.",
+    },
+    {
+      title: "Simple CSS Example",
+      code: `body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}`,
+      description: "This snippet sets the default styles for the body element in CSS.",
+    },
+  ];
+
+  const handleCopy = (code: string) => {
+    navigator.clipboard.writeText(code);
   };
 
-  const filteredSnippets = snippets.filter(
-    (snippet) =>
-      snippet.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      snippet.keywords.some((keyword) =>
-        keyword.toLowerCase().includes(searchQuery.toLowerCase())
-      )
+  const filteredSnippets = codeData.filter((snippet) =>
+    snippet.title.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
-    <section className="p-8 bg-gray-50">
-      <div className="container mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-6">Code Snippets</h2>
-
-        {/* Search Bar */}
-        <div className="mb-6">
-          <input
-            type="text"
-            placeholder="Search by title or keywords..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300 focus:outline-none"
-          />
-        </div>
-
-        {/* Snippets List */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredSnippets.length > 0 ? (
-            filteredSnippets.map((snippet) => (
-              <div
-                key={snippet.id}
-                className="p-4 bg-white shadow rounded-lg hover:shadow-lg transition relative flex flex-col"
-              >
-                <h3 className="text-xl font-bold mb-2">{snippet.title}</h3>
-                <p className="mb-4 text-gray-600">{snippet.description}</p>
-                
-                {/* Code Block with Black Background and White Text */}
-                <pre className="bg-black text-white p-3 rounded text-sm overflow-x-auto mb-6">
-                  {snippet.code}
-                </pre>
-
-                <div className="mt-2 text-sm text-gray-500">
-                  Keywords: {snippet.keywords.join(", ")}
-                </div>
-
-                {/* Copy Button */}
-                <button
-                  onClick={() => handleCopy(snippet.id, snippet.code)}
-                  className="absolute top-2 right-2 bg-blue-500 text-white text-xs px-3 py-1 rounded hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300"
-                >
-                  {copiedId === snippet.id ? "✓" : "Copy"}
-                </button>
-              </div>
-            ))
-          ) : (
-            <p className="text-gray-600">No snippets found for your search.</p>
-          )}
-        </div>
+    <div className="min-h-screen bg-blue-950 flex flex-col items-center w-full rounded-[5px]">
+      <h1 className="lg:text-3xl md:text-2xl sm:text-2xl text-2xl font-bold text-white mb-6 mt-3">My Code Library</h1>
+      {/* search bar */}
+      <div className="w-full p-[0.5rem] flex items-center justify-center">
+      <input
+        type="text"
+        placeholder="Search Code Snippets..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        className=" px-4 py-2 rounded-[20px] w-full max-w-3xl bg-white text-blue-950 font-bold placeholder-gray-500 focus:outline-none focus:ring focus:ring-blue-500"
+      />
       </div>
-    </section>
-  );
-};
 
-export default CodeSnippetsSection;
+      <div className="w-full p-[0.5rem] flex items-center justify-start">
+      <Link href="/create-new-code-snippet" className="bg-blue-900 mb-2 text-white border-white rounded-[10px] border-b-[1px] border-l-[1px] p-2">
+      <button>
+        <p>Create New Snippet</p>
+      </button>
+      </Link>
+      </div>
+
+
+
+      
+
+      
+
+      <div className="code-snippet-container">
+        {filteredSnippets.map((snippet, index) => (
+          <CodeSnippetCard
+            key={index}
+            title={snippet.title}
+            code={snippet.code}
+            description={snippet.description}
+            onCopy={() => handleCopy(snippet.code)}
+          />
+        ))}
+        {filteredSnippets.length === 0 && (
+          <p className="text-gray-500 text-center">No snippets found.</p>
+        )}
+      </div>
+    </div>
+  );
+}
+
+

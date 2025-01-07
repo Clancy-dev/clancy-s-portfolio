@@ -17,16 +17,6 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
 .profile-box-shadow{
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
@@ -76,5 +66,11 @@ html {
 
 .hover\:scale-105:hover {
   transform: scale(1.05);
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
 }
 
