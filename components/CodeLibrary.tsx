@@ -10,30 +10,7 @@ import CodeSnippetCard from "./CodeSnippet";
 export default function CodeLibrary({codeData}: {codeData: CodeSnippet[]}) {
   const [search, setSearch] = useState("");  
 
-  const snippets = [
-    {
-      title: "Greet Function",
-      code: `function greet(name: string): string {
-  return \`Hello, \${name}!\`;
-}
-console.log(greet('World'));`,
-      description: "This function takes a name as input and returns a greeting message.",
-    },
-    {
-      title: "Arrow Function Example",
-      code: `const add = (a: number, b: number): number => a + b;
-console.log(add(5, 3));`,
-      description: "This example demonstrates the use of arrow functions in TypeScript to perform addition.",
-    },
-    {
-      title: "Simple CSS Example",
-      code: `body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}`,
-      description: "This snippet sets the default styles for the body element in CSS.",
-    },
-  ];
+
 
   const handleCopy = (code: string) => {
     navigator.clipboard.writeText(code);
