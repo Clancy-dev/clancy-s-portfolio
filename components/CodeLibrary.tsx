@@ -6,8 +6,9 @@ import Link from "next/link";
 import { CodeSnippet } from "@prisma/client";
 import CodeSnippetCard from "./CodeSnippet";
 
+
 export default function CodeLibrary({codeData}: {codeData: CodeSnippet[]}) {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("");  
 
   const snippets = [
     {
@@ -44,7 +45,7 @@ console.log(add(5, 3));`,
 
   return (
     <div className="min-h-screen bg-blue-950 flex flex-col items-center w-full rounded-[5px]">
-      <h1 className="lg:text-3xl md:text-2xl sm:text-2xl text-2xl font-bold text-white mb-6 mt-3">My Code Library</h1>
+      <h1 className="lg:text-3xl md:text-2xl sm:text-2xl text-2xl font-bold text-white mb-6 mt-6">My Code Library</h1>
       {/* search bar */}
       <div className="w-full p-[0.5rem] flex items-center justify-center">
       <input
