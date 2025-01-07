@@ -54,7 +54,7 @@ export default function CreateNewCodeSnippetForm() {
       <CardContent className="bg-white bg-opacity-90 rounded-b-lg">
         <form className="space-y-6" onSubmit={handleSubmit(saveData)}>
           <div className="space-y-2">
-            <Label htmlFor="title" className="text-gray-700">Snippet Title</Label>
+            <Label htmlFor="title" className="text-gray-700 mt-1">Snippet Title</Label>
             <Input
               type="text"
               id="title"
