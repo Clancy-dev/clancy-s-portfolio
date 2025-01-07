@@ -1,6 +1,6 @@
 import CodeLibrary from '@/components/CodeLibrary'
 import AnimatedSection from '../../components/AnimatedSection'
-import { fetchCode } from '../actions/CodeSnippet'
+import { fetchCode } from '../../actions/CodeSnippet'
 
 export default async function Docs() {
   const code = await fetchCode() || []

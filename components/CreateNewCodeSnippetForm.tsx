@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import { createCode } from "@/app/actions/CodeSnippet";
+import { createCode } from "@/actions/CodeSnippet";
 
 
 export type CodeSnippetProps = {
