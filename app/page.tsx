@@ -6,6 +6,8 @@ import Image from 'next/image'
 import AnimatedText from '../components/AnimatedText'
 import AnimatedSection from '../components/AnimatedSection'
 import { motion } from 'framer-motion'
+import HeroSection from '@/components/HeroSection'
+import LatestProjects from '@/components/LatestProjects'
 
 const technologies = ['TypeScript', 'Node.js', 'React.js', 'Next.js', 'Tailwind CSS', 'Sass', 'JavaScript', 'HTML/CSS']
 
@@ -46,87 +48,12 @@ const testimonials = [
 export default function Home() {
   return (
     <div>
-      <section className="relative h-screen flex items-center">
-        <div className="absolute inset-0 z-0 ">
-          <Image
-            src="/hero.png"
-            alt="Hero background"
-            layout="fill"
-            objectFit="cover"
-            quality={100}
-          />
-        </div>
-        <AnimatedSection className="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center">
-          <div className="md:w-1/2 text-center md:text-left mb-8 md:mb-0">
-            <AnimatedText 
-              texts={["Clancy Ssekisambu", "Ready to Work"]} 
-              className="text-4xl md:text-5xl font-bold mb-4 text-white h-20" 
-            />
-            <h2 className="text-2xl md:text-3xl text-gray-200 mb-6">Full Stack Developer</h2>
-            <p className="text-lg text-gray-300 mb-8">
-              Specializing in building high-performance websites, web applications, and systems.
-            </p>
-            <Link href="/contact" className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300">
-              Get in Touch
-            </Link>
-          </div>
-          <div className="md:w-1/2 flex justify-center md:justify-end">
-            <div className="relative w-64 h-64 md:w-80 md:h-80">
-              <Image
-                src="/profile.png"
-                alt="Clancy Ssekisambu"
-                layout="fill"
-                objectFit="cover"
-                className="rounded-[20px] border-t-0 profile-box-shadow border-[2px] border-[rgb(5,226,2)]"
-              />
-            </div>
-          </div>
-        </AnimatedSection>
-      </section>
-
-      <AnimatedSection className="py-20 bg-gray-100 dark:bg-gray-800">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-semibold text-center mb-8">About Me</h2>
-          <p className="text-lg text-center mb-8 max-w-2xl mx-auto">
-            I'm a passionate Full Stack Developer with expertise in building scalable web applications. 
-            With a strong foundation in both front-end and back-end technologies, I create seamless user experiences and robust server-side solutions.
-          </p>
-          <div className="text-center">
-            <Link href="/about" className="text-blue-500 hover:text-blue-600 font-semibold">
-              Learn More About Me
-            </Link>
-          </div>
-        </div>
+      <AnimatedSection>
+        <HeroSection/>
       </AnimatedSection>
 
-      <AnimatedSection className="py-20">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-semibold text-center mb-12">Featured Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <AnimatedSection
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden"
-              >
-                <Image src={project.image} alt={project.title} width={400} height={200} className="w-full h-48 object-cover" />
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
-                  <Link href={project.link} className="text-blue-500 hover:text-blue-600 font-semibold">
-                    View Project
-                  </Link>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-          <div className="text-center mt-12">
-            <Link href="/projects" className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300">
-              View All Projects
-            </Link>
-          </div>
-        </div>
+      <AnimatedSection>
+        <LatestProjects/>
       </AnimatedSection>
 
       <AnimatedSection className="py-20 bg-gray-100 dark:bg-gray-800">

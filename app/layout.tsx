@@ -1,9 +1,9 @@
 import '../styles/style.scss'
 import { Inter } from 'next/font/google'
-import { ThemeProvider } from 'next-themes'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { Toaster } from 'react-hot-toast'
+import { ThemeProvider } from '@/components/theme-provider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} flex flex-col min-h-screen dark:bg-gray-900 dark:text-white`}>
+      <body>
         <ThemeProvider
         attribute="class"
         defaultTheme="system"

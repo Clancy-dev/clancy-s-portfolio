@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oleo+Script:wght@400;700&family=Spicy+Rice&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oleo+Script:wght@400;700&family=Spicy+Rice&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,6 +11,19 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+.name-header{
+  font-family: "Libre Baskerville", serif;
+  font-weight:700;
+  font-style: normal;
+  font-style: italic;
+}
+
+// .all-links{
+//   font-family: "Libre Baskerville", serif;
+//   font-weight: 400;
+//   font-style: italic;
+// }
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -19,6 +34,13 @@
 
 .profile-box-shadow{
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.login-btn{
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+  
 }
 
 @layer utilities {
