@@ -16,7 +16,7 @@ const Footer = () => {
               <li><Link href="/" className="hover:text-gray-300">Home</Link></li>
               <li><Link href="/about" className="hover:text-gray-300">About</Link></li>
               <li><Link href="/projects" className="hover:text-gray-300">Projects</Link></li>
-              <li><Link href="/skills" className="hover:text-gray-300">Skills</Link></li>
+              <li><Link href="/skills" className="hover:text-gray-300">Blogs</Link></li>
               <li><Link href="/contact" className="hover:text-gray-300">Contact</Link></li>
               <li><Link href="/docs" className="hover:text-gray-300">Docs</Link></li>
             </ul>
@@ -45,10 +45,10 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Newsletter</h3>
             <p className="text-sm mb-4">Stay updated with my latest projects and tech insights.</p>
-            {/* <form className="flex">
+            <form className="flex">
               <input type="email" placeholder="Your email" className="px-3 py-2 bg-gray-700 text-white rounded-l-md focus:outline-none" />
               <button type="submit" className="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-r-md">Subscribe</button>
-            </form> */}
+            </form>
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-gray-700 text-center">
