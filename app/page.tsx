@@ -8,6 +8,8 @@ import AnimatedSection from '../components/AnimatedSection'
 import { motion } from 'framer-motion'
 import HeroSection from '@/components/HeroSection'
 import LatestProjects from '@/components/LatestProjects'
+import { IconCloud } from '@/components/ui/icon-cloud'
+import { TechStack } from '@/components/TechStack'
 
 const technologies = ['TypeScript', 'Node.js', 'React.js', 'Next.js', 'Tailwind CSS', 'Sass', 'JavaScript', 'HTML/CSS']
 
@@ -54,6 +56,10 @@ export default function Home() {
 
       <AnimatedSection>
         <LatestProjects/>
+      </AnimatedSection>
+      <AnimatedSection className='w-[100%] h-[50vh] bg-gray-100 flex items-center justify-center flex-col'>
+      <h2 className="text-4xl font-semibold text-center mb-4 mt-3 text-gray-800 dark:text-white name-header">My Tech Stack</h2>
+        <TechStack/>   
       </AnimatedSection>
 
       {/* <AnimatedSection className=" bg-gray-100 dark:bg-gray-800">
