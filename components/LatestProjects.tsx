@@ -66,8 +66,8 @@ export default function LatestProjects() {
     <AnimatedSection className="relative overflow-hidden">
       <BreathingBackground />
       <div className="latest-container relative z-10">
-        <h2 className="text-4xl font-semibold text-center mb-4 mt-2 text-gray-800 dark:text-white name-header">Latest Projects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <h2 className="text-4xl font-semibold text-center mb-4  text-gray-800 dark:text-white name-header">Latest Projects</h2>
+        <div className="latest-card-container">
           {projects.map((project, index) => (
             <motion.div
               key={index}
@@ -76,13 +76,13 @@ export default function LatestProjects() {
               transition={{ duration: 0.5, delay: index * 0.2 }}
               className="bg-white dark:bg-gray-800 rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition duration-300"
             >
-              <div className="relative h-64 w-full">
+              <div className="relative h-64 w-full image-container">
                 <Image 
                   src={project.image} 
                   alt={project.title} 
                   layout="fill" 
                   objectFit="cover"
-                  className="transition-transform duration-300 hover:scale-110"
+                  className="transition-transform duration-300 hover:scale-110 inner-image"
                 />
               </div>
               <div className="p-6">
