@@ -30,7 +30,7 @@ export default function RootLayout({
           reverseOrder={false}
         />
           <Header />
-          <main className="flex-grow pt-16">{children}</main>
+          <main>{children}</main>
           <Footer />
         </ThemeProvider>
       </body>

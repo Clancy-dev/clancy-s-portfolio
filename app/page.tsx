@@ -56,7 +56,7 @@ export default function Home() {
         <LatestProjects/>
       </AnimatedSection>
 
-      <AnimatedSection className="py-20 bg-gray-100 dark:bg-gray-800">
+      <AnimatedSection className=" bg-gray-100 dark:bg-gray-800">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl font-semibold text-center mb-12">Technology Stack</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -74,7 +74,7 @@ export default function Home() {
         </div>
       </AnimatedSection>
 
-      <AnimatedSection className="py-20">
+      <AnimatedSection>
         <div className="container mx-auto px-6">
           <h2 className="text-3xl font-semibold text-center mb-12">What People Say</h2>
           <div className="grid md:grid-cols-2 gap-8">
@@ -94,7 +94,7 @@ export default function Home() {
         </div>
       </AnimatedSection>
 
-      <AnimatedSection className="py-20 bg-blue-500 text-white">
+      <AnimatedSection className=" bg-blue-500 text-white">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl font-semibold mb-8">Ready to Start Your Next Project?</h2>
           <p className="text-xl mb-8">Let's work together to bring your ideas to life!</p>

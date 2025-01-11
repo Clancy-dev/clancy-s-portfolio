@@ -38,7 +38,7 @@ const BreathingBackground = () => (
     <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
-          <path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="1"/>
+          <path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="1"/>
         </pattern>
       </defs>
       <motion.rect
@@ -63,10 +63,10 @@ const AnimatedSection = motion.section
 
 export default function LatestProjects() {
   return (
-    <AnimatedSection className="py-20 relative overflow-hidden">
+    <AnimatedSection className="relative overflow-hidden">
       <BreathingBackground />
-      <div className="container mx-auto px-6 relative z-10">
-        <h2 className="text-4xl font-semibold text-center mb-12 text-gray-800 dark:text-white">Latest Projects</h2>
+      <div className="latest-container relative z-10">
+        <h2 className="text-4xl font-semibold text-center mb-4 text-gray-800 dark:text-white">Latest Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
           {projects.map((project, index) => (
             <motion.div
