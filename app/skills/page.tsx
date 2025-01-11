@@ -13,7 +13,7 @@ const skills = [
 
 export default function Skills() {
   return (
-    <AnimatedSection className="container mx-auto px-6 py-12">
+    <AnimatedSection className="container mx-auto px-6 py-12 mt-[72px]">
       <h1 className="text-3xl font-bold mb-8">My Skills</h1>
       <div className="grid md:grid-cols-2 gap-8">
         {skills.map((skill, index) => (

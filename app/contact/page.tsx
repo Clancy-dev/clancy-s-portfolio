@@ -24,7 +24,7 @@ export default function Contact() {
   }
 
   return (
-    <AnimatedSection className="container mx-auto px-6 py-12">
+    <AnimatedSection className="container mx-auto px-6 py-12 mt-[72px]">
       <h1 className="text-3xl font-bold mb-8">Contact Me</h1>
       <div className="grid md:grid-cols-2 gap-12">
         <AnimatedSection initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }}>
