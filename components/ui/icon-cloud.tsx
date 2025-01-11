@@ -37,7 +37,7 @@ export function IconCloud({ icons, images }: IconCloudProps) {
     startTime: number;
     duration: number;
   } | null>(null);
-  const animationFrameRef = useRef<number>();
+  const animationFrameRef = useRef<number | undefined>(undefined);
   const rotationRef = useRef(rotation);
   const iconCanvasesRef = useRef<HTMLCanvasElement[]>([]);
   const imagesLoadedRef = useRef<boolean[]>([]);
@@ -75,6 +75,10 @@ export function IconCloud({ icons, images }: IconCloudProps) {
 
             imagesLoadedRef.current[index] = true;
           };
+          img.onerror = () => {
+            console.error(`Failed to load image: ${items[index]}`);
+            imagesLoadedRef.current[index] = true; // Mark as loaded even on error
+          };
         } else {
           // Handle SVG icons
           offCtx.scale(0.4, 0.4);
@@ -85,6 +89,10 @@ export function IconCloud({ icons, images }: IconCloudProps) {
             offCtx.clearRect(0, 0, offscreen.width, offscreen.height);
             offCtx.drawImage(img, 0, 0);
             imagesLoadedRef.current[index] = true;
+          };
+          img.onerror = () => {
+            console.error(`Failed to load SVG: ${item}`);
+            imagesLoadedRef.current[index] = true; // Mark as loaded even on error
           };
         }
       }
