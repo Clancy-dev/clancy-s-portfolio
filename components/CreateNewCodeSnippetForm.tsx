@@ -4,12 +4,13 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import { createCode } from "@/actions/CodeSnippet";
+import { createCode, updateCode } from "@/actions/CodeSnippet";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
+import { CodeSnippet } from "@prisma/client";
 
 export type CodeSnippetProps = {
   title: string;
@@ -18,38 +19,76 @@ export type CodeSnippetProps = {
   slug: string;
 };
 
-export default function CreateNewCodeSnippetForm() {
+export default function CreateNewCodeSnippetForm({initialData}:{initialData?:CodeSnippet| null}) {
+  // console.log(initialData)
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<CodeSnippetProps>();
+  } = useForm<CodeSnippetProps>({defaultValues:initialData || {}});
   const [formError, setFormError] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const [codeErr, setCodeErr] = useState("")
 
   async function saveData(data: CodeSnippetProps) {
     data.slug = data.title.toLowerCase().split(" ").join("-");
-    try {
-      setLoading(true)
-      await createCode(data)
-      toast.success("Codesnippet created successfully.")
-      router.push("/docs")
-      router.refresh()
-      reset()  
-    } catch (error) {
-      toast.error("Failed to create the code snippet.")
-      console.log(error) 
-    } finally {
-      setLoading(false)
+    const id = initialData?.id
+    if(initialData){
+      try {
+        setLoading(true)
+   await updateCode({
+    title:data.title,
+    slug:data.slug,
+    description:data.description,
+    code:data.code
+   },id as string)
+   toast.success("Updated Successfully.") 
+   router.push("/docs")
+   router.refresh()    
+      } catch (error) {
+      console.log(error)  
+      toast.error("failed to update")
+      } finally{
+        setLoading(false)
+      }
+    }
+    else{
+      try {
+        setLoading(true)
+     const res=   await createCode(data)
+
+    if(res && res.status ===409){
+    toast.error("Code Snippet already exists.")
+    }
+
+    
+    else if(res && res.status === 201){
+     toast.success("Codesnippet created successfully.")
+        router.push("/docs")
+        router.refresh()
+        reset() 
+    }
+
+ 
+      } catch (error) {
+        toast.error("Failed to create the code snippet.")
+        console.log(error) 
+      } finally {
+        setLoading(false)
+      }
     }
   }
 
   return (
     <Card className="w-full max-w-2xl mx-auto bg-gradient-to-br from-blue-500 to-blue-900 shadow-xl">
       <CardHeader className="text-white">
-        <CardTitle className="text-2xl font-bold text-center mb-2">Create New Code Snippet</CardTitle>
+        <CardTitle className="text-2xl font-bold text-center mb-2">
+          {
+            initialData ? "Update Code Snippet" : "Create New Code Snippet"
+          }
+        </CardTitle>
       </CardHeader>
       <CardContent className="bg-white bg-opacity-90 rounded-b-lg">
         <form className="space-y-6" onSubmit={handleSubmit(saveData)}>
@@ -97,13 +136,25 @@ export default function CreateNewCodeSnippetForm() {
 
           {formError && <p className="text-sm text-red-500">{formError}</p>}
 
-          <Button 
+          {
+            initialData ?(
+              <Button 
+            type="submit" 
+            disabled={loading}
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+          >
+            {loading ? "Updating Snippet..." : "Update Code Snippet"}
+          </Button>
+            ) :(
+              <Button 
             type="submit" 
             disabled={loading}
             className="w-full bg-blue-600 hover:bg-blue-700 text-white"
           >
             {loading ? "Creating Snippet..." : "Create Code Snippet"}
           </Button>
+            )
+          }
         </form>
       </CardContent>
     </Card>

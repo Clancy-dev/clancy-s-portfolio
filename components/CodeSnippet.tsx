@@ -1,14 +1,21 @@
+import { deleteCode } from "@/actions/CodeSnippet";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 
 interface CodeSnippetProps {
+  id:string
   title: string;
   code: string;
+  slug:string
   description: string;
   onCopy: () => void;
 }
 
-const CodeSnippetCard: React.FC<CodeSnippetProps> = ({ title, code, description, onCopy }) => {
+const CodeSnippetCard: React.FC<CodeSnippetProps> = ({ title,id,slug, code, description, onCopy }) => {
   const [isCopied, setIsCopied] = useState(false);
+  const router = useRouter()
 
   const handleCopy = () => {
     onCopy();
@@ -16,9 +23,26 @@ const CodeSnippetCard: React.FC<CodeSnippetProps> = ({ title, code, description,
     setTimeout(() => setIsCopied(false), 2000); // Reset button text after 2 seconds
   };
 
+  async function handleDelete(id:string){
+    try {
+      await deleteCode(id)
+      toast.success("Code Deleted")
+      router.refresh()
+      } catch (error) {
+     console.log(error) 
+     toast.error("failed to delete.")
+    }
+  }
+
   return (
     <div className="bg-black text-white p-4 rounded-lg shadow-md mb-6 overflow-auto overall-cards">
-      <div className="w-full flex justify-end button-container">
+      <div className="w-full flex justify-end button-container gap-2">
+      <Link href={`/edit/${slug}`} className="px-3 py-1 rounded bg-green-600 text-white text-sm">
+          Edit
+        </Link>
+        <button onClick={()=>handleDelete(id)} className="px-3 py-1 rounded bg-red-600 text-white text-sm ">
+          Delete
+        </button>
       <button
         onClick={handleCopy}
         className={` px-3 py-1 rounded text-sm ${

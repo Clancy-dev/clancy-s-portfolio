@@ -54,6 +54,8 @@ export default function CodeLibrary({codeData}: {codeData: CodeSnippet[]}) {
             key={index}
             title={snippet.title}
             code={snippet.code}
+            id={snippet.id}
+            slug={snippet.slug}
             description={snippet.description}
             onCopy={() => handleCopy(snippet.code)}
           />
