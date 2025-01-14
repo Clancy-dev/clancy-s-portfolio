@@ -1,4 +1,4 @@
-'use client'
+
 
 import { useNumberTicker } from '@/hooks/UseNumberTicker';
 import { useState, useEffect, useRef } from 'react';
