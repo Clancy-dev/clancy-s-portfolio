@@ -1,40 +1,20 @@
-import ProjectCard from '../../components/ProjectCard'
-import AnimatedSection from '../../components/AnimatedSection'
+import LatestProjects from '@/components/LatestProjects'
+import Link from 'next/link'
 
-const projects = [
-  {
-    title: "E-commerce Platform",
-    description: "A full-featured e-commerce platform with user authentication, product management, and payment integration.",
-    technologies: ["React.js", "Node.js", "MongoDB", "Stripe"],
-    demoLink: "https://ecommerce-demo.example.com",
-    githubLink: "https://github.com/clancyssekisambu/ecommerce-platform",
-  },
-  {
-    title: "Task Management System",
-    description: "A collaborative task management system with real-time updates and team features.",
-    technologies: ["Next.js", "TypeScript", "Socket.io", "PostgreSQL"],
-    demoLink: "https://taskmanager-demo.example.com",
-    githubLink: "https://github.com/clancyssekisambu/task-manager",
-  },
-  // Add more projects as needed
-]
+import React from 'react'
 
-export default function Projects() {
+export default function page() {
   return (
-    <AnimatedSection className="container mx-auto px-6 py-12 mt-[72px]">
-      <h1 className="text-3xl font-bold mb-8">My Projects</h1>
-      <div className="grid md:grid-cols-2 gap-8">
-        {projects.map((project, index) => (
-          <AnimatedSection
-            key={index}
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
-            <ProjectCard {...project} />
-          </AnimatedSection>
-        ))}
+    <div className='p-5 mt-[72px]'>
+
+      <div className='w-full p-3'>
+        <Link href="/projects/new" className='px-3 py-4 bg-blue-500 text-white rounded-[10px] mt-4 font-bold'>
+        Create New Project
+        </Link>
       </div>
-    </AnimatedSection>
+
+      <LatestProjects/>
+      
+    </div>
   )
 }
-

@@ -11,6 +11,7 @@ import LatestProjects from '@/components/LatestProjects'
 import { IconCloud } from '@/components/ui/icon-cloud'
 import { TechStack } from '@/components/TechStack'
 import ReviewSection from '@/components/ReviewSection'
+import StatisticsSection from '@/components/StatisticsSection'
 
 const technologies = ['TypeScript', 'Node.js', 'React.js', 'Next.js', 'Tailwind CSS', 'Sass', 'JavaScript', 'HTML/CSS']
 
@@ -53,6 +54,9 @@ export default function Home() {
     <div>
       <AnimatedSection>
         <HeroSection/>
+      </AnimatedSection>
+      <AnimatedSection>
+        <StatisticsSection/>
       </AnimatedSection>
 
       <AnimatedSection>
