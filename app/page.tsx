@@ -13,7 +13,7 @@ import { TechStack } from '@/components/TechStack'
 import ReviewSection from '@/components/ReviewSection'
 import StatisticsSection from '@/components/StatisticsSection'
 import LatestSection from '@/components/LatestSection'
-import SectionSlicedProjects from '@/components/SectionSlicedProjects'
+
 
 const technologies = ['TypeScript', 'Node.js', 'React.js', 'Next.js', 'Tailwind CSS', 'Sass', 'JavaScript', 'HTML/CSS']
 
