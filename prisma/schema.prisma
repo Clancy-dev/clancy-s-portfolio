@@ -23,12 +23,12 @@ model CodeSnippet {
   updatedAt   DateTime @updatedAt
 }
 
-model Projects {
+model Project {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
   title       String
-  code        String
   image       String
   description String
+  link        String
   slug        String @unique
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt

@@ -1,4 +1,4 @@
-import CreateNewCodeSnippetForm from '@/components/CreateNewCodeSnippetForm'
+import CreateNewCodeSnippetForm from '@/components/Forms/CreateNewCodeSnippetForm'
 import React from 'react'
 
 export default function page() {

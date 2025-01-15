@@ -1,5 +1,5 @@
 import { fetchSingleCode } from '@/actions/CodeSnippet'
-import CreateNewCodeSnippetForm from '@/components/CreateNewCodeSnippetForm'
+import CreateNewCodeSnippetForm from '@/components/Forms/CreateNewCodeSnippetForm'
 import React from 'react'
 
 export default async function page({params}:{params:Promise<{slug:string}>}) {

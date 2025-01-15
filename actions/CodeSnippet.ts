@@ -1,6 +1,6 @@
 "use server";
 
-import { CodeSnippetProps } from "@/components/CreateNewCodeSnippetForm";
+import { CodeSnippetProps } from "@/components/Forms/CreateNewCodeSnippetForm";
 import { db } from "@/prisma/db";
 import { error } from "console";
 import { revalidatePath } from "next/cache";

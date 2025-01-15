@@ -12,6 +12,8 @@ import { IconCloud } from '@/components/ui/icon-cloud'
 import { TechStack } from '@/components/TechStack'
 import ReviewSection from '@/components/ReviewSection'
 import StatisticsSection from '@/components/StatisticsSection'
+import LatestSection from '@/components/LatestSection'
+import SectionSlicedProjects from '@/components/SectionSlicedProjects'
 
 const technologies = ['TypeScript', 'Node.js', 'React.js', 'Next.js', 'Tailwind CSS', 'Sass', 'JavaScript', 'HTML/CSS']
 
@@ -59,9 +61,9 @@ export default function Home() {
         <StatisticsSection/>
       </AnimatedSection>
 
-      <AnimatedSection>
-        <LatestProjects/>
-      </AnimatedSection>
+      {/* <AnimatedSection>
+        <SectionSlicedProjects/>
+      </AnimatedSection> */}
       <AnimatedSection className='w-[100%] h-[50vh] bg-gray-100 flex items-center justify-center flex-col'>
       <h2 className="text-4xl font-semibold text-center mb-4 mt-3 text-gray-800 dark:text-white name-header">My Tech Stack</h2>
         <TechStack/>   

@@ -61,7 +61,7 @@ const BreathingBackground = () => (
 
 const AnimatedSection = motion.section
 
-export default function LatestProjects({projectData}: {projectData: Project[]}) {
+export default function Latest({projectData}: {projectData: Project[]}) {
   return (
     <AnimatedSection className="relative overflow-hidden">
       <BreathingBackground />
