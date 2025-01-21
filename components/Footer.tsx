@@ -55,10 +55,11 @@ const Footer = () => {
             <h3 className="text-2xl font-bold mb-4 text-white">Clancy Ssekisambu</h3>
             <p className="text-sm">Full Stack Developer specializing in building high-performance websites and web applications.</p>
             <div className="mt-4 flex space-x-4">
-              <SocialIcon href="mailto:clancy@example.com" icon={Mail} />
-              <SocialIcon href="https://github.com/clancyssekisambu" icon={GitHub} />
-              <SocialIcon href="https://linkedin.com/in/clancyssekisambu" icon={Linkedin} />
+              <SocialIcon href="mailto:clancyro1000@gmail.com" icon={Mail} />
+              <SocialIcon href="https://github.com/Clancy-dev" icon={GitHub} />
+              <SocialIcon href="https://www.linkedin.com/in/clancy-developer-6444b3274/" icon={Linkedin} />
               <SocialIcon href="https://twitter.com/clancyssekisambu" icon={Twitter} />
+              
             </div>
           </div>
           <div>
