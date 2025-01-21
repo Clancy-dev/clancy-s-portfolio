@@ -100,7 +100,7 @@ export default function SlicedSection({sectionProjectData}: {sectionProjectData:
         <div className="w-[100%] h-[10vh] mt-3 flex items-center justify-center">
 
           <button className='bg-blue-500  hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 text-sm'>
-            <Link href="/projects">
+            <Link href="/project">
             View All Projects  
             </Link>
           </button>
