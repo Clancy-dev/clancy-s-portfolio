@@ -37,7 +37,7 @@ export default function Header() {
       <nav className="shadow-md">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            <Image src="/logo.png" alt="Gaba Hope For Kids Logo" width={60} height={60} className="w-auto h-10" />
+            <Image src="/logo.png" alt="Clancy Ssekisambu Logo" width={60} height={60} className="w-auto h-10" />
             <h1 className="text-blue-900 sm:text-[1.2rem] md:text-2xl lg:text-2xl font-bold font name-header">Clancy</h1>
           </div>
           <div className="hidden md:flex items-center space-x-4 all-links">

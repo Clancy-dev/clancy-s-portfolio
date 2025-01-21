@@ -12,26 +12,26 @@ interface Project {
   link: string
 }
 
-const projects: Project[] = [
-  {
-    title: "Sefbuy",
-    description: "SEFBUY is an Ecommerce website designed to provide a seamless shopping experience for customers.",
-    image: "/project1.png?height=300&width=500",
-    link: "https://sefbuy.com/"
-  },
-  {
-    title: "Lamudi",
-    description: "Lamudi is a leading real estate platform connecting buyers and sellers across Uganda.",
-    image: "/project2.png?height=300&width=500",
-    link: "https://www.lamudi.co.ug/Lamudi/Index.aspx"
-  },
-  {
-    title: "Gaba Hope For Kids",
-    description: "This is a Charity Organization supporting unprivileged children with Education, Healthcare and Empowerment in Uganda.",
-    image: "/project3.png?height=300&width=500",
-    link: "https://www.gabahopeforkids.org/"
-  }
-]
+// const projects: Project[] = [
+//   {
+//     title: "Sefbuy",
+//     description: "SEFBUY is an Ecommerce website designed to provide a seamless shopping experience for customers.",
+//     image: "/project1.png?height=300&width=500",
+//     link: "https://sefbuy.com/"
+//   },
+//   {
+//     title: "Lamudi",
+//     description: "Lamudi is a leading real estate platform connecting buyers and sellers across Uganda.",
+//     image: "/project2.png?height=300&width=500",
+//     link: "https://www.lamudi.co.ug/Lamudi/Index.aspx"
+//   },
+//   {
+//     title: "Gaba Hope For Kids",
+//     description: "This is a Charity Organization supporting unprivileged children with Education, Healthcare and Empowerment in Uganda.",
+//     image: "/project3.png?height=300&width=500",
+//     link: "https://www.gabahopeforkids.org/"
+//   }
+// ]
 
 const BreathingBackground = () => (
   <div className="absolute inset-0 z-0">
@@ -61,14 +61,16 @@ const BreathingBackground = () => (
 
 const AnimatedSection = motion.section
 
-export default function LatestProjects({projectData}: {projectData: Project[]}) {
-  return (
+export default function SlicedSection({sectionProjectData}: {sectionProjectData: Project[]}) {
+ 
+    return (
     <AnimatedSection className="relative overflow-hidden">
       <BreathingBackground />
       <div className="latest-container-copy relative z-10">
-        <h2 className="text-4xl font-semibold text-center mb-4 mt-1 text-gray-800 dark:text-white name-header">My Projects</h2>
-        <div className="latest-card-container-copy">
-          {projectData.map((project, index) => (
+        <h2 className="text-4xl font-semibold text-center mb-4  text-gray-800 dark:text-white name-header">Latest Projects</h2>
+        <div className="latest-card-container">
+          {sectionProjectData.slice
+          (0,3).map((project, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 50 }}
@@ -96,6 +98,12 @@ export default function LatestProjects({projectData}: {projectData: Project[]}) 
           ))}
         </div>
         <div className="w-[100%] h-[10vh] mt-3 flex items-center justify-center">
+
+          <button className='bg-blue-500  hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 text-sm'>
+            <Link href="/projects">
+            View All Projects  
+            </Link>
+          </button>
         </div>
       </div>
     </AnimatedSection>
