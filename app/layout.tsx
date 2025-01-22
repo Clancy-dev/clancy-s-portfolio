@@ -121,6 +121,11 @@ const structuredData = `
     },
     {
       "@type": "WebPage",
+      "@id": "https://clancy-s-portfolio-s.vercel.app/pricing",
+      "name": "Pricing"
+    },
+    {
+      "@type": "WebPage",
       "@id": "https://clancy-s-portfolio-s.vercel.app/project",
       "name": "Projects"
     },

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Home, Briefcase, Info, Heart, BookOpen, Search, Phone, Menu, X, LucideImage, User, Folder, FileText, Mail, File, Network, PhoneCall, FileArchive } from 'lucide-react'
+import { Home, Briefcase, Info, Heart, BookOpen, Search, Phone, Menu, X, LucideImage, User, Folder, FileText, Mail, File, Network, PhoneCall, FileArchive, Tag } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
@@ -11,6 +11,7 @@ import { ModeToggle } from './ModeToggle'
 const links = [
   { name: 'Home', icon: <Home className="w-4 h-4" />, href: '/' },
   { name: 'About me', icon: <User className="w-4 h-4" />, href: '/about' },
+  { name: 'Pricing', icon: <Tag className="w-4 h-4" />, href: '/pricing' },
   { name: 'My Projects', icon: <Network className="w-4 h-4" />, href: '/project' },
   { name: 'Blogs', icon: <FileText className="w-4 h-4" />, href: '/blogs' },
   { name: 'Contact Me', icon: <PhoneCall className="w-4 h-4" />, href: '/contact' },
