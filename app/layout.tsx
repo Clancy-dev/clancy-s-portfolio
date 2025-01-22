@@ -21,6 +21,8 @@ export const metadata: Metadata = {
   description: 'Clancy Ssekisambu is a professional website developer in Uganda specializing in modern, responsive, and user-friendly web designs. Contact for affordable website development services at +256 770983239 or +256 707013121. ',
   applicationName: 'Clancy Ssekisambu Portfolio',
   keywords: [
+    "Clancy",
+    "Ssekisambu",
     "Clancy Ssekisambu",
     "Rogers Clancy Ssekisambu",
     "Clancy Rogers Ssekisambu",
