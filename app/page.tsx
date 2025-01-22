@@ -7,6 +7,7 @@ import StatisticsSection from '@/components/StatisticsSection'
 import { TechStack } from '@/components/TechStack'
 import React from 'react'
 
+
 export default async function Home() {
     const sectionProjects = await fetchProject() || []
   return (
