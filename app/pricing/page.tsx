@@ -95,7 +95,6 @@ export default function PricingPage() {
         { name: "Hosting", included: true },
         { name: "Advanced SEO Optimization", included: true },
         { name: "Unlimited Pages", included: true },
-        { name: "Additional pages @ $10 each", included: true },
         { name: "Mobile-friendly design", included: true },
         { name: "Form Submission to Email", included: true },
         { name: "Social media integration", included: true },
@@ -185,7 +184,7 @@ export default function PricingPage() {
     <div className="min-h-screen bg-gray-100 lg:p-6 md:p-3 sm:p-2 p-1 mt-[72px] ">
       <div className="w-full">
         <div className="text-center py-8">
-          <h1 className="text-4xl font-bold text-gray-800">Pricing Plans</h1>
+          <h1 className="text-4xl font-bold text-gray-900">Pricing Plans</h1>
         </div>
 
         <div className="py-4 text-center">
@@ -244,7 +243,7 @@ export default function PricingPage() {
         
 
         <div className="py-12 pb-0 flex items-center justify-center flex-col">
-          <h2 className="text-3xl font-bold mb-6 text-center">Frequently Asked Questions</h2>
+          <h2 className="text-3xl font-bold mb-6 text-center text-gray-900">Frequently Asked Questions</h2>
           <Card className="lg:w-[80%] md:w-[100%] sm:w-[100%] w-full ">
             <CardContent className="pt-6">
               <Accordion type="single" collapsible className="w-full">
