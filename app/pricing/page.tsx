@@ -131,7 +131,7 @@ export default function PricingPage() {
     },
     {
       question: "Can I update the website myself?",
-      answer: "Yes, i provide user-friendly Content Management Systems (CMS) like WordPress or custom admin dashboards, allowing you to easily make updates without technical skills.",
+      answer: "Yes, i provide user-friendly Content Management Systems (CMS) like custom admin dashboards, allowing you to easily make updates without technical skills.",
     },
     {
       question: "Do you provide website maintenance?",
@@ -143,7 +143,7 @@ export default function PricingPage() {
     },
     {
       question: "Will I get training on how to use the website?",
-      answer: "Yes, we provide detailed training and support to help you manage your website confidently.",
+      answer: "Yes, i will provide detailed training and support to help you manage your website confidently.",
     },
     {
       question: "What happens if the website breaks or has any unintended issues?",
