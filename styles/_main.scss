@@ -125,4 +125,49 @@ body {
     rgb(var(--background-start-rgb));
 }
   
+
+
+.accordion-item {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.accordion-item:last-child {
+  border-bottom: none;
+}
+
+.accordion-trigger {
+  padding: 1rem 0;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.accordion-trigger:hover {
+  color: #3b82f6;
+}
+
+.accordion-content {
+  padding-bottom: 1rem;
+}
+
+.accordion-trigger[data-state="open"] > .accordion-icon {
+  transform: rotate(180deg);
+}
+
+.accordion-icon {
+  transition: transform 0.2s;
+}
+
+.translate-x-0 {
+  transform: translateX(0);
+}
+.-translate-x-full {
+  transform: translateX(-100%);
+}
+.opacity-100 {
+  opacity: 1;
+}
+.opacity-0 {
+  opacity: 0;
+}
+
   
