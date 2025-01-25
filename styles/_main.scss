@@ -170,4 +170,14 @@ body {
   opacity: 0;
 }
 
+.about-words{
+  @media (max-width:778px) {
+    display: none;
+  }
+}
+
+
+
+
+
   
