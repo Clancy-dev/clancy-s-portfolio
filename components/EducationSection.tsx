@@ -25,7 +25,7 @@ const educationData = [
   {
     level: "Higher Education",
     school: "Makerere University Business School",
-    logo: "/mubs.jfif",
+    logo: "/mubs.jpg",
   },
 ]
 
