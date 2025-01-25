@@ -1,80 +1,125 @@
-import type { Metadata } from "next"
+"use client"
+
+import { useState } from "react"
 import Image from "next/image"
+import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { WhatsappIcon } from "@/components/WhatsappIcon"
-import TelephoneNumbers from "@/components/TelephoneNumbers"
-
+import { Mail, Phone, MapPin } from "lucide-react"
 
 export default function ContactPage() {
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false)
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    // Handle form submission logic here
+    setIsFormSubmitted(true)
+  }
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 to-green- mt-[72px]">
-      
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 pt-20">
       <main className="container mx-auto px-4 py-8">
-        <section className="relative h-64 mb-12">
-          <Image src="/contact.jpg" alt="Contact Hero" layout="fill" objectFit="cover" className="rounded-lg" />
-          <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center rounded-lg">
-            <h1 className="text-4xl font-bold text-white">Contact Me</h1>
+        <motion.section
+          className="relative h-80 mb-12 rounded-xl overflow-hidden"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <Image src="/contact.jpg" alt="Contact Hero" layout="fill" objectFit="cover" />
+          <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <h1 className=" lg:text-5xl md:text-4xl sm:text-3xl text-3xl  font-bold text-white tracking-wide">Get in Touch</h1>
           </div>
-        </section>
-        <div className="w-full h-[15vh] flex items-center justify-center flex-col bg-gray-700 text-gray-50 rounded-br-[15px] rounded-tl-[15px] border-b-1 border-white">
-            <h1>Tel: +256 770983239</h1>
-            <h1>Tel: +256 707013121</h1>
-            <h1>Email: clancyro1000@gmail.com</h1>
-            
-          </div>
+        </motion.section>
 
-          <div className="w-full">
-          <div className="w-full name-header text-gray-900 flex items-center justify-center p-[1rem] ">
-            Please feel free to leave a message, i would really love to hear from you!
-          </div>
+        <div className="grid md:grid-cols-2 gap-12 mb-12">
+          <motion.div
+            className="space-y-8"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <Card className="bg-white shadow-lg">
+              <CardContent className="p-6 space-y-4">
+                <h2 className="text-2xl font-semibold text-gray-800">Contact Information</h2>
+                <div className="flex items-center space-x-4 text-gray-600">
+                  <Phone className="w-5 h-5" />
+                  <div>
+                    <p>+256 770983239</p>
+                    <p>+256 707013121</p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-4 text-gray-600">
+                  <Mail className="w-5 h-5" />
+                  <p>clancyro1000@gmail.com</p>
+                </div>
+                <div className="flex items-center space-x-4 text-gray-600">
+                  <MapPin className="w-5 h-5" />
+                  <p>Kireka, Nakimbugwe Building, 1st Floor, Desishub Ltd.</p>
+                </div>
+              </CardContent>
+            </Card>
 
+            <Card className="bg-white shadow-lg overflow-hidden">
+              <CardContent className="p-0">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d249.3590896938616!2d32.647460641681214!3d0.3463231551616998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177db9faf2330611%3A0x8922b0d5569fed7d!2sDesishub!5e0!3m2!1sen!2sug!4v1737555744649!5m2!1sen!2sug"
+                  width="100%"
+                  height="300"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </CardContent>
+            </Card>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <Card className="bg-white shadow-lg">
+              <CardContent className="p-6">
+                <h2 className="text-2xl font-semibold mb-6 text-gray-800">Send a Message</h2>
+                {isFormSubmitted ? (
+                  <div className="text-center py-8">
+                    <h3 className="text-2xl font-semibold text-green-600 mb-2">Thank You!</h3>
+                    <p className="text-gray-600">Your message has been sent successfully. I'll get back to you soon.</p>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div>
+                      <Label htmlFor="name" className="text-gray-700">
+                        Name
+                      </Label>
+                      <Input id="name" placeholder="Your Name" className="mt-1" />
+                    </div>
+                    <div>
+                      <Label htmlFor="email" className="text-gray-700">
+                        Email
+                      </Label>
+                      <Input id="email" type="email" placeholder="your@email.com" className="mt-1" />
+                    </div>
+                    <div>
+                      <Label htmlFor="message" className="text-gray-700">
+                        Message
+                      </Label>
+                      <Textarea id="message" placeholder="Your message here..." className="mt-1" rows={5} />
+                    </div>
+                    <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+                      Send Message
+                    </Button>
+                  </form>
+                )}
+              </CardContent>
+            </Card>
+          </motion.div>
         </div>
-      
-        
-
-        <Card className="w-full max-w-2xl mx-auto mb-12">
-        
-          <CardContent className="p-6">
-            <form className="space-y-4">
-              <div>
-                <Label htmlFor="name">Name</Label>
-                <Input id="name" placeholder="Your Name" />
-              </div>
-              <div>
-                <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" placeholder="your@email.com" />
-              </div>
-              <div>
-                <Label htmlFor="message">Message</Label>
-                <Textarea id="message" placeholder="Your message here..." />
-              </div>
-              <Button type="submit" className="w-full">
-                Send Message
-              </Button>
-            </form>
-          </CardContent>
-        </Card>
-
-        <section className="mb-12">
-          <h2 className="text-3xl font-semibold mb-4 text-gray-900 name-header">Find Me</h2>
-          <p className="mb-4">I am located at Kireka, Nakimbugwe Building, 1st Floor, Desishub Ltd.</p>
-          <div className="aspect-w-16 aspect-h-9">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d249.3590896938616!2d32.647460641681214!3d0.3463231551616998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177db9faf2330611%3A0x8922b0d5569fed7d!2sDesishub!5e0!3m2!1sen!2sug!4v1737555744649!5m2!1sen!2sug"
-              width="600"
-              height="450"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="w-full rounded-lg"
-            ></iframe>
-          </div>
-        </section>
       </main>
 
       <WhatsappIcon />

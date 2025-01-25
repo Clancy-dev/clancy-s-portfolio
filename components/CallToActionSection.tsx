@@ -16,7 +16,7 @@ export default function CallToActionSection() {
   const contactOptions = [
     { icon: Mail, text: "Email", href: "mailto:clancyro1000@gmail.com" },
     { icon: Phone, text: "Call", href: "tel:+256 770983239" },
-    { icon: Calendar, text: "Schedule a Meeting", href: "/schedule" },
+    { icon: Calendar, text: "Schedule a Meeting", href: "/contact" },
   ]
 
   return (
