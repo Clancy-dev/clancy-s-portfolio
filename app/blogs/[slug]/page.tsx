@@ -5,7 +5,17 @@ import { notFound } from "next/navigation"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 
-const blogPosts = {
+type BlogPost = {
+  title: string;
+  content: string;
+  image: string;
+};
+
+type BlogParams = {
+  slug: string;
+};
+
+const blogPosts: Record<string, BlogPost> = {
   "why-company-needs-website": {
     title: "Why Does My Company Really Need a Website?",
     content: `
@@ -47,76 +57,24 @@ const blogPosts = {
     `,
     image: "/blog2.jpg?height=400&width=800",
   },
-  "website-best-marketing-investment": {
-    title: "Why Your Website Is the Best Marketing Investment You'll Ever Make",
-    content: `
-      <h2 class="text-2xl font-bold mt-6 mb-4">It's Available 24/7</h2>
-      <p class="mb-4">Unlike other marketing channels, your website never sleeps. It provides information, answers questions, and generates leads even while you're off the clock. This constant availability builds trust and ensures customers can always reach you.</p>
+  // Add other blog posts here...
+};
 
-      <h2 class="text-2xl font-bold mt-6 mb-4">A Hub for All Your Marketing Channels</h2>
-      <p class="mb-4">Your website serves as the central hub for all your marketing efforts. Whether through social media, email campaigns, or search engine ads, everything should drive traffic back to your website, where potential customers can take action.</p>
+export default function BlogPage({ params }: { params: BlogParams }) {
+  const { slug } = params;
+  const blogPost = blogPosts[slug];
 
-      <h2 class="text-2xl font-bold mt-6 mb-4">Cost-Effective Advertising</h2>
-      <p class="mb-4">Compared to traditional advertising methods, maintaining a website is more affordable and offers a higher return on investment. With tools like SEO and Google Analytics, you can track your website's performance and continuously optimize for better results.</p>
-
-      <h2 class="text-2xl font-bold mt-6 mb-4">Builds Trust and Credibility</h2>
-      <p class="mb-4">A professional website with a clean design, fast loading speed, and informative content immediately establishes trust. Adding customer testimonials, case studies, and certifications further strengthens your credibility.</p>
-
-      <h2 class="text-2xl font-bold mt-6 mb-4">Conclusion</h2>
-      <p class="mb-4">A website is not just a marketing tool; it's an investment in the future of your business. It's cost-effective, scalable, and delivers measurable results that other channels can't match. If you haven't already, now is the time to invest in a website that works for you.</p>
-    `,
-    image: "/blog3.jpg?height=400&width=800",
-  },
-}
-
-export default function BlogPost({ params }: { params: { slug: string } }) {
-  const post = blogPosts[params.slug as keyof typeof blogPosts]
-
-  if (!post) {
-    notFound()
+  if (!blogPost) {
+    notFound();
   }
 
   return (
-    <div className="container mx-auto px-4 py-16 mt-[72px]">
-      <motion.h1
-        className="text-3xl sm:text-3xl md:text-4xl lg:text-4xl font-bold mb-8 text-center name-header"
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        {post.title}
-      </motion.h1>
-      <motion.div
-        className="prose max-w-none"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-      >
-        <Image
-          src={post.image || "/placeholder.svg"}
-          alt="Blog post header image"
-          width={800}
-          height={400}
-          className="w-full rounded-lg mb-8 shadow-lg"
-        />
-        <motion.div
-          dangerouslySetInnerHTML={{ __html: post.content }}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        />
-      </motion.div>
-      <motion.div
-        className="mt-12"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.6 }}
-      >
-        <Button asChild>
-          <a href="/blogs">Back to Blog</a>
-        </Button>
-      </motion.div>
+    <div>
+      <h1>{blogPost.title}</h1>
+      <div dangerouslySetInnerHTML={{ __html: blogPost.content }} />
+      <Image src={blogPost.image} alt={blogPost.title} width={800} height={400} />
+      <Button>Read More</Button>
     </div>
-  )
+  );
 }
-
+ 
