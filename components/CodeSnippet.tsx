@@ -37,12 +37,12 @@ const CodeSnippetCard: React.FC<CodeSnippetProps> = ({ title,id,slug, code, desc
   return (
     <div className="bg-black text-white p-4 rounded-lg shadow-md mb-6 overflow-auto overall-cards">
       <div className="w-full flex justify-end button-container gap-2">
-      <Link href={`/edit/${slug}`} className="px-3 py-1 rounded bg-green-600 text-white text-sm">
+      {/* <Link href={`/edit/${slug}`} className="px-3 py-1 rounded bg-green-600 text-white text-sm">
           Edit
-        </Link>
-        <button onClick={()=>handleDelete(id)} className="px-3 py-1 rounded bg-red-600 text-white text-sm ">
+        </Link> */}
+        {/* <button onClick={()=>handleDelete(id)} className="px-3 py-1 rounded bg-red-600 text-white text-sm ">
           Delete
-        </button>
+        </button> */}
       <button
         onClick={handleCopy}
         className={` px-3 py-1 rounded text-sm ${
