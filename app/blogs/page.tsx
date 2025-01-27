@@ -12,7 +12,7 @@ const blogPosts = [
     excerpt:
       "In the digital age, the question isn't whether your company needs a website—it's why you haven't built one already. Discover the essential reasons for having a website.",
     slug: "why-company-needs-website",
-    image: "/blog1.jpg?height=200&width=400",
+    image: "/placeholder.svg?height=200&width=400",
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const blogPosts = [
     excerpt:
       "Explore the hidden dangers and missed opportunities of operating without a website in today's digital era.",
     slug: "cost-of-not-having-website",
-    image: "/blog2.jpg?height=200&width=400",
+    image: "/placeholder.svg?height=200&width=400",
   },
   {
     id: 3,
@@ -28,22 +28,22 @@ const blogPosts = [
     excerpt:
       "Learn why your website is more than just an online address; it's the heart of your marketing strategy and the ultimate marketing tool.",
     slug: "website-best-marketing-investment",
-    image: "/blog3.jpg?height=200&width=400",
+    image: "/placeholder.svg?height=200&width=400",
   },
 ]
 
 export default function BlogPage() {
   return (
-    <div className="w-full min-h-[40vh] mt-[72px] pt-3 pb-0">
+    <div className="w-full min-h-[40vh] mt-[72px] bg-cyan-800">
       <motion.h1
-        className="text-4xl font-bold  mb-6 text-center text-gray-900 name-header"
+        className="text-5l font-bold mb-12 text-center name-header"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
         My Blog
       </motion.h1>
-      <div className="actual-blog-container">
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {blogPosts.map((post, index) => (
           <motion.div
             key={post.id}

@@ -1,24 +1,10 @@
-"use client"
-
 import Image from "next/image"
 import { notFound } from "next/navigation"
-import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import React from "react"
 
-type BlogPost = {
-  title: string;
-  content: string;
-  image: string;
-};
-
-type BlogParams = {
-  slug: string;
-};
-
-const blogPosts: Record<string, BlogPost>  = {
+const blogPosts = {
   "why-company-needs-website": {
-    title: "Why Does My Company Really Need a Website?",
+    title: "Why Does My Business Really Need a Website?",
     content: `
       <h2 class="text-2xl font-bold mt-6 mb-4">Your Customers Expect It</h2>
       <p class="mb-4">In today's world, customers turn to Google before they make decisions. Imagine a potential customer searches for your product or service and doesn't find your company online. What happens? They move to your competitor.</p>
@@ -80,69 +66,42 @@ const blogPosts: Record<string, BlogPost>  = {
   },
 }
 
-export default function BlogPost({ params }: { params: BlogParams }) {
-  const [unwrappedParams, setUnwrappedParams] = React.useState<BlogParams | null>(null);
-  React.useEffect(() => {
-    const getParams = async () => {
-      const resolvedParams = await params;  // Unwrap the promise here
-      setUnwrappedParams(resolvedParams);
-    };
-    
-    getParams();
-  }, [params]);
+type BlogPost = {
+  title: string
+  content: string
+  image: string
+}
 
-  // Wait until the params are unwrapped
-  if (!unwrappedParams) {
-    return <div>Loading...</div>;
-  }
-  const { slug } = params;
-  const blogPost = blogPosts[slug];
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const post =  blogPosts[params.slug as keyof typeof blogPosts] 
+  return { title: post.title }
+}
 
+export default  function BlogPost({ params }: { params: { slug: string } }) {
+  const post =  blogPosts[params.slug as keyof typeof blogPosts] as BlogPost | undefined
 
-  if (!blogPost) {
-    notFound();
+  if (!post) {
+    notFound()
   }
 
   return (
-    <div className="container mx-auto px-4 py-16 mt-[72px]">
-      <motion.h1
-        className="text-3xl sm:text-3xl md:text-4xl lg:text-4xl font-bold mb-8 text-center name-header"
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        {blogPost.title}
-      </motion.h1>
-      <motion.div
-        className="prose max-w-none"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-      >
+    <div className="container mx-auto p-3 py-6 mt-[72px] w-full min-h-[40vh]">
+      <h1 className="lg:text-5xl md:text-4xl sm:text-3xl text-3xl  font-bold mb-8 text-center name-header text-gray-900">{post.title}</h1>
+      <div className="prose max-w-none">
         <Image
-          src={blogPost.image || "/placeholder.svg"}
+          src={post.image || "/placeholder.svg"}
           alt="Blog post header image"
           width={800}
           height={400}
           className="w-full rounded-lg mb-8 shadow-lg"
         />
-        <motion.div
-          dangerouslySetInnerHTML={{ __html: blogPost.content }}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        />
-      </motion.div>
-      <motion.div
-        className="mt-12"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.6 }}
-      >
+        <div dangerouslySetInnerHTML={{ __html: post.content }} />
+      </div>
+      <div className="mt-12">
         <Button asChild>
-          <a href="/blogs">Back to Blog</a>
+          <a href="/blog">Back to Blog</a>
         </Button>
-      </motion.div>
+      </div>
     </div>
   )
 }
