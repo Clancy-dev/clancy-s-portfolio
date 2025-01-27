@@ -1,6 +1,7 @@
 import { fetchProject } from '@/actions/Project'
 import AnimatedSection from '@/components/AnimatedSection'
 import HeroSection from '@/components/HeroSection'
+import PortfolioSection from '@/components/PortfolioSection'
 import ReviewSection from '@/components/ReviewSection'
 import SlicedSection from '@/components/SlicedSection'
 import StatisticsSection from '@/components/StatisticsSection'
@@ -17,9 +18,14 @@ export default async function Home() {
         <HeroSection/>
        </AnimatedSection>
        {/* Some Projects */}
+
+       
         <AnimatedSection>
         <SlicedSection sectionProjectData={sectionProjects}/>
         </AnimatedSection>
+
+      
+
         {/* Statistics Section */}
         <AnimatedSection>
         <StatisticsSection/>
@@ -32,6 +38,9 @@ export default async function Home() {
         {/* Review Section */}
         <AnimatedSection>
         <ReviewSection/>
+        </AnimatedSection>
+        <AnimatedSection>
+        <PortfolioSection/>
         </AnimatedSection> 
     </div>
   )

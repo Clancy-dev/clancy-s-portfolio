@@ -10,6 +10,7 @@ export default withUt({
   theme: {
   	extend: {
   		colors: {
+			
   			background: 'var(--background)',
   			foreground: 'var(--foreground)'
   		},
