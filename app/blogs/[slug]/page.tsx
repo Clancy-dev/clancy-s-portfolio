@@ -107,7 +107,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
   }
 
   return (
-    <div className="container mx-auto w-full min-h-[40vh] py-6 px-4  mt-[72px]">
+    <div className="container mx-auto w-full min-h-[40vh] py-6 px-6  mt-[72px]">
       <h1 className="lg:text-5xl md:text-4xl sm:text-3xl text-3xl font-bold mb-8 text-center text-gray-900 name-header">{post.title}</h1>
       <div className="prose max-w-none">
         <Image
