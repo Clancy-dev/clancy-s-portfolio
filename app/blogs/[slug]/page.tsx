@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 
 const blogPosts = {
   "why-company-needs-website": {
-    title: "Why Does My Business Really Need a Website?",
+    title: "Why Does My Company Really Need a Website?",
     content: `
       <h2 class="text-2xl font-bold mt-6 mb-4">Your Customers Expect It</h2>
       <p class="mb-4">In today's world, customers turn to Google before they make decisions. Imagine a potential customer searches for your product or service and doesn't find your company online. What happens? They move to your competitor.</p>
@@ -22,7 +22,7 @@ const blogPosts = {
       <h2 class="text-2xl font-bold mt-6 mb-4">Conclusion</h2>
       <p class="mb-4">In 2025, having a website isn't a luxury—it's a necessity. It's how customers find you, trust you, and connect with your business. Whether you're just starting out or looking to grow, a professional website is the key to staying relevant, competitive, and successful.</p>
     `,
-    image: "/blog1.jpg?height=400&width=800",
+    image: "/placeholder.svg?height=400&width=800",
   },
   "cost-of-not-having-website": {
     title: "The Cost of Not Having a Website: What Your Business Could Be Losing",
@@ -42,7 +42,7 @@ const blogPosts = {
       <h2 class="text-2xl font-bold mt-6 mb-4">Conclusion</h2>
       <p class="mb-4">Not having a website costs your business more than you think—lost customers, reduced credibility, missed revenue, and limited growth. Don't let your competitors outshine you online. Take the first step towards creating your website and watch your business thrive in the digital age.</p>
     `,
-    image: "/blog2.jpg?height=400&width=800",
+    image: "/placeholder.svg?height=400&width=800",
   },
   "website-best-marketing-investment": {
     title: "Why Your Website Is the Best Marketing Investment You'll Ever Make",
@@ -62,7 +62,7 @@ const blogPosts = {
       <h2 class="text-2xl font-bold mt-6 mb-4">Conclusion</h2>
       <p class="mb-4">A website is not just a marketing tool; it's an investment in the future of your business. It's cost-effective, scalable, and delivers measurable results that other channels can't match. If you haven't already, now is the time to invest in a website that works for you.</p>
     `,
-    image: "/blog3.jpg?height=400&width=800",
+    image: "/placeholder.svg?height=400&width=800",
   },
 }
 
@@ -72,21 +72,23 @@ type BlogPost = {
   image: string
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const post =  blogPosts[params.slug as keyof typeof blogPosts] 
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const post = blogPosts[slug as keyof typeof blogPosts]
   return { title: post.title }
 }
 
-export default  function BlogPost({ params }: { params: { slug: string } }) {
-  const post =  blogPosts[params.slug as keyof typeof blogPosts] as BlogPost | undefined
+export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const post = blogPosts[slug as keyof typeof blogPosts] as BlogPost | undefined
 
   if (!post) {
     notFound()
   }
 
   return (
-    <div className="container mx-auto p-3 py-6 mt-[72px] w-full min-h-[40vh]">
-      <h1 className="lg:text-5xl md:text-4xl sm:text-3xl text-3xl  font-bold mb-8 text-center name-header text-gray-900">{post.title}</h1>
+    <div className="container mx-auto px-4 py-16">
+      <h1 className="text-5xl font-bold mb-8 text-center">{post.title}</h1>
       <div className="prose max-w-none">
         <Image
           src={post.image || "/placeholder.svg"}
