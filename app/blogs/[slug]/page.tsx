@@ -3,27 +3,47 @@ import { notFound } from "next/navigation"
 import { Button } from "@/components/ui/button"
 
 const blogPosts = {
-  "why-company-needs-website": {
-    title: "Why Does My Company Really Need a Website?",
-    content: `
-      <h2 class="text-2xl font-bold mt-6 mb-4">Your Customers Expect It</h2>
-      <p class="mb-4">In today's world, customers turn to Google before they make decisions. Imagine a potential customer searches for your product or service and doesn't find your company online. What happens? They move to your competitor.</p>
-      <p class="mb-4">Having a website ensures that when someone is searching for what you offer, they find you first. It gives them the information they need to trust your business and take action.</p>
+ "why-company-needs-website": {
+    "title": "Why Does My Business Really Need a Website?",
+    "content": `
+      <h2 class="text-2xl font-bold mt-6 mb-4">It’s Essential for Reaching Your Audience</h2>
+      <p class="mb-4">In today’s world, your audience is searching for you online. Consider this: if a potential customer needs a product or service like yours, they’re likely Googling it—whether it's searching for "best mobile repair in Kampala" or "affordable event planners." Without a website, your business is missing out on this crucial opportunity to connect.</p>
+      <p class="mb-4">Take a look at any successful business today—from local shops to global brands—they all have a strong online presence. This is your chance to make your business visible, accessible, and credible. It’s the first step in turning interest into sales.</p>
 
-      <h2 class="text-2xl font-bold mt-6 mb-4">It Establishes Credibility</h2>
-      <p class="mb-4">A well-designed website gives your business instant credibility. It's like a professional handshake in the digital world. Customers trust businesses with websites more than those without because a website shows you're established, serious, and ready to serve.</p>
+      <h2 class="text-2xl font-bold mt-6 mb-4">It Establishes Instant Credibility</h2>
+      <p class="mb-4">Your website is like a digital handshake that welcomes visitors into your business. When customers come across your website, they immediately form an impression of your brand. A well-crafted website tells them you're serious, professional, and trustworthy.</p>
+      <p class="mb-4">Look at companies like Jumia or Kikuubo Online: their websites are not just online catalogs—they build trust, showcase customer reviews, and offer easy ways to contact them. Without such credibility, customers might hesitate, questioning the legitimacy of your business.</p>
+      <p class="mb-4">You're working tirelessly, but customers keep questioning your legitimacy. They Google your business, and—nothing. No website, no trace of your business online. How can they trust you? A website establishes your business as credible and trustworthy in the digital world.</p>
+      <p class="mb-4">A website provides social proof, reviews, and detailed information that customers need to feel confident. Without it, you're missing the most powerful tool to show you’re serious and ready to serve.</p>
 
-      <h2 class="text-2xl font-bold mt-6 mb-4">It Works for You 24/7</h2>
-      <p class="mb-4">Unlike a physical storefront, a website never sleeps. Whether it's 2 PM or 2 AM, your website is always available to share information, attract leads, and close sales.</p>
+      <h2 class="text-2xl font-bold mt-6 mb-4">Your Business Works for You 24/7</h2>
+      <p class="mb-4">Imagine having a business partner that works non-stop, even when you're asleep. That’s what your website can do. Your business is open 24/7—whether it’s 10 PM and someone in need of your services is browsing on their phone, or it’s 2 AM and an international customer is exploring your offerings.</p>
+      <p class="mb-4">Consider an example: a local restaurant gets a booking for a party at midnight simply because their website was easy to find and offered clear, detailed information. That’s extra revenue made without anyone lifting a finger!</p>
+      <p class="mb-4">For those using general systems, there you are struggling with a "System Error" message or staring at a blank screen as your sales platform crashes. You're frustrated, wondering why your business is losing leads. You need a customised system or custom tailored website which works tirelessly while you sleep, ensuring your business is always open, always ready to engage with customers, even when your systems go down.</p>
+      <p class="mb-4">Imagine your website running smoothly, bringing in new customers at all hours. Your site never crashes—it’s always up and working to attract leads, provide information, and even close deals.</p>
 
-      <h2 class="text-2xl font-bold mt-6 mb-4">It's Cost-Effective Marketing</h2>
-      <p class="mb-4">Think of your website as a billboard—but way smarter. For a fraction of what you'd spend on traditional advertising, your website can reach thousands of potential customers, showcase your products and services in detail, and run targeted campaigns with measurable results.</p>
+
+      <h2 class="text-2xl font-bold mt-6 mb-4">It’s the Most Cost-Effective Marketing Tool</h2>
+      <p class="mb-4">Let’s talk about cost-effective marketing. A well-maintained website costs a fraction of what traditional advertising—like print media or billboards—does, but it offers something those don’t: measurable results. With analytics, you can track exactly how many visitors come to your site, where they come from, and which pages are most engaging.</p>
+      <p class="mb-4">For instance, a small clothing boutique might spend money on print flyers. However, they could invest the same amount in a website that showcases their products online, reaches a larger audience, and allows customers to shop directly. Not only do they save on printing costs, but they’re also generating more sales leads.</p>
+
+      <h2 class="text-2xl font-bold mt-6 mb-4">Showcase Your Brand Like Never Before</h2>
+      <p class="mb-4">A website isn’t just a tool to display your services; it’s a powerful platform to showcase your brand and tell your story. Imagine a local startup that designs handmade jewelry. On their website, they don’t just list their products—they tell the story behind each piece, the artisans involved, and the values that drive their brand.</p>
+      <p class="mb-4">This is how you create a connection with your audience. Customers buy from businesses they feel aligned with. A website allows you to showcase your uniqueness in ways social media or print ads can't.</p>
+
+      <h2 class="text-2xl font-bold mt-6 mb-4">It Helps You Stay Competitive</h2>
+      <p class="mb-4">Without a website, your business is at a serious disadvantage. Competitors who do have websites are already gaining your potential customers’ trust, collecting their contact information, and even closing sales while you remain offline.</p>
+      <p class="mb-4">Take a look at any industry: whether it's retail, real estate, or even food delivery—businesses with websites are thriving. While your competitors continue to scale and improve their online presence, you’ll be stuck wondering where all your leads are going.</p>
+      <p class="mb-4">Another case: You’re spending all your marketing budget on billboards, flyers, and ads. Yet, you’re still stuck—no sales, no leads. Your business needs a marketing tool that works around the clock. A website does just that: it offers cost-effective advertising that brings measurable results. Unlike traditional methods, your website can reach a vast audience, even when you’re off the clock.</p>
+      <p class="mb-4">Let’s say you’re investing the same amount in a website—now, you’re reaching hundreds, even thousands, of potential customers who are actively searching for your business. That’s a marketing tool that works when everything else has failed.</p>
 
       <h2 class="text-2xl font-bold mt-6 mb-4">Conclusion</h2>
-      <p class="mb-4">In 2025, having a website isn't a luxury—it's a necessity. It's how customers find you, trust you, and connect with your business. Whether you're just starting out or looking to grow, a professional website is the key to staying relevant, competitive, and successful.</p>
+      <p class="mb-4">If you're still considering whether you need a website for your business, the answer is simple: YES, you absolutely do. In 2025, it's not just a luxury; it’s a necessity. A professional website will help your business gain visibility, credibility, and ultimately, more sales. Whether you’re just starting out or aiming for growth, a website is the ultimate tool to unlock your full potential.</p>
     `,
-    image: "/placeholder.svg?height=400&width=800",
-  },
+    "image": "/blog1.jpg?height=400&width=800"
+},
+
+
   "cost-of-not-having-website": {
     title: "The Cost of Not Having a Website: What Your Business Could Be Losing",
     content: `
@@ -42,7 +62,7 @@ const blogPosts = {
       <h2 class="text-2xl font-bold mt-6 mb-4">Conclusion</h2>
       <p class="mb-4">Not having a website costs your business more than you think—lost customers, reduced credibility, missed revenue, and limited growth. Don't let your competitors outshine you online. Take the first step towards creating your website and watch your business thrive in the digital age.</p>
     `,
-    image: "/placeholder.svg?height=400&width=800",
+    image: "/blog2.jpg?height=400&width=800",
   },
   "website-best-marketing-investment": {
     title: "Why Your Website Is the Best Marketing Investment You'll Ever Make",
@@ -62,7 +82,7 @@ const blogPosts = {
       <h2 class="text-2xl font-bold mt-6 mb-4">Conclusion</h2>
       <p class="mb-4">A website is not just a marketing tool; it's an investment in the future of your business. It's cost-effective, scalable, and delivers measurable results that other channels can't match. If you haven't already, now is the time to invest in a website that works for you.</p>
     `,
-    image: "/placeholder.svg?height=400&width=800",
+    image: "/blog3.jpg?height=400&width=800",
   },
 }
 
@@ -87,8 +107,8 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
   }
 
   return (
-    <div className="container mx-auto px-4 py-16">
-      <h1 className="text-5xl font-bold mb-8 text-center">{post.title}</h1>
+    <div className="container mx-auto w-full min-h-[40vh] py-6 px-4  mt-[72px]">
+      <h1 className="lg:text-5xl md:text-4xl sm:text-3xl text-3xl font-bold mb-8 text-center text-gray-900 name-header">{post.title}</h1>
       <div className="prose max-w-none">
         <Image
           src={post.image || "/placeholder.svg"}
@@ -101,7 +121,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
       </div>
       <div className="mt-12">
         <Button asChild>
-          <a href="/blog">Back to Blog</a>
+          <a href="/blogs">Back to Blog</a>
         </Button>
       </div>
     </div>
