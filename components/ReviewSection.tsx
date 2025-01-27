@@ -82,7 +82,7 @@ const reviews = [
 const StarRating = ({ rating }: { rating: number }) => {
   return (
     <div className="flex">
-      <span className="text-sm text-primary/60 mr-1">Rating:</span>
+      {/* <span className="text-sm text-primary/60 mr-1">Rating:</span> */}
       {[1, 2, 3, 4, 5].map((star) => (
         <span key={star}>
           {star <= rating ? (
@@ -124,10 +124,10 @@ export default function ReviewSection() {
   }, [inView])
 
   return (
-    <section ref={ref} className="review-container">
-      <div className="container mx-auto px-4">
-      <h2 className="text-4xl font-semibold text-center mb-4 mt-3 text-gray-100 name-header">Reviews</h2>
-        <div className="max-w-3xl mx-auto h-[300px]">
+    <section ref={ref} className="review-container dark:from-black dark:to-black bg-gradient-to-br from-green-700  to-green-500 dark:bg-black">
+      <div className="inner-review-container mx-auto px-4 ">
+      <h2 className="lg:text-4xl md:text-3xl sm:text-3xl text-3xl font-semibold text-center mb-4 mt-3 text-gray-100 name-header">Reviews</h2>
+        <div className=" w-full p-2">
           <AnimatePresence mode="wait">
             {isVisible && (
               <motion.div
@@ -136,21 +136,25 @@ export default function ReviewSection() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5 }}
-                className="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300"
+                className="bg-white border-yellow-300 dark:border-gray-400 border-b-4 border-l-4 rounded-tr-[50%] rounded-[2px] shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300"
               >
-                <div className="p-4">
-                  <div className="flex items-center mb-2">
+                <div className="p-4 ">
+                  <div className="flex items-center mb-2 review-inside">
                     <img
                       src={reviews[currentReview].image || "/placeholder.svg"}
                       alt={reviews[currentReview].name}
-                      className="w-16 h-16 rounded-full border-4 border-primary mr-4 object-cover"
+                      className="w-16 h-16 rounded-full border-4 border-primary mr-4 object-cover review-inside-1"
                     />
-                    <div>
-                      <h3 className="text-2xl font-semibold text-primary">{reviews[currentReview].name}</h3>
+
+                 <h3 className="text-2xl font-semibold text-gray-900 review-inside-2">{reviews[currentReview].name}</h3>
+                    
+                  </div>
+                  
+                  <p className="text-lg italic text-gray-700">"{reviews[currentReview].text}"</p>
+                  <div className="flex w-[100%]  gap-2">
+                     <p className="text-gray-700 font-bold">Rating:</p>
                       <StarRating rating={reviews[currentReview].rating} />
                     </div>
-                  </div>
-                  <p className="text-lg italic text-gray-700 leading-relaxed">"{reviews[currentReview].text}"</p>
                 </div>
               </motion.div>
             )}

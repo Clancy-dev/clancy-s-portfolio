@@ -18,20 +18,15 @@ export default async function Home() {
         <HeroSection/>
        </AnimatedSection>
        {/* Some Projects */}
-
-       
         <AnimatedSection>
         <SlicedSection sectionProjectData={sectionProjects}/>
         </AnimatedSection>
-
-      
-
         {/* Statistics Section */}
         <AnimatedSection>
         <StatisticsSection/>
         </AnimatedSection>
         {/* Tech Stack Section */}
-        <AnimatedSection className='w-[100%] h-[50vh] bg-gray-100 flex items-center justify-center flex-col'>
+        <AnimatedSection className='w-[100%] h-[50vh] bg-gray-100 dark:bg-black flex items-center justify-center flex-col'>
         <h2 className="text-4xl font-semibold text-center mb-4 mt-3 text-gray-800 dark:text-white name-header">My Tech Stack</h2>
         <TechStack/>   
         </AnimatedSection>
@@ -39,9 +34,9 @@ export default async function Home() {
         <AnimatedSection>
         <ReviewSection/>
         </AnimatedSection>
-        <AnimatedSection>
+        {/* <AnimatedSection>
         <PortfolioSection/>
-        </AnimatedSection> 
+        </AnimatedSection>   */}
     </div>
   )
 }

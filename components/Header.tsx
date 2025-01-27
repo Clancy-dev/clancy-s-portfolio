@@ -34,12 +34,12 @@ export default function Header() {
   }, [isMenuOpen])
 
   return (
-    <header className="header-style fixed top-0 z-50">
-      <nav className="shadow-md">
+    <header className="header-style">
+      <nav className="w-full h-[72px] flex dark:bg-black">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <Image src="/logo.png" alt="Clancy Ssekisambu Logo" width={60} height={60} className="w-auto h-10" />
-            <h1 className="text-blue-900 sm:text-[1.2rem] md:text-2xl lg:text-2xl font-bold font name-header">Clancy</h1>
+            <h1 className="text-blue-900 sm:text-[1.2rem] md:text-2xl lg:text-2xl font-bold font name-header dark:text-white">Clancy</h1>
           </div>
           <div className="hidden md:flex items-center space-x-4 all-links">
             {links.map((link) => (
@@ -49,8 +49,8 @@ export default function Header() {
                 className={cn(
                   "flex items-center space-x-1 px-3 py-2 rounded-md font-bold transition-colors",
                   pathname === link.href
-                    ? "text-white bg-blue-900 border-b-2 border-orange-600"
-                    : "text-blue-900 hover:bg-blue-100"
+                    ? "text-white dark:text-black bg-blue-900 dark:bg-white border-b-2 border-orange-600 dark:border-white"
+                    : "text-blue-900 dark:text-white hover:bg-blue-100 dark:hover:bg-slate-400"
                 )}
               >
                 {link.icon}
@@ -68,7 +68,7 @@ export default function Header() {
             </Link>
           </div>
           <button
-            className="md:hidden bg-blue-900 text-white p-2 rounded-md transition-transform duration-1000 ease-in-out hover:rotate-360"
+            className="md:hidden bg-blue-900 dark:bg-white dark:text-black text-white p-2 rounded-md transition-transform duration-1000 ease-in-out hover:rotate-360"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -80,7 +80,7 @@ export default function Header() {
           <div className="fixed inset-0 z-40" onClick={() => setIsMenuOpen(false)}>
             <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm" style={{ top: '64px' }} />
           </div>
-          <nav className="fixed top-[64px] left-0 bottom-0 w-3/4 bg-white p-4 overflow-y-auto z-50">
+          <nav className="fixed top-[64px] left-0 bottom-0 w-3/4 bg-white dark:bg-black p-4 overflow-y-auto z-50">
             <div className="space-y-2">
               {links.map((link) => (
                 <Link
@@ -89,8 +89,8 @@ export default function Header() {
                   className={cn(
                     "flex items-center space-x-2 p-2 rounded-md font-bold border-b border-blue-200",
                     pathname === link.href
-                      ? "text-white bg-blue-900 border-b-2 border-orange-600"
-                      : "text-blue-900 hover:bg-blue-100"
+                      ? "text-white dark:text-black bg-blue-900 border-b-2 dark:border-white dark:bg-white border-orange-600"
+                      : "text-blue-900 dark:text-white hover:bg-blue-100"
                   )}
                   onClick={() => setIsMenuOpen(false)}
                 >

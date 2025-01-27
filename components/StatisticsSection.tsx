@@ -51,7 +51,7 @@ export default function StatisticsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-16 bg-gradient-to-br from-blue-500 to-blue-700 text-white overflow-hidden">
+    <section ref={sectionRef} className="relative py-16 dark:from-black dark:to-black bg-gradient-to-br from-blue-500 to-blue-700 text-white overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
       <h2 className="text-4xl font-semibold text-center mb-4 mt-3 text-white name-header">My MileStones At Glance</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 md:gap-8">
@@ -84,7 +84,7 @@ function Cubes() {
       {[...Array(20)].map((_, i) => (
         <div
           key={i}
-          className="absolute w-8 h-8 md:w-16 md:h-16 bg-blue-300 bg-opacity-20 rounded-lg transform rotate-45"
+          className="absolute w-8 h-8 md:w-16 md:h-16 bg-blue-300 dark:bg-gray-800 bg-opacity-20 rounded-lg transform rotate-45"
           style={{
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,

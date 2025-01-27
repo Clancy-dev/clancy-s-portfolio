@@ -45,7 +45,7 @@ const HeroSection = () => {
             Specializing in building high-performance websites, web applications, and systems.
           </p>
           <Link href="/contact" className=" text-white font-bold">
-          <button className=" bg-blue-500  hover:bg-blue-600 px-4 py-2 rounded-[5px]">
+          <button className=" bg-blue-500 dark:bg-white dark:text-black dark:hover:bg-gray-600 hover:bg-blue-600 px-4 py-2 rounded-[5px]">
           Get in Touch
           </button>  
           </Link>
