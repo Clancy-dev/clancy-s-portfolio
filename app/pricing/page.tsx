@@ -181,16 +181,16 @@ export default function PricingPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gray-100 lg:p-6 md:p-3 sm:p-2 p-1 mt-[72px] ">
+    <div className="min-h-screen bg-gray-100 dark:bg-slate-800 lg:p-6 md:p-3 sm:p-2 p-1 mt-[72px] ">
       <div className="w-full">
         <div className="text-center py-8">
-          <h1 className="text-4xl font-bold text-gray-900">Pricing Plans</h1>
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-50">Pricing Plans</h1>
         </div>
 
         <div className="py-4 text-center">
           <h2 className="text-2xl font-semibold mb-4">Choose Your Currency</h2>
           <Select onValueChange={handleCurrencyChange} defaultValue={currency}>
-            <SelectTrigger className="w-[180px] mx-auto bg-white">
+            <SelectTrigger className="w-[180px] mx-auto bg-white dark:text-black">
               <SelectValue placeholder="Select currency" />
             </SelectTrigger>
             <SelectContent>
@@ -212,11 +212,11 @@ export default function PricingPage() {
                   <Star className="h-5 w-5 text-yellow-400" />
                 </div>
                 {plan.popular && (
-                  <span className="bg-blue-500 text-white text-xs font-semibold px-2 py-1 rounded-full uppercase">
+                  <span className="bg-blue-500 dark:bg-white dark:text-gray-950 text-white text-xs font-semibold px-2 py-1 rounded-full uppercase">
                     Most Popular
                   </span>
                 )}
-                <CardDescription className="text-xl font-semibold">
+                <CardDescription className="text-xl font-semibold dark:text-white">
                   {currency} {plan.price.toLocaleString()}
                 </CardDescription>
                 <p className="text-sm text-muted-foreground mt-2">{plan.description}</p>
@@ -243,7 +243,7 @@ export default function PricingPage() {
         
 
         <div className="py-12 pb-0 flex items-center justify-center flex-col">
-          <h2 className="text-3xl font-bold mb-6 text-center text-gray-900">Frequently Asked Questions</h2>
+          <h2 className="text-3xl font-bold mb-6 text-center text-gray-900 dark:text-white">Frequently Asked Questions</h2>
           <Card className="lg:w-[80%] md:w-[100%] sm:w-[100%] w-full ">
             <CardContent className="pt-6">
               <Accordion type="single" collapsible className="w-full">
@@ -251,7 +251,7 @@ export default function PricingPage() {
                   <AccordionItem key={idx} value={`item-${idx}`} className="accordion-item">
                     <AccordionTrigger className="accordion-trigger">{faq.question}</AccordionTrigger>
                     <AccordionContent className="accordion-content">
-                      <p className="text-gray-600">{faq.answer}</p>
+                      <p className="text-gray-600 dark:text-gray-50">{faq.answer}</p>
                     </AccordionContent>
                   </AccordionItem>
                 ))}
