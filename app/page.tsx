@@ -34,9 +34,9 @@ export default async function Home() {
         <AnimatedSection>
         <ReviewSection/>
         </AnimatedSection>
-        {/* <AnimatedSection>
+        <AnimatedSection>
         <PortfolioSection/>
-        </AnimatedSection>   */}
+        </AnimatedSection>  
     </div>
   )
 }

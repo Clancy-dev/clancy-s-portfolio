@@ -6,17 +6,19 @@ import PortfolioCard from "./PortfolioCard"
 
 
 const projects = [
-    { id: 1, image: "/brand/brand1.png?height=200&width=200" },
-  { id: 2, image: "/brand/brand2.jpg?height=200&width=200" },
-  { id: 3, image: "/brand/brand3.png?height=200&width=200" },
-  { id: 4, image: "/brand/brand4.png?height=200&width=200" },
-  { id: 5, image: "/brand/brand5.jpg?height=200&width=200" },
-  { id: 6, image: "/brand/brand6.png?height=200&width=200" },
-  { id: 7, image: "/brand/brand7.jpg?height=200&width=200" },
-  { id: 8, image: "/brand/brand8.jpg?height=200&width=200" },
-  { id: 9, image: "/brand/brand9.png?height=200&width=200" },
-  { id: 10, image: "/brand/brand10.png?height=200&width=200" },
-  { id: 11, image: "/brand/brand11.jpg?height=200&width=200" },
+    { id: 1, image: "/brand/brand1.png?height=100&width=100" },
+  { id: 2, image: "/brand/brand2.jpg?height=100&width=100" },
+  { id: 3, image: "/brand/brand3.png?height=100&width=100" },
+  { id: 4, image: "/brand/brand4.png?height=100&width=100" },
+  { id: 5, image: "/brand/brand5.jpg?height=100&width=100" },
+  { id: 6, image: "/brand/brand6.png?height=100&width=100" },
+  { id: 7, image: "/brand/brand7.jpg?height=100&width=100" },
+  { id: 8, image: "/brand/brand8.jpg?height=100&width=100" },
+  { id: 9, image: "/brand/brand91.png?height=100&width=100" },
+  { id: 10, image: "/brand/brand101.png?height=100&width=100" },
+  { id: 11, image: "/brand/brand11.jpg?height=100&width=100" },
+  { id: 12, image: "/brand/brand12.png?height=100&width=100" },
+  { id: 13, image: "/brand/brand13.png?height=100&width=100" },
   // Add more projects as needed
 ]
 
@@ -43,11 +45,11 @@ export default function PortfolioSection() {
   }, [duplicatedProjects, controls])
 
   return (
-    <section className="py-2 px-1 bg-gradient-to-r from-gray-50 to-gray-100 w-full" aria-label="Project Portfolio">
-      <div className="container mx-auto">
+    <section className="py-2 px-1 bg-white dark:bg-black w-full" aria-label="Project Portfolio">
+      <div className=" w-full p-1">
         <div className="overflow-hidden">
           <motion.div
-            className="flex space-x-6"
+            className="flex space-x-14"
             animate={controls}
             style={{ width: `${duplicatedProjects.length * 220}px` }}
           >
