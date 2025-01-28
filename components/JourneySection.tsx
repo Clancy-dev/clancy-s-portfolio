@@ -47,10 +47,10 @@ export default function JourneySection() {
   const [activeStep, setActiveStep] = useState<number | null>(null)
 
   return (
-    <section ref={ref} className="py-3 bg-gradient-to-b from-gray-50 to-white">
+    <section ref={ref} className="py-3 bg-gradient-to-b from-gray-50 to-white dark:from-black dark:to-black">
       <div className="container mx-auto px-4">
         <motion.h2
-          className="text-4xl font-bold mb-12 text-center text-gray-800 name-header"
+          className="text-4xl font-bold mb-12 text-center text-gray-800 dark:text-white name-header"
           initial={{ opacity: 0, y: -20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
           transition={{ duration: 0.5 }}
@@ -86,8 +86,8 @@ export default function JourneySection() {
                 }}
                 transition={{ duration: 0.3 }}
               >
-                <h3 className="text-2xl font-semibold mb-2 text-gray-800">{step.title}</h3>
-                <p className="text-gray-600 mb-2">{step.description}</p>
+                <h3 className="text-2xl font-semibold mb-2 text-gray-800 dark:text-white">{step.title}</h3>
+                <p className="text-gray-600 dark:text-yellow-200 mb-2">{step.description}</p>
                 <span className="text-sm font-semibold text-blue-500">{step.year}</span>
               </motion.div>
             </motion.div>
@@ -105,7 +105,7 @@ export default function JourneySection() {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5, delay: 0.8 }}
         >
-          <p className="text-xl text-gray-700 leading-relaxed">
+          <p className="text-xl text-gray-700 dark:text-white leading-relaxed">
             My journey in tech has been a thrilling adventure of continuous learning and growth. From writing my first
             lines of code to leading innovative projects, each step has shaped me into the developer I am today. I'm
             excited to bring this wealth of experience and passion to your next project!

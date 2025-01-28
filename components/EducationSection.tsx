@@ -38,10 +38,10 @@ export default function EducationSection() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
 
   return (
-    <section ref={ref} className="py-6 bg-gradient-to-b from-blue-50 to-white">
+    <section ref={ref} className="py-6 bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-black">
       <div className="container mx-auto px-4">
         <motion.h2
-          className="text-3xl font-bold mb-16 text-center text-gray-800 name-header"
+          className="text-3xl font-bold mb-16 text-center text-gray-800 dark:text-white name-header"
           initial={{ opacity: 0, y: -20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
           transition={{ duration: 0.5 }}
@@ -52,7 +52,7 @@ export default function EducationSection() {
           {educationData.map((edu, index) => (
             <motion.div
               key={edu.level}
-              className="bg-white p-6 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-2"
+              className="bg-white dark:bg-black p-6 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-2"
               initial={{ opacity: 0, y: 50 }}
               animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -68,8 +68,8 @@ export default function EducationSection() {
                   className="rounded-full"
                 />
               </div>
-              <h3 className="text-2xl font-semibold mb-2 text-center text-gray-800">{edu.level}</h3>
-              <p className="text-gray-600 text-center">{edu.school}</p>
+              <h3 className="text-2xl font-semibold mb-2 text-center text-gray-800 dark:text-white">{edu.level}</h3>
+              <p className="text-gray-600 text-center dark:text-yellow-200">{edu.school}</p>
               <AnimatePresence>
                 
               </AnimatePresence>
@@ -85,7 +85,7 @@ export default function EducationSection() {
           <a
             href="/path-to-your-cv.pdf"
             download
-            className="inline-flex items-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition duration-300 mr-4"
+            className="inline-flex items-center px-8 py-4 bg-blue-600 dark:bg-white dark:text-black text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition duration-300 mr-4"
           >
             Download CV
             <Download className="ml-2 w-5 h-5" />

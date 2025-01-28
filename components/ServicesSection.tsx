@@ -50,10 +50,10 @@ export default function ServicesSection() {
   })
   //
   return (
-    <section ref={ref} className="py-2 pt-3 bg-gradient-to-b from-gray-50 to-white"> 
+    <section ref={ref} className="py-2 pt-3 bg-gradient-to-b from-gray-50 to-white dark:from-black dark:to-gray-800"> 
       <div className="container mx-auto px-4">
         <motion.h2
-          className="text-4xl font-bold mb-6 text-center text-gray-800 name-header"
+          className="text-4xl font-bold mb-6 text-center text-gray-800 dark:text-white name-header"
           initial={{ opacity: 0, y: -20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
           transition={{ duration: 0.5 }}
@@ -64,7 +64,7 @@ export default function ServicesSection() {
           {services.map((service, index) => (
             <motion.div
               key={service.title}
-              className={`${service.color} p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2`}
+              className={`${service.color} p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all dark:bg-gray-950 duration-300 transform hover:-translate-y-2`}
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={inView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.9, y: 20 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -72,8 +72,8 @@ export default function ServicesSection() {
               <div className="flex items-center justify-center mb-6">
                 <div className="p-3 rounded-full bg-white shadow-md">{service.icon}</div>
               </div>
-              <h3 className="text-2xl font-semibold mb-4 text-center text-gray-800">{service.title}</h3>
-              <p className="text-gray-600 text-center text-lg">{service.description}</p>
+              <h3 className="text-2xl font-semibold mb-4 text-center text-gray-800 dark:text-white">{service.title}</h3>
+              <p className="text-gray-600 text-center text-lg dark:text-yellow-200">{service.description}</p>
             </motion.div>
           ))}
         </div>

@@ -21,7 +21,7 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 pt-20">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-950 dark:to-gray-900 pt-20">
       <main className="container mx-auto px-4 py-8">
         <motion.section
           className="relative h-80 mb-12 rounded-xl overflow-hidden"
@@ -44,19 +44,19 @@ export default function ContactPage() {
           >
             <Card className="bg-white shadow-lg">
               <CardContent className="p-6 space-y-4">
-                <h2 className="text-2xl font-semibold text-gray-800">Contact Information</h2>
-                <div className="flex items-center space-x-4 text-gray-600">
+                <h2 className="text-2xl font-semibold text-gray-800 dark:text-white">Contact Information</h2>
+                <div className="flex items-center space-x-4 text-gray-600 dark:text-white">
                   <Phone className="w-5 h-5" />
                   <div>
                     <p>+256 770983239</p>
                     <p>+256 707013121</p>
                   </div>
                 </div>
-                <div className="flex items-center space-x-4 text-gray-600">
+                <div className="flex items-center space-x-4 text-gray-600 dark:text-white">
                   <Mail className="w-5 h-5" />
                   <p>clancyro1000@gmail.com</p>
                 </div>
-                <div className="flex items-center space-x-4 text-gray-600">
+                <div className="flex items-center space-x-4 text-gray-600 dark:text-white">
                   <MapPin className="w-5 h-5" />
                   <p>Kireka, Nakimbugwe Building, 1st Floor, Desishub Ltd.</p>
                 </div>
@@ -85,7 +85,7 @@ export default function ContactPage() {
           >
             <Card className="bg-white shadow-lg">
               <CardContent className="p-6">
-                <h2 className="text-2xl font-semibold mb-6 text-gray-800">Send a Message</h2>
+                <h2 className="text-2xl font-semibold mb-6 text-gray-800 dark:text-white">Send a Message</h2>
                 {isFormSubmitted ? (
                   <div className="text-center py-8">
                     <h3 className="text-2xl font-semibold text-green-600 mb-2">Thank You!</h3>
@@ -94,24 +94,24 @@ export default function ContactPage() {
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
-                      <Label htmlFor="name" className="text-gray-700">
+                      <Label htmlFor="name" className="text-gray-700 dark:text-white">
                         Name
                       </Label>
                       <Input id="name" placeholder="Your Name" className="mt-1" />
                     </div>
                     <div>
-                      <Label htmlFor="email" className="text-gray-700">
+                      <Label htmlFor="email" className="text-gray-700 dark:text-white">
                         Email
                       </Label>
                       <Input id="email" type="email" placeholder="your@email.com" className="mt-1" />
                     </div>
                     <div>
-                      <Label htmlFor="message" className="text-gray-700">
+                      <Label htmlFor="message" className="text-gray-700 dark:text-white">
                         Message
                       </Label>
-                      <Textarea id="message" placeholder="Your message here..." className="mt-1" rows={5} />
+                      <Textarea id="message" placeholder="Your message here..." className="mt-1 resize-none" rows={5}/>
                     </div>
-                    <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+                    <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white dark:text-white dark:bg-black dark:border-white dark:border-b-[1px] dark:border-l-[1px]">
                       Send Message
                     </Button>
                   </form>

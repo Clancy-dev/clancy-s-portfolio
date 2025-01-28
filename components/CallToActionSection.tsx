@@ -20,7 +20,7 @@ export default function CallToActionSection() {
   ]
 
   return (
-    <section ref={ref} className="py-16 bg-gray-50">
+    <section ref={ref} className="py-16 bg-gray-50 dark:bg-black">
       <div className="container mx-auto px-4">
         <motion.div
           className="max-w-3xl mx-auto text-center"
@@ -29,7 +29,7 @@ export default function CallToActionSection() {
           transition={{ duration: 0.5 }}
         >
           <motion.h2
-            className="text-2xl md:text-3xl font-bold mb-4 text-gray-800 name-header"
+            className="text-2xl md:text-3xl font-bold mb-4 text-gray-800 dark:text-white name-header"
             initial={{ opacity: 0, y: -20 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -37,7 +37,7 @@ export default function CallToActionSection() {
             Let's Work Together
           </motion.h2>
           <motion.p
-            className="text-base md:text-lg mb-8 text-gray-600"
+            className="text-base md:text-lg mb-8 text-gray-600 dark:text-yellow-200"
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.5, delay: 0.4 }}
@@ -49,7 +49,7 @@ export default function CallToActionSection() {
               <motion.a
                 key={option.text}
                 href={option.href}
-                className="group flex items-center space-x-2 bg-white px-4 py-2 rounded-md transition-all duration-300 hover:shadow-md border border-gray-200"
+                className="group flex items-center space-x-2 bg-white dark:bg-black px-4 py-2 rounded-md transition-all duration-300 hover:shadow-md border-l-[1px] border-b-[1px] border-gray-200"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onMouseEnter={() => setHoveredButton(option.text)}
@@ -58,15 +58,15 @@ export default function CallToActionSection() {
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
               >
-                <option.icon className="w-5 h-5 text-gray-600" />
-                <span className="text-sm font-medium text-gray-800">{option.text}</span>
+                <option.icon className="w-5 h-5 text-gray-600 dark:text-white" />
+                <span className="text-sm font-medium text-gray-800 dark:text-white">{option.text}</span>
                 <motion.div
                   className="overflow-hidden"
                   initial={{ width: 0 }}
                   animate={{ width: hoveredButton === option.text ? "auto" : 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <ArrowRight className="w-4 h-4 text-gray-600" />
+                  <ArrowRight className="w-4 h-4 text-gray-600 dark:text-white" />
                 </motion.div>
               </motion.a>
             ))}
