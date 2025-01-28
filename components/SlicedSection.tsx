@@ -90,7 +90,7 @@ export default function SlicedSection({sectionProjectData}: {sectionProjectData:
               <div className="p-6">
                 <h3 className="text-2xl font-semibold mb-3 text-gray-800 dark:text-white">{project.title}</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
-                <Link href={project.link} className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300">
+                <Link href={project.link} className="inline-block bg-blue-500 dark:bg-black dark:hover:bg-slate-400 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300">
                   View Project
                 </Link>
               </div>
@@ -99,7 +99,7 @@ export default function SlicedSection({sectionProjectData}: {sectionProjectData:
         </div>
         <div className="w-[100%] h-[10vh] mt-3 flex items-center justify-center">
 
-          <button className='bg-blue-500  hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 text-sm'>
+          <button className='bg-blue-500 dark:bg-black dark:hover:bg-gray-600  hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 text-sm'>
             <Link href="/project">
             View All Projects  
             </Link>
