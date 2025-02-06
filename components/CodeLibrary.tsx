@@ -42,12 +42,6 @@ export default function CodeLibrary({codeData}: {codeData: CodeSnippet[]}) {
       </Link>
       </div>
 
-
-
-      
-
-      
-
       <div className="code-snippet-container">
         {filteredSnippets.map((snippet, index) => (
           <CodeSnippetCard
