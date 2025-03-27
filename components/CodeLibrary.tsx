@@ -1,4 +1,3 @@
-
 "use client"
 
 import React, { useState } from "react";
@@ -9,9 +8,6 @@ import CodeSnippetCard from "./CodeSnippet";
 
 export default function CodeLibrary({codeData}: {codeData: CodeSnippet[]}) {
   const [search, setSearch] = useState("");  
-
-
-
   const handleCopy = (code: string) => {
     navigator.clipboard.writeText(code);
   };

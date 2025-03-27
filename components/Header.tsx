@@ -15,7 +15,7 @@ const links = [
   { name: 'My Projects', icon: <Network className="w-4 h-4" />, href: '/project' },
   { name: 'Blogs', icon: <FileText className="w-4 h-4" />, href: '/blogs' },
   { name: 'Contact Me', icon: <PhoneCall className="w-4 h-4" />, href: '/contact' },
-  { name: 'Docs', icon: <FileArchive className="w-4 h-4" />, href: '/docs' },
+  // { name: 'Docs', icon: <FileArchive className="w-4 h-4" />, href: '/docs' },
 ];
 
 export default function Header() {

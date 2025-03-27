@@ -66,7 +66,7 @@ export default function LatestProjects({projectData}: {projectData: Project[]}) 
     <AnimatedSection className="relative overflow-hidden">
       <BreathingBackground />
       <div className="latest-container-copy relative z-10">
-        <h2 className="text-4xl font-semibold text-center mb-4 mt-1 text-gray-800 dark:text-white name-header">My Projects</h2>
+        <h2 className="text-4xl font-semibold text-center mb-4 mt-1 text-gray-800 dark:text-white name-header">Some Projects</h2>
         <div className="latest-card-container-copy">
           {projectData.map((project, index) => (
             <motion.div
