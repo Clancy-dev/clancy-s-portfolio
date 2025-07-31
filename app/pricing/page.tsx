@@ -1,266 +1,234 @@
 "use client"
 
 import { useState } from "react"
-import { Star, Check, X } from "lucide-react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Check, Star, Moon, Sun } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-
-
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
 
 export default function PricingPage() {
-  const [currency, setCurrency] = useState("UGX")
-  const pricing = {
-    Basic: 600000,
-    Standard: 850000,
-    Pro: 1700000,
-  }
+  const [currency, setCurrency] = useState<"UGX" | "USD">("UGX")
+  const [darkMode, setDarkMode] = useState(false)
 
-  const conversionRates: { [key: string]: number } = {
-    UGX: 1,
-    USD: 0.00027,
-    EUR: 0.00025,
-    GBP: 0.00022,
-    KES: 0.036,
-    TZS: 0.63,
-    ZAR: 0.005,
-    NGN: 0.2,
-    CAD: 0.00036,
-    AUD: 0.00038,
-    JPY: 0.037,
-    INR: 0.022,
-    CNY: 0.0018,
-  }
-
-  const currencies = Object.keys(conversionRates)
-
-  const handleCurrencyChange = (value: string) => {
-    setCurrency(value)
-  }
-
-  const convertPrices = (basePrice: number, currency: string) => {
-    const rate = conversionRates[currency] || 1
-    return Math.round(basePrice * rate)
-  }
-
-  const plans = [
+  const packages = [
     {
       name: "Basic",
-      price: convertPrices(pricing.Basic, currency),
-      description: "Perfect for small businesses needing a professional online presence",
-      features: [
-        { name: "Domain Set-Up", included: true },
-        { name: "Hosting", included: true },
-        { name: "Basic SEO setup", included: true },
-        { name: "Single-page website", included: true },
-        { name: "Mobile-friendly design", included: true },
-        { name: "Responsive design", included: true },
-        { name: "Form submission to email", included: true },
-        { name: "Speed optimization", included: true },
-        { name: "Social media integration", included: true },
-        { name: "Analytics Integration", included: false },
-        { name: "Google My Business Set-Up", included: false },
-        { name: "Database Integration", included: false },
-        { name: "Content Management System", included: false },
+      description: "Perfect for small businesses ready to establish their digital footprint",
+      priceUGX: 800000,
+      priceUSD: 216,
+      popular: false,
+      benefits: [
+        "Establish a credible online presence that builds trust",
+        "Professional design that reflects your brand values",
+        "Mobile-optimized experience for all your customers",
+        "Search engine visibility to help clients find you",
+        "Fast loading speeds that keep visitors engaged",
+        "Secure hosting and reliable uptime",
       ],
+      outcome: "Transform your business from invisible to credible online",
     },
     {
       name: "Standard",
-      price: convertPrices(pricing.Standard, currency),
-      description: "Ideal for growing businesses requiring multiple pages",
+      description: "Ideal for growing businesses ready to attract and convert clients",
+      priceUGX: 1600000,
+      priceUSD: 432,
       popular: true,
-      features: [
-        { name: "Domain Set-Up", included: true },
-        { name: "Hosting", included: true },
-        { name: "Advanced SEO Optimization", included: true },
-        { name: "Up to 7 pages", included: true },
-        { name: "Additional pages @ $10 each", included: true },
-        { name: "Mobile-friendly design", included: true },
-        { name: "Form Submission to Email", included: true },
-        { name: "Social media integration", included: true },
-        { name: "Speed Optimization", included: true },
-        { name: "Analytics Integration", included: true },
-        { name: "Google My Business Set-Up", included: true },
-        { name: "Database Integration", included: false },
-        { name: "Content Management System", included: false },
+      benefits: [
+        "Attract and convert new clients with strategic design",
+        "Advanced user experience that guides visitors to action",
+        "Content management system for easy updates",
+        "Analytics integration to track your success",
+        "Social media integration to expand your reach",
+        "Lead generation optimization",
+        "Professional email setup with your domain",
       ],
+      outcome: "Turn your website into a powerful client acquisition machine",
     },
     {
       name: "Pro",
-      price: convertPrices(pricing.Pro, currency),
-      description: "Full-featured web application for enterprise needs",
-      features: [
-        { name: "Domain Set-Up", included: true },
-        { name: "Hosting", included: true },
-        { name: "Advanced SEO Optimization", included: true },
-        { name: "Unlimited Pages", included: true },
-        { name: "Mobile-friendly design", included: true },
-        { name: "Form Submission to Email", included: true },
-        { name: "Social media integration", included: true },
-        { name: "Speed Optimization", included: true },
-        { name: "Analytics Integration", included: true },
-        { name: "Google My Business Set-Up", included: true },
-        { name: "Database Integration", included: true },
-        { name: "Content Management System", included: true },
-        { name: "Priority Support", included: true },
-        { name: "Real time Analytics", included: true },
-        { name: "User Authentication", included: true },
-        { name: "Fully Customized User Dashboard", included: true },
-        { name: "Custom API development", included: true },
+      description: "For ambitious businesses ready to dominate their market online",
+      priceUGX: 3200000,
+      priceUSD: 865,
+      popular: false,
+      benefits: [
+        "Position your business for growth, scale, and online dominance",
+        "Advanced functionality tailored to your unique needs",
+        "E-commerce capabilities to sell products/services online",
+        "Custom integrations with your existing business tools",
+        "Advanced SEO optimization for market leadership",
+        "Comprehensive analytics and reporting dashboard",
+        "Priority support and ongoing optimization",
+        "Multi-language support for broader market reach",
       ],
+      outcome: "Establish market leadership and scale your business exponentially",
     },
   ]
 
-  const faqs = [
-    {
-      question: "How much will it cost?",
-      answer: "The cost depends on the type of website, features, and customization you need. The pricing starts at UGX 600,000 for a basic plan, UGX 850,000 for a standard plan, and UGX 1,700,000 for advanced features. I'll work within your budget to deliver the best solution.",
-    },
-    {
-      question: "What payment methods do you accept?",
-      answer: "I accept mobile money, bank transfers, and PayPal.",
-    },
-    {
-      question: "Will the website be mobile-friendly?",
-      answer: "Yes, all my websites are fully responsive, meaning they will look and work perfectly on mobile devices, tablets, and desktops.",
-    },
-    {
-      question: "Can I see examples of your previous work?",
-      answer: "Absolutely! You can check out my projects, where i showcase some i have delivered for happy clients.",
-    },
-    {
-      question: "Can I update the website myself?",
-      answer: "Yes, i provide user-friendly Content Management Systems (CMS) like custom admin dashboards, allowing you to easily make updates without technical skills.",
-    },
-    {
-      question: "Do you provide website maintenance?",
-      answer: "Yes, i do offer maintenance to ensure your website stays updated, secure, and functioning smoothly.",
-    },
-    {
-      question: "What kind of security will the website have?",
-      answer: "Your website will include SSL certificates for encryption, regular backups, and protection against malware. I also offer maintenance services to keep your website secure.",
-    },
-    {
-      question: "Will I get training on how to use the website?",
-      answer: "Yes, i will provide detailed training and support to help you manage your website confidently.",
-    },
-    {
-      question: "What happens if the website breaks or has any unintended issues?",
-      answer: "I will be available to provide ongoing support and troubleshooting. If you encounter any issues, i will be available to fix them promptly.",
-    },
-    {
-      question: "Will I own the website once it’s built?",
-      answer: "Yes, you will have full ownership of your website, including the domain, content, and design.",
-    },
-    {
-      question: "Can I make changes to the design later?",
-      answer: "Definitely! I design websites with scalability in mind, so you can easily make changes or add features as your business grows.",
-    },
-    {
-      question: "Can you customize the website to match my brand?",
-      answer: "Yes, i ensure your website aligns with your branding, including colors, fonts, logos, and overall design, to create a consistent identity.",
-    },
-    {
-      question: "Will my website be fast?",
-      answer: "Yes, i optimize all websites for speed, using fast hosting, image compression, and clean code to ensure quick load times and excellent performance.",
-    },
-    {
-      question: "Is there a contract, receipt or proof of after payment details?",
-      answer: "Yes, i provide a detailed agreement outlining the scope of work, timelines, payment terms, and other project details for transparency as well as a receipt for proof of payment for the service.",
-    },
-    {
-      question: "Will my website bring in more customers?",
-      answer: "Yes, i design websites optimized for conversions and customer engagement. Combined with proper marketing strategies, your website will help attract and retain more customers.",
-    },
-    {
-      question: "How will I track the website's performance?",
-      answer: "I integrate analytics tools like Google Analytics, allowing you to track traffic, user behavior, and other key metrics.",
-    },
-     
-  ]
+  const formatPrice = (priceUGX: number, priceUSD: number) => {
+    if (currency === "UGX") {
+      return `UGX ${priceUGX.toLocaleString()}`
+    }
+    return `$${priceUSD.toLocaleString()}`
+  }
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-slate-800 lg:p-6 md:p-3 sm:p-2 p-1 mt-[72px] ">
-      <div className="w-full">
-        <div className="text-center py-8">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-50">Pricing Plans</h1>
-        </div>
+    <div className={`min-h-screen transition-colors duration-300 ${darkMode ? "dark" : ""}`}>
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-gray-900 dark:to-gray-800">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+          {/* Header Section */}
+          <div className="text-center mb-12 lg:mb-16">
+            {/* Dark Mode Toggle */}
+            <div className="flex justify-end mb-6">
+              <button
+                onClick={() => setDarkMode(!darkMode)}
+                className="p-2 rounded-lg bg-white dark:bg-gray-800 shadow-md hover:shadow-lg transition-all duration-200 border border-gray-200 dark:border-gray-700"
+                aria-label="Toggle dark mode"
+              >
+                {darkMode ? <Sun className="w-5 h-5 text-yellow-500" /> : <Moon className="w-5 h-5 text-gray-600" />}
+              </button>
+            </div>
 
-        <div className="py-4 text-center">
-          <h2 className="text-2xl font-semibold mb-4">Choose Your Currency</h2>
-          <Select onValueChange={handleCurrencyChange} defaultValue={currency}>
-            <SelectTrigger className="w-[180px] mx-auto bg-white dark:text-black">
-              <SelectValue placeholder="Select currency" />
-            </SelectTrigger>
-            <SelectContent>
-              {currencies.map((currencyOption) => (
-                <SelectItem key={currencyOption} value={currencyOption}>
-                  {currencyOption}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 leading-tight">
+              Invest in Your Digital Success
+            </h1>
+            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-6 sm:mb-8 px-4">
+              Choose the perfect package to transform your business online. Each solution is crafted to deliver
+              measurable results and drive real growth for your Uganda-based business.
+            </p>
 
-        <div className="grid gap-6 md:grid-cols-3 sm:grid-cols-1 mt-8">
-          {plans.map((plan) => (
-            <Card key={plan.name} className={`flex flex-col ${plan.popular ? "border-blue-500 border-2" : ""}`}>
-              <CardHeader>
-                <div className="flex justify-between items-center">
-                  <CardTitle className="text-2xl">{plan.name}</CardTitle>
-                  <Star className="h-5 w-5 text-yellow-400" />
-                </div>
-                {plan.popular && (
-                  <span className="bg-blue-500 dark:bg-white dark:text-gray-950 text-white text-xs font-semibold px-2 py-1 rounded-full uppercase">
+            {/* Currency Toggle */}
+            <div className="flex items-center justify-center gap-3 sm:gap-4 mb-8 px-4">
+              <span
+                className={`text-sm font-medium transition-colors ${currency === "UGX" ? "text-blue-600 dark:text-blue-400" : "text-gray-500 dark:text-gray-400"}`}
+              >
+                UGX
+              </span>
+              <button
+                onClick={() => setCurrency(currency === "UGX" ? "USD" : "UGX")}
+                className="relative inline-flex h-6 w-11 items-center rounded-full bg-blue-600 dark:bg-blue-500 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
+                aria-label="Toggle currency"
+              >
+                <span
+                  className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                    currency === "USD" ? "translate-x-6" : "translate-x-1"
+                  }`}
+                />
+              </button>
+              <span
+                className={`text-sm font-medium transition-colors ${currency === "USD" ? "text-blue-600 dark:text-blue-400" : "text-gray-500 dark:text-gray-400"}`}
+              >
+                USD
+              </span>
+            </div>
+          </div>
+
+          {/* Pricing Cards */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto mb-12 lg:mb-16">
+            {packages.map((pkg, index) => (
+              <Card
+                key={pkg.name}
+                className={`relative transition-all duration-300 hover:shadow-xl dark:hover:shadow-2xl ${
+                  pkg.popular
+                    ? "border-blue-500 dark:border-blue-400 border-2 shadow-xl dark:shadow-2xl lg:scale-105 bg-white dark:bg-gray-800"
+                    : "border-gray-200 dark:border-gray-700 hover:shadow-lg bg-white dark:bg-gray-800"
+                } ${index === 1 ? "lg:mt-0" : "lg:mt-4"}`}
+              >
+                {pkg.popular && (
+                  <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-600 dark:bg-blue-500 text-white px-3 sm:px-4 py-1 text-xs sm:text-sm">
+                    <Star className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
                     Most Popular
-                  </span>
+                  </Badge>
                 )}
-                <CardDescription className="text-xl font-semibold dark:text-white">
-                  {currency} {plan.price.toLocaleString()}
-                </CardDescription>
-                <p className="text-sm text-muted-foreground mt-2">{plan.description}</p>
-                <Button className="w-full mt-4 bg-blue-500 hover:bg-blue-600 text-white">Get Started</Button>
-              </CardHeader>
-              <CardContent className="flex-grow">
-                <h4 className="font-semibold mb-2">What's included:</h4>
-                <ul className="space-y-2">
-                  {plan.features.map((feature) => (
-                    <li key={feature.name} className="flex items-center">
-                      {feature.included ? (
-                        <Check className="h-5 w-5 text-green-500 mr-2" />
-                      ) : (
-                        <X className="h-5 w-5 text-red-500 mr-2" />
-                      )}
-                      <span>{feature.name}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-        
 
-        <div className="py-12 pb-0 flex items-center justify-center flex-col">
-          <h2 className="text-3xl font-bold mb-6 text-center text-gray-900 dark:text-white">Frequently Asked Questions</h2>
-          <Card className="lg:w-[80%] md:w-[100%] sm:w-[100%] w-full ">
-            <CardContent className="pt-6">
-              <Accordion type="single" collapsible className="w-full">
-                {faqs.map((faq, idx) => (
-                  <AccordionItem key={idx} value={`item-${idx}`} className="accordion-item">
-                    <AccordionTrigger className="accordion-trigger">{faq.question}</AccordionTrigger>
-                    <AccordionContent className="accordion-content">
-                      <p className="text-gray-600 dark:text-gray-50">{faq.answer}</p>
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </CardContent>
-          </Card>
+                <CardHeader className="text-center pb-4 px-4 sm:px-6">
+                  <CardTitle className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
+                    {pkg.name}
+                  </CardTitle>
+                  <CardDescription className="text-gray-600 dark:text-gray-300 mt-2 text-sm sm:text-base">
+                    {pkg.description}
+                  </CardDescription>
+                  <div className="mt-4 sm:mt-6">
+                    <span className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">
+                      {formatPrice(pkg.priceUGX, pkg.priceUSD)}
+                    </span>
+                    <span className="text-gray-500 dark:text-gray-400 ml-2 text-sm">one-time</span>
+                  </div>
+                </CardHeader>
+
+                <CardContent className="space-y-4 px-4 sm:px-6">
+                  <div className="bg-blue-50 dark:bg-blue-900/30 p-3 sm:p-4 rounded-lg border-l-4 border-blue-500 dark:border-blue-400">
+                    <p className="text-xs sm:text-sm font-semibold text-blue-800 dark:text-blue-300 mb-1">
+                      What You'll Achieve:
+                    </p>
+                    <p className="text-blue-700 dark:text-blue-200 text-sm sm:text-base">{pkg.outcome}</p>
+                  </div>
+
+                  <ul className="space-y-2 sm:space-y-3">
+                    {pkg.benefits.map((benefit, benefitIndex) => (
+                      <li key={benefitIndex} className="flex items-start gap-2 sm:gap-3">
+                        <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 dark:text-green-400 mt-0.5 flex-shrink-0" />
+                        <span className="text-gray-700 dark:text-gray-300 text-xs sm:text-sm leading-relaxed">
+                          {benefit}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+
+                <CardFooter className="pt-4 sm:pt-6 px-4 sm:px-6">
+                  <Button
+                    className={`w-full py-2 sm:py-3 text-base sm:text-lg font-semibold transition-all duration-200 ${
+                      pkg.popular
+                        ? "bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white shadow-lg hover:shadow-xl"
+                        : "bg-gray-900 hover:bg-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600 text-white"
+                    }`}
+                  >
+                    Get Started
+                  </Button>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
+
+          {/* Bottom CTA Section */}
+          <div className="text-center bg-white dark:bg-gray-800 rounded-2xl p-6 sm:p-8 shadow-lg dark:shadow-2xl max-w-4xl mx-auto border border-gray-100 dark:border-gray-700">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4">
+              Ready to Transform Your Business Online?
+            </h2>
+            <p className="text-gray-600 dark:text-gray-300 mb-6 text-base sm:text-lg px-4">
+              Join hundreds of successful Uganda businesses who have already made the smart investment in their digital
+              future. Let's discuss which package is perfect for your goals.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
+              <Button
+                size="lg"
+                className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white px-6 sm:px-8 py-3 text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-200"
+              >
+                Schedule Free Consultation
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 px-6 sm:px-8 py-3 text-base sm:text-lg bg-transparent hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-200"
+              >
+                View Our Portfolio
+              </Button>
+            </div>
+          </div>
+
+          {/* Trust Indicators */}
+          <div className="text-center mt-8 sm:mt-12">
+            <p className="text-gray-500 dark:text-gray-400 text-sm mb-4">Trusted by businesses across Uganda</p>
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 opacity-60">
+              <div className="text-xs text-gray-400 dark:text-gray-500">✓ 100+ Projects Delivered</div>
+              <div className="text-xs text-gray-400 dark:text-gray-500">✓ 5-Star Client Reviews</div>
+              <div className="text-xs text-gray-400 dark:text-gray-500">✓ Local Uganda Team</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   )
 }
+
 
