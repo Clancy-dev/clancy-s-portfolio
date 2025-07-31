@@ -73,7 +73,7 @@ export default function PricingPage() {
   }
 
   return (
-    <div className={`min-h-screen mt-[72px] transition-colors duration-300 ${darkMode ? "dark" : ""}`}>
+    <div className={`min-h-screen mt-[76px] sm:mt-[72px] transition-colors duration-300 ${darkMode ? "dark" : ""}`}>
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-gray-900 dark:to-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
           {/* Header Section */}
