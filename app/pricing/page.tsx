@@ -5,6 +5,7 @@ import { Check, Star, Moon, Sun } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import Link from "next/link"
 
 export default function PricingPage() {
   const [currency, setCurrency] = useState<"UGX" | "USD">("UGX")
@@ -72,13 +73,13 @@ export default function PricingPage() {
   }
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${darkMode ? "dark" : ""}`}>
+    <div className={`min-h-screen mt-[72px] transition-colors duration-300 ${darkMode ? "dark" : ""}`}>
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-gray-900 dark:to-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
           {/* Header Section */}
           <div className="text-center mb-12 lg:mb-16">
             {/* Dark Mode Toggle */}
-            <div className="flex justify-end mb-6">
+            {/* <div className="flex justify-end mb-6">
               <button
                 onClick={() => setDarkMode(!darkMode)}
                 className="p-2 rounded-lg bg-white dark:bg-gray-800 shadow-md hover:shadow-lg transition-all duration-200 border border-gray-200 dark:border-gray-700"
@@ -86,7 +87,7 @@ export default function PricingPage() {
               >
                 {darkMode ? <Sun className="w-5 h-5 text-yellow-500" /> : <Moon className="w-5 h-5 text-gray-600" />}
               </button>
-            </div>
+            </div> */}
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 leading-tight">
               Invest in Your Digital Success
@@ -200,19 +201,23 @@ export default function PricingPage() {
               future. Let's discuss which package is perfect for your goals.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
+              <Link href="/contact">
               <Button
                 size="lg"
                 className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white px-6 sm:px-8 py-3 text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-200"
               >
                 Schedule Free Consultation
               </Button>
+              </Link>
+              <Link href="/">
               <Button
                 size="lg"
                 variant="outline"
                 className="border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 px-6 sm:px-8 py-3 text-base sm:text-lg bg-transparent hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-200"
               >
-                View Our Portfolio
+                View My Portfolio
               </Button>
+              </Link>
             </div>
           </div>
 
