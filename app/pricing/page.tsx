@@ -73,8 +73,8 @@ export default function PricingPage() {
   }
 
   return (
-    <div className={`min-h-screen mt-[80px] sm:mt-[72px] transition-colors duration-300 ${darkMode ? "dark" : ""}`}>
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-gray-900 dark:to-gray-800">
+    <div className={`min-h-screen mt-[72px] transition-colors duration-300 ${darkMode ? "dark" : ""}`}>
+      <div className="min-h-screen pt-[2rem] pb-[2rem] bg-gradient-to-br from-slate-50 to-blue-50 dark:from-gray-900 dark:to-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
           {/* Header Section */}
           <div className="text-center mb-12 lg:mb-16">
@@ -90,10 +90,10 @@ export default function PricingPage() {
             </div> */}
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 leading-tight">
-              Invest in Your Digital Success
+              Ready to push your business online?
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-6 sm:mb-8 px-4">
-              Choose the perfect package to transform your business online. Each solution is crafted to deliver
+              Choose the perfect website package to transform your business online. Each solution is crafted to deliver
               measurable results and drive real growth for your Uganda-based business.
             </p>
 
