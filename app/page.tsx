@@ -15,7 +15,7 @@ export default async function Home() {
     <div>
         {/* Hero Section */}
         <AnimatedSection>
-        <HeroSection/>
+        <HeroSection />
        </AnimatedSection>
        {/* Some Projects */}
         <AnimatedSection>
