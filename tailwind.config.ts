@@ -5,6 +5,7 @@ export default withUt({
     content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
+	"./src/**/*.{js,ts,jsx,tsx}", // adjust depending on your project
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
