@@ -3,8 +3,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "tailwindcss";
+@import "tw-animate-css";
 @import"./styles/main";
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap");
+/* Removed invalid @custom-variant dark (&:is(.dark *)); */
 
 /* Add these styles to your globals.css */
 .ProseMirror p.is-editor-empty:first-child::before {
@@ -535,10 +538,9 @@ html {
 
 
 
-@import "tailwindcss";
-@import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+
+
 
 :root {
   --background: oklch(1 0 0);
@@ -611,7 +613,7 @@ html {
   --sidebar-ring: oklch(0.439 0 0);
 }
 
-@theme inline {
+:root {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
