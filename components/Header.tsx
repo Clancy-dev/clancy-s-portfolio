@@ -12,7 +12,7 @@ const links = [
   { name: "Home", icon: <Home className="w-4 h-4" />, href: "/" },
   { name: "About me", icon: <User className="w-4 h-4" />, href: "/about" },
   { name: "Pricing", icon: <Tag className="w-4 h-4" />, href: "/pricing" },
-  { name: "My Projects", icon: <Network className="w-4 h-4" />, href: "/project" },
+  { name: "My Projects", icon: <Network className="w-4 h-4" />, href: "/projects" },
   { name: "Blogs", icon: <FileText className="w-4 h-4" />, href: "/blogs" },
   { name: "Contact Me", icon: <PhoneCall className="w-4 h-4" />, href: "/contact" },
 ]

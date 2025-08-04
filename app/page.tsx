@@ -1,16 +1,16 @@
-import { fetchProject } from '@/actions/Project'
+
 import AnimatedSection from '@/components/AnimatedSection'
 import HeroSection from '@/components/HeroSection'
+import { LatestProjectsPage } from '@/components/latest-projects-page'
 import PortfolioSection from '@/components/PortfolioSection'
 import ReviewSection from '@/components/ReviewSection'
-import SlicedSection from '@/components/SlicedSection'
 import StatisticsSection from '@/components/StatisticsSection'
 import { TechStack } from '@/components/TechStack'  
 import React from 'react'
 
  
 export default async function Home() {
-    const sectionProjects = await fetchProject() || []
+  
   return (
     <div>
         {/* Hero Section */}
@@ -19,7 +19,7 @@ export default async function Home() {
        </AnimatedSection>
        {/* Some Projects */}
         <AnimatedSection>
-        <SlicedSection sectionProjectData={sectionProjects}/>
+        <LatestProjectsPage />
         </AnimatedSection>
         {/* Statistics Section */}
         <AnimatedSection>
