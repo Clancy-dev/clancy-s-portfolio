@@ -50,6 +50,7 @@ export async function registerAction(formData: FormData) {
 
     const user = await db.user.create({
       data: {
+        name: validatedData.name,
         email: validatedData.email,
         password: hashedPassword,
       },
