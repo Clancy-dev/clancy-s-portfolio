@@ -1,7 +1,8 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Navigation } from "@/components/dashboard/navigation"
 import { requireAuth } from "@/lib/auth"
+import Navigation from "@/components/navigation"
+
 
 export const metadata: Metadata = {
   title: "Project Dashboard",
