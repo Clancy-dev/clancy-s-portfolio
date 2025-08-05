@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { changePasswordAction, logoutAction, getSessionInfo } from "@/lib/actions/auth"
+import { logoutAction, getSessionInfo } from "@/lib/actions/auth"
 
 export function SettingsPage() {
   const [currentPassword, setCurrentPassword] = useState("")
@@ -57,20 +57,20 @@ export function SettingsPage() {
       return
     }
 
-    startPasswordTransition(async () => {
-      const result = await changePasswordAction(currentPassword, newPassword)
-      if (result.success) {
-        setMessage(result.message || "Password changed successfully!")
-        setCurrentPassword("")
-        setNewPassword("")
-        setConfirmPassword("")
-        // Refresh session info
-        const info = await getSessionInfo()
-        setSessionInfo(info)
-      } else {
-        setError(result.error || "Failed to change password")
-      }
-    })
+    // startPasswordTransition(async () => {
+    //   const result = await changePasswordAction(currentPassword, newPassword)
+    //   if (result.success) {
+    //     setMessage(result.message || "Password changed successfully!")
+    //     setCurrentPassword("")
+    //     setNewPassword("")
+    //     setConfirmPassword("")
+    //     // Refresh session info
+    //     const info = await getSessionInfo()
+    //     setSessionInfo(info)
+    //   } else {
+    //     setError(result.error || "Failed to change password")
+    //   }
+    // })
   }
 
   const handleLogout = () => {
