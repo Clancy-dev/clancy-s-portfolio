@@ -40,11 +40,12 @@ export async function createSession(userId: string): Promise<string> {
   })
 
   const cookieStore = await cookies()
-  cookieStore.set("session", token, {
+  cookieStore.set("dashboard-session", token, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
     expires: expiresAt,
+    path: "/",
   })
 
   return token
@@ -52,7 +53,7 @@ export async function createSession(userId: string): Promise<string> {
 
 export async function getSession(): Promise<{ user: User; expiresAt: Date } | null> {
   const cookieStore = await cookies()
-  const token = cookieStore.get("session")?.value
+  const token = cookieStore.get("dashboard-session")?.value
 
   if (!token) return null
 
@@ -86,10 +87,16 @@ export async function getSession(): Promise<{ user: User; expiresAt: Date } | nu
 }
 
 export async function deleteSession(token?: string): Promise<void> {
+  // This function should only be called from server actions
+  // Client-side logout will be handled by server actions
+  if (typeof window !== "undefined") {
+    throw new Error("deleteSession should not be called on the client side")
+  }
+
   const cookieStore = await cookies()
 
   if (!token) {
-    token = cookieStore.get("session")?.value
+    token = cookieStore.get("dashboard-session")?.value
   }
 
   if (token) {
@@ -98,7 +105,7 @@ export async function deleteSession(token?: string): Promise<void> {
     })
   }
 
-  cookieStore.delete("session")
+  cookieStore.delete("dashboard-session")
 }
 
 export async function requireAuth(): Promise<{ user: User; expiresAt: Date }> {

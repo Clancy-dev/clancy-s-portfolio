@@ -20,14 +20,19 @@ export async function createProjectAction(data: ProjectFormData) {
 
     const project = await db.project.create({
       data: {
-        ...data,
+        name: data.name,
+        description: data.description,
+        liveUrl: data.liveUrl || null,
+        image: data.image || null,
+        techStack: data.techStack,
+        category: data.category,
         userId: user.id,
       },
     })
 
-    revalidatePath("/")
-    revalidatePath("/projects")
-    revalidatePath("/latest")
+    revalidatePath("/dashboard")
+    revalidatePath("/dashboard/projects")
+    revalidatePath("/dashboard/latest")
 
     return { success: true, project }
   } catch (error) {
@@ -50,12 +55,19 @@ export async function updateProjectAction(id: string, data: ProjectFormData) {
 
     const updatedProject = await db.project.update({
       where: { id },
-      data,
+      data: {
+        name: data.name,
+        description: data.description,
+        liveUrl: data.liveUrl || null,
+        image: data.image || null,
+        techStack: data.techStack,
+        category: data.category,
+      },
     })
 
-    revalidatePath("/")
-    revalidatePath("/projects")
-    revalidatePath("/latest")
+    revalidatePath("/dashboard")
+    revalidatePath("/dashboard/projects")
+    revalidatePath("/dashboard/latest")
 
     return { success: true, project: updatedProject }
   } catch (error) {
@@ -80,9 +92,9 @@ export async function deleteProjectAction(id: string) {
       where: { id },
     })
 
-    revalidatePath("/")
-    revalidatePath("/projects")
-    revalidatePath("/latest")
+    revalidatePath("/dashboard")
+    revalidatePath("/dashboard/projects")
+    revalidatePath("/dashboard/latest")
 
     return { success: true }
   } catch (error) {

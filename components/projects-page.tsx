@@ -12,7 +12,7 @@ import type { Project } from "@/lib/storage"
 import { categoryConfig } from "@/lib/storage"
 import { useMediaQuery } from "@/hooks/use-media-query"
 
-export function ProjectsPage() {
+export default function ProjectsPage() {
   const [projects, setProjects] = useState<Project[]>([])
   const [searchQuery, setSearchQuery] = useState("")
   const [activeTab, setActiveTab] = useState<"basic" | "standard" | "pro">("basic")
@@ -41,10 +41,10 @@ export function ProjectsPage() {
     try {
       const projectsData = await getProjectsAction()
       setProjects(
-        projectsData.map((project) => ({
+        projectsData.map((project: Project) => ({
           ...project,
-          createdAt: project.createdAt.toISOString(),
-          updatedAt: project.updatedAt.toISOString(),
+          createdAt: typeof project.createdAt === "string" ? project.createdAt : (project.createdAt as Date).toISOString(),
+          updatedAt: typeof project.updatedAt === "string" ? project.updatedAt : (project.updatedAt as Date).toISOString(),
           liveUrl: project.liveUrl ?? undefined,
           image: project.image ?? undefined,
         })),
@@ -105,7 +105,7 @@ export function ProjectsPage() {
   const projectCounts = useMemo(() => {
     const counts = { basic: 0, standard: 0, pro: 0 }
     projects.forEach((project) => {
-      counts[project.category]++
+      counts[project.category as "basic" | "standard" | "pro"]++
     })
     return counts
   }, [projects])
@@ -132,7 +132,7 @@ export function ProjectsPage() {
     }
 
     return (
-      <div className="space-y-8">
+      <div className="space-y-8 w-full min-h-screen">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {paginatedProjects.map((project) => (
             <ProjectCard
@@ -175,12 +175,12 @@ export function ProjectsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-slate-100 dark:from-slate-900 dark:via-purple-900 dark:to-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-slate-100 dark:from-slate-900 dark:via-purple-900 dark:to-slate-900 mt-[72px]">
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-cyan-600 dark:from-purple-400 dark:via-pink-400 dark:to-cyan-400 bg-clip-text text-transparent mb-4">
-            Projects Gallery
+            Projects Worked On
           </h1>
           <p className="text-purple-600 dark:text-purple-400 text-lg">Explore projects organized by category</p>
         </div>

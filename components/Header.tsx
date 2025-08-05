@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Home, User, Tag, Network, FileText, PhoneCall, Menu, X } from "lucide-react"
+import { Home, User, Tag, Network, PhoneCall, Menu, X } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
@@ -13,7 +13,6 @@ const links = [
   { name: "About me", icon: <User className="w-4 h-4" />, href: "/about" },
   { name: "Pricing", icon: <Tag className="w-4 h-4" />, href: "/pricing" },
   { name: "My Projects", icon: <Network className="w-4 h-4" />, href: "/projects" },
-  // { name: "Blogs", icon: <FileText className="w-4 h-4" />, href: "/blogs" },
   { name: "Contact Me", icon: <PhoneCall className="w-4 h-4" />, href: "/contact" },
 ]
 
@@ -71,11 +70,9 @@ export default function Header() {
                   <span className="font-['Inter',_'system-ui',_sans-serif] font-medium">{link.name}</span>
                 </Link>
               ))}
-
               <div className="mx-2">
                 <ModeToggle />
               </div>
-
               {/* Login Button */}
               <Link
                 href="/login"
@@ -107,7 +104,6 @@ export default function Header() {
             className="absolute inset-0 bg-gradient-to-br from-black/60 via-purple-900/40 to-black/60 backdrop-blur-md"
             onClick={() => setIsMenuOpen(false)}
           />
-
           {/* Menu Panel - Responsive */}
           <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center p-3 xs:p-4 sm:p-6">
             <div className="w-full max-w-[280px] xs:max-w-[320px] sm:max-w-sm bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl rounded-2xl xs:rounded-3xl shadow-2xl border border-purple-200/30 dark:border-purple-500/30 overflow-hidden max-h-[90vh] flex flex-col">
@@ -175,7 +171,6 @@ export default function Header() {
                     <ModeToggle />
                   </div>
                 </div>
-
                 {/* Login Button */}
                 <Link
                   href="/login"
@@ -188,7 +183,6 @@ export default function Header() {
               </div>
             </div>
           </div>
-
           {/* Close Button - Responsive */}
           <button
             className="absolute top-4 xs:top-5 sm:top-6 right-4 xs:right-5 sm:right-6 p-2 xs:p-3 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white/30 transition-all duration-300 hover:scale-110"
@@ -198,7 +192,6 @@ export default function Header() {
           </button>
         </div>
       )}
-
       <style jsx>{`
         @keyframes slideInUp {
           from {
