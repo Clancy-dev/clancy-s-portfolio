@@ -21,6 +21,8 @@ export function LatestProjectsPage() {
           ...project,
           createdAt: project.createdAt.toISOString(),
           updatedAt: project.updatedAt.toISOString(),
+          liveUrl: project.liveUrl ?? undefined,
+          image: project.image ?? undefined,
         })),
       )
     } catch (error) {
