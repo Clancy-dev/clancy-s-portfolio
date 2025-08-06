@@ -229,24 +229,27 @@ export function ProjectForm({ initialData, onSubmit, onCancel, isSubmitting, sub
             <Plus className="h-4 w-4" />
           </Button>
         </div>
-        {fields.length > 0 && (
-          <div className="flex flex-wrap gap-2 mt-3">
-            {fields.map((field, index) => (
-              <Badge key={field.id} variant="secondary" className={`${categoryStyle.badgeColor} pr-1`}>
-                {field.value}
-                <Button
-                  type="button"
-                  variant="ghost"
-                  size="sm"
-                  className="h-auto p-1 ml-1 hover:bg-red-500/20"
-                  onClick={() => remove(index)}
-                >
-                  <X className="h-3 w-3" />
-                </Button>
-              </Badge>
-            ))}
-          </div>
-        )}
+       {fields.length > 0 && (
+                   <div className="flex flex-wrap gap-2 mt-3">
+                     {fields.map((field, index) => {
+                       const techStackValues = form.watch("techStack")
+                       return (
+                         <Badge key={field.id} variant="secondary" className={`${categoryStyle.badgeColor} pr-1`}>
+                           {techStackValues[index]}
+                           <Button
+                             type="button"
+                             variant="ghost"
+                             size="sm"
+                             className="h-auto p-1 ml-1 hover:bg-red-500/20"
+                             onClick={() => remove(index)}
+                           >
+                             <X className="h-3 w-3" />
+                           </Button>
+                         </Badge>
+                       )
+                     })}
+                   </div>
+                 )}
         {form.formState.errors.techStack && (
           <p className="text-red-500 dark:text-red-400 text-sm">{form.formState.errors.techStack.message}</p>
         )}
@@ -287,6 +290,8 @@ export function ProjectForm({ initialData, onSubmit, onCancel, isSubmitting, sub
             submitLabel
           )}
         </Button>
+
+        
       </div>
     </form>
   )
