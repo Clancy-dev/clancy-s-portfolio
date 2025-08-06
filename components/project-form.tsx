@@ -1,22 +1,23 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { useForm, useFieldArray } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
-import { X, Plus, RotateCcw } from "lucide-react"
+import { X, Plus, RotateCcw } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Badge } from "@/components/ui/badge"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { UploadButton } from "@/components/upload-button"
 import type { Project, ProjectFormData } from "@/lib/storage"
 import { categoryConfig } from "@/lib/storage"
 import { Category } from "@prisma/client"
+import { UploadButton } from "@/utils/uploadthing"
+import { UploadButtonSection } from "./upload-button"
+// import { UploadButton } from "@/utils/uploadthing"
 
 const projectSchema = z.object({
   name: z.string().min(1, "Project name is required"),
@@ -91,6 +92,11 @@ export function ProjectForm({ initialData, onSubmit, onCancel, isSubmitting, sub
       e.preventDefault()
       addTech()
     }
+  }
+
+  const handleUploadComplete = (url: string) => {
+    setUploadedImage(url)
+    form.setValue("image", url)
   }
 
   const selectedCategory = form.watch("category")
@@ -199,7 +205,7 @@ export function ProjectForm({ initialData, onSubmit, onCancel, isSubmitting, sub
               </Button>
             </div>
           )}
-          <UploadButton onUploadComplete={setUploadedImage} />
+          <UploadButtonSection onUploadComplete={handleUploadComplete} />
         </div>
       </div>
 
@@ -223,7 +229,6 @@ export function ProjectForm({ initialData, onSubmit, onCancel, isSubmitting, sub
             <Plus className="h-4 w-4" />
           </Button>
         </div>
-
         {fields.length > 0 && (
           <div className="flex flex-wrap gap-2 mt-3">
             {fields.map((field, index) => (
@@ -242,7 +247,6 @@ export function ProjectForm({ initialData, onSubmit, onCancel, isSubmitting, sub
             ))}
           </div>
         )}
-
         {form.formState.errors.techStack && (
           <p className="text-red-500 dark:text-red-400 text-sm">{form.formState.errors.techStack.message}</p>
         )}

@@ -1,14 +1,13 @@
 "use client"
-
 import { useState, useEffect } from "react"
-import { Home, User, Tag, Network, PhoneCall, Menu, X } from "lucide-react"
+import { Home, User, Tag, Network, PhoneCall, Menu, X, Settings, LayoutDashboard, LogOut } from 'lucide-react'
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { ModeToggle } from "./ModeToggle"
 
-const links = [
+const baseLinks = [
   { name: "Home", icon: <Home className="w-4 h-4" />, href: "/" },
   { name: "About me", icon: <User className="w-4 h-4" />, href: "/about" },
   { name: "Pricing", icon: <Tag className="w-4 h-4" />, href: "/pricing" },
@@ -16,9 +15,29 @@ const links = [
   { name: "Contact Me", icon: <PhoneCall className="w-4 h-4" />, href: "/contact" },
 ]
 
+const authLinks = [
+  { name: "Dashboard", icon: <LayoutDashboard className="w-4 h-4" />, href: "/dashboard" },
+  { name: "Settings", icon: <Settings className="w-4 h-4" />, href: "/settings" },
+]
+
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false) // This would come from your auth system
   const pathname = usePathname()
+
+  // Combine links based on auth status
+  const links = isLoggedIn ? [...baseLinks, ...authLinks] : baseLinks
+
+  const handleAuthAction = () => {
+    if (isLoggedIn) {
+      // Handle logout
+      setIsLoggedIn(false)
+      // Add your logout logic here
+    } else {
+      // Handle login redirect
+      // This would typically redirect to login page
+    }
+  }
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -48,12 +67,10 @@ export default function Header() {
                   className="relative w-auto h-10 rounded-full border-2 border-purple-100/30"
                 />
               </div>
-
               <h1 className="bg-gradient-to-r sacramento-regular from-slate-800 via-purple-700 to-slate-900 dark:from-slate-200 dark:via-purple-300 dark:to-slate-100 bg-clip-text text-transparent text-xl sm:text-2xl md:text-2xl lg:text-3xl tracking-tight">
                 Clancy
               </h1>
             </div>
-
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-2">
               {links.map((link) => (
@@ -74,16 +91,26 @@ export default function Header() {
               <div className="mx-2">
                 <ModeToggle />
               </div>
-              {/* Login Button */}
-              <Link
-                href="/login"
-                className="relative overflow-hidden bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-6 py-2 rounded-full font-semibold transition-all duration-300 hover:from-cyan-600 hover:to-purple-700 hover:scale-105 shadow-lg hover:shadow-cyan-500/25 font-['Inter',_'system-ui',_sans-serif]"
-              >
-                <span className="relative z-10">Login</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-cyan-500 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
-              </Link>
+              {/* Auth Button */}
+              {isLoggedIn ? (
+                <button
+                  onClick={handleAuthAction}
+                  className="relative overflow-hidden bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-2 rounded-full font-semibold transition-all duration-300 hover:from-red-600 hover:to-red-700 hover:scale-105 shadow-lg hover:shadow-red-500/25 font-['Inter',_'system-ui',_sans-serif] flex items-center space-x-2"
+                >
+                  <LogOut className="w-4 h-4" />
+                  <span className="relative z-10">Sign Out</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-red-500 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                </button>
+              ) : (
+                <Link
+                  href="/login"
+                  className="relative overflow-hidden bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-6 py-2 rounded-full font-semibold transition-all duration-300 hover:from-cyan-600 hover:to-purple-700 hover:scale-105 shadow-lg hover:shadow-cyan-500/25 font-['Inter',_'system-ui',_sans-serif]"
+                >
+                  <span className="relative z-10">Login</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-cyan-500 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                </Link>
+              )}
             </div>
-
             {/* Mobile Menu Button */}
             <button
               className="md:hidden relative p-2 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white transition-all duration-300 hover:from-purple-700 hover:to-pink-700 hover:scale-110 shadow-lg"
@@ -96,7 +123,6 @@ export default function Header() {
           </div>
         </nav>
       </header>
-
       {/* Mobile Menu Overlay - Fully Responsive */}
       {isMenuOpen && (
         <div className="fixed inset-0 z-[100] md:hidden">
@@ -127,7 +153,6 @@ export default function Header() {
                 </div>
                 <p className="text-white/80 text-xs xs:text-sm font-medium">Navigation Menu</p>
               </div>
-
               {/* Navigation Links - Responsive with Scroll */}
               <div className="p-3 xs:p-4 sm:p-6 space-y-2 xs:space-y-3 flex-1 overflow-y-auto">
                 {links.map((link, index) => (
@@ -163,7 +188,6 @@ export default function Header() {
                   </Link>
                 ))}
               </div>
-
               {/* Bottom Section - Responsive */}
               <div className="p-3 xs:p-4 sm:p-6 pt-0 space-y-3 xs:space-y-4 border-t border-purple-200/20 dark:border-purple-500/20 flex-shrink-0">
                 {/* Mode Toggle */}
@@ -172,15 +196,29 @@ export default function Header() {
                     <ModeToggle />
                   </div>
                 </div>
-                {/* Login Button */}
-                <Link
-                  href="/login"
-                  className="block w-full text-center bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-4 xs:px-6 py-3 xs:py-4 rounded-xl xs:rounded-2xl font-semibold transition-all duration-300 hover:from-cyan-600 hover:to-purple-700 hover:scale-105 shadow-lg hover:shadow-cyan-500/25 font-['Inter',_'system-ui',_sans-serif] text-sm xs:text-base"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <span className="hidden xs:inline">Login to Account</span>
-                  <span className="xs:hidden">Login</span>
-                </Link>
+                {/* Auth Button */}
+                {isLoggedIn ? (
+                  <button
+                    onClick={() => {
+                      handleAuthAction()
+                      setIsMenuOpen(false)
+                    }}
+                    className="flex items-center justify-center space-x-2 w-full bg-gradient-to-r from-red-500 to-red-600 text-white px-4 xs:px-6 py-3 xs:py-4 rounded-xl xs:rounded-2xl font-semibold transition-all duration-300 hover:from-red-600 hover:to-red-700 hover:scale-105 shadow-lg hover:shadow-red-500/25 font-['Inter',_'system-ui',_sans-serif] text-sm xs:text-base"
+                  >
+                    <LogOut className="w-4 h-4" />
+                    <span className="hidden xs:inline">Sign Out</span>
+                    <span className="xs:hidden">Sign Out</span>
+                  </button>
+                ) : (
+                  <Link
+                    href="/login"
+                    className="block w-full text-center bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-4 xs:px-6 py-3 xs:py-4 rounded-xl xs:rounded-2xl font-semibold transition-all duration-300 hover:from-cyan-600 hover:to-purple-700 hover:scale-105 shadow-lg hover:shadow-cyan-500/25 font-['Inter',_'system-ui',_sans-serif] text-sm xs:text-base"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <span className="hidden xs:inline">Login to Account</span>
+                    <span className="xs:hidden">Login</span>
+                  </Link>
+                )}
               </div>
             </div>
           </div>
@@ -193,6 +231,17 @@ export default function Header() {
           </button>
         </div>
       )}
+      
+      {/* Demo Toggle Button - Remove this in production */}
+      {/* <div className="fixed bottom-4 right-4 z-50">
+        <button
+          onClick={() => setIsLoggedIn(!isLoggedIn)}
+          className="bg-blue-500 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-blue-600 transition-colors text-sm"
+        >
+          {isLoggedIn ? 'Simulate Logout' : 'Simulate Login'}
+        </button>
+      </div> */}
+      
       <style jsx>{`
         @keyframes slideInUp {
           from {
