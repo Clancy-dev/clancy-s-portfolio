@@ -2,8 +2,6 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from 'next/font/google'
 import "./globals.css"
-import Header from "@/components/Header"
-import Footer from "@/components/Footer"
 import { AuthProvider } from "@/hooks/use-auth"
 import { ThemeProvider } from "@/components/theme-provider"
 import { extractRouterConfig } from "uploadthing/server"
@@ -37,9 +35,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <AuthProvider>
-            <Header/>
             {children}
-            <Footer/>
           </AuthProvider>
         </ThemeProvider>
       </body>

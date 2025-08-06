@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Home, User, Tag, Network, PhoneCall, Menu, X } from "lucide-react"
+import { Home, User, Tag, Network, PhoneCall, Menu, X, Database, Settings } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
@@ -14,9 +14,12 @@ const links = [
   { name: "Pricing", icon: <Tag className="w-4 h-4" />, href: "/pricing" },
   { name: "My Projects", icon: <Network className="w-4 h-4" />, href: "/projects" },
   { name: "Contact Me", icon: <PhoneCall className="w-4 h-4" />, href: "/contact" },
+  { name: "Dashboard", icon: <Database className="w-4 h-4" />, href: "/dashboard" },
+  { name: "Settings", icon: <Settings className="w-4 h-4" />, href: "/settings" },
+
 ]
 
-export default function Header() {
+export default function BackHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const pathname = usePathname()
 
