@@ -89,7 +89,7 @@ export default function BackHeader() {
               {/* Log out Button */}
               <Button
                onClick={handleLogout}
-                className="relative overflow-hidden bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-2 rounded-full font-semibold transition-all duration-300 hover:from-cyan-600 hover:to-purple-700 hover:scale-105 shadow-lg hover:shadow-cyan-500/25 font-['Inter',_'system-ui',_sans-serif]"
+                className="relative overflow-hidden bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-2 rounded-full font-semibold transition-all duration-300 hover:from-red-600 hover:to-red-700 hover:scale-105 shadow-lg hover:shadow-cyan-500/25 font-['Inter',_'system-ui',_sans-serif]"
               >
                 <span className="relative z-10">Log Out</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-red-500 to-red-600 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
@@ -186,7 +186,7 @@ export default function BackHeader() {
                 </div>
                 {/* Login Button */}
                 <Button
-                  className="block w-full text-center bg-gradient-to-r from-red-400 to-red-600 text-white px-4 xs:px-6 py-3 xs:py-4 rounded-xl xs:rounded-2xl font-semibold transition-all duration-300 hover:from-cyan-600 hover:to-purple-700 hover:scale-105 shadow-lg hover:shadow-cyan-500/25 font-['Inter',_'system-ui',_sans-serif] text-sm xs:text-base"
+                  className="block w-full text-center bg-gradient-to-r from-red-400 to-red-600 text-white px-4 xs:px-6 py-3 xs:py-4 rounded-xl xs:rounded-2xl font-semibold transition-all duration-300 hover:from-red-500 hover:to-red-700 hover:scale-105 shadow-lg hover:shadow-cyan-500/25 font-['Inter',_'system-ui',_sans-serif] text-sm xs:text-base"
                   onClick={handleLogout}
                 >
                   <span className="hidden xs:inline">Log Out Account</span>
