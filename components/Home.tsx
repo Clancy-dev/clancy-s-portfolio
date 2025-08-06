@@ -9,7 +9,7 @@ import { TechStack } from '@/components/TechStack'
 import React from 'react'
 
  
-export default async function Home() {
+export default function Home() {
   
   return (
     <div>
