@@ -7,7 +7,7 @@ import { Tabs, TabsContent } from "@/components/ui/tabs"
 import { ProjectCard } from "@/components/project-card"
 import { ViewProjectDialog } from "@/components/view-project-dialog"
 import { Pagination } from "@/components/pagination"
-import { getProjectsAction } from "@/lib/actions/projects"
+import { getAllProjectsPublic } from "@/lib/actions/projects"
 import type { Project } from "@/lib/storage"
 import { categoryConfig } from "@/lib/storage"
 import { useMediaQuery } from "@/hooks/use-media-query"
@@ -38,15 +38,13 @@ export default function ProjectsPage() {
 
   const loadProjects = async () => {
     setIsLoading(true)
-    try {
-      const projectsData = await getProjectsAction()
+      try {
+      const projectsData = await getAllProjectsPublic()
       setProjects(
-        projectsData.map((project: Project) => ({
+        projectsData.map((project) => ({
           ...project,
-          createdAt: typeof project.createdAt === "string" ? project.createdAt : (project.createdAt as Date).toISOString(),
-          updatedAt: typeof project.updatedAt === "string" ? project.updatedAt : (project.updatedAt as Date).toISOString(),
-          liveUrl: project.liveUrl ?? null,
-          image: project.image ?? null,
+          createdAt: project.createdAt.toISOString(),
+          updatedAt: project.updatedAt.toISOString(),
         })),
       )
     } catch (error) {

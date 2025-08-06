@@ -14,6 +14,30 @@ export interface ProjectFormData {
   category: Category
 }
 
+// when not authenticated
+export async function getAllProjectsPublic() {
+  try {
+    const projects = await db.project.findMany({
+      orderBy: { createdAt: "desc" },
+      include: {
+        user: {
+          select: {
+            name: true,
+            avatar: true,
+          },
+        },
+      },
+    })
+
+    return projects
+  } catch (error) {
+    console.error("Get all public projects error:", error)
+    return []
+  }
+}
+
+
+// when authenticated
 export async function createProjectAction(data: ProjectFormData) {
   try {
     const { user } = await requireAuth()
