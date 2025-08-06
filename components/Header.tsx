@@ -39,16 +39,17 @@ export default function Header() {
             {/* Logo Section */}
             <div className="flex items-center space-x-4">
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full blur-sm opacity-30"></div>
+                <div className="absolute inset-0 bg-white blur-sm opacity-30"></div>
                 <Image
                   src="/logo.png"
                   alt="Clancy Ssekisambu Logo"
                   width={60}
                   height={60}
-                  className="relative w-auto h-10 rounded-full border-2 border-purple-400/30"
+                  className="relative w-auto h-10 rounded-full border-2 border-purple-100/30"
                 />
               </div>
-              <h1 className="bg-gradient-to-r from-slate-800 via-purple-700 to-slate-900 dark:from-slate-200 dark:via-purple-300 dark:to-slate-100 bg-clip-text text-transparent text-xl sm:text-2xl md:text-2xl lg:text-3xl font-bold font-['Inter',_'system-ui',_sans-serif] tracking-tight">
+
+              <h1 className="bg-gradient-to-r sacramento-regular from-slate-800 via-purple-700 to-slate-900 dark:from-slate-200 dark:via-purple-300 dark:to-slate-100 bg-clip-text text-transparent text-xl sm:text-2xl md:text-2xl lg:text-3xl tracking-tight">
                 Clancy
               </h1>
             </div>

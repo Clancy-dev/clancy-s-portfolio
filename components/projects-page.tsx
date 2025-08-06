@@ -45,8 +45,8 @@ export default function ProjectsPage() {
           ...project,
           createdAt: typeof project.createdAt === "string" ? project.createdAt : (project.createdAt as Date).toISOString(),
           updatedAt: typeof project.updatedAt === "string" ? project.updatedAt : (project.updatedAt as Date).toISOString(),
-          liveUrl: project.liveUrl ?? undefined,
-          image: project.image ?? undefined,
+          liveUrl: project.liveUrl ?? null,
+          image: project.image ?? null,
         })),
       )
     } catch (error) {
