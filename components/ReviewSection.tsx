@@ -24,7 +24,7 @@ const reviews = [
     id: 3,
     name: "Nalubega Charlotte",
     image: "/r-images/r3.jpg",
-    text: "Top-notch quality! Clancy’s work is exceptional and highly recommended.",
+    text: "Top-notch quality! Clancy's work is exceptional and highly recommended.",
     rating: 3.5,
   },
   {
@@ -45,7 +45,7 @@ const reviews = [
     id: 6,
     name: "Okurut Ethan",
     image: "/r-images/r7.jpg",
-    text: "Thank you! I Couldn’t be happier!",
+    text: "Thank you! I Couldn't be happier!",
     rating: 5,
   },
   {
@@ -66,7 +66,7 @@ const reviews = [
     id: 9,
     name: "Nakigudde Olivia",
     image: "/r-images/r8.jpg",
-    text: "Clancy’s outstanding results and dedication ensured our project’s success.",
+    text: "Clancy's outstanding results and dedication ensured our project's success.",
     rating: 5,
   },
   {
@@ -76,13 +76,11 @@ const reviews = [
     text: "Clancy delivers perfection with passion. Highly recommend him for any project!",
     rating: 5,
   },
-];
-
+]
 
 const StarRating = ({ rating }: { rating: number }) => {
   return (
     <div className="flex">
-      {/* <span className="text-sm text-primary/60 mr-1">Rating:</span> */}
       {[1, 2, 3, 4, 5].map((star) => (
         <span key={star}>
           {star <= rating ? (
@@ -103,7 +101,6 @@ export default function ReviewSection() {
     triggerOnce: true,
     threshold: 0.1,
   })
-
   const [currentReview, setCurrentReview] = useState(0)
   const [isVisible, setIsVisible] = useState(true)
 
@@ -114,20 +111,31 @@ export default function ReviewSection() {
         setTimeout(() => {
           setCurrentReview((prev) => (prev + 1) % reviews.length)
           setIsVisible(true)
-        }, 500) // Short delay for smooth transition
+        }, 500)
       }
-
       const interval = setInterval(cycleReviews, 6000)
-
       return () => clearInterval(interval)
     }
   }, [inView])
 
   return (
-    <section ref={ref} className="review-container dark:from-black dark:to-black bg-gradient-to-br from-green-700  to-green-500 dark:bg-black">
-      <div className="inner-review-container mx-auto px-4 ">
-      <h2 className="lg:text-4xl md:text-3xl sm:text-3xl text-3xl font-semibold text-center mb-4 mt-3 text-gray-100 name-header">Reviews</h2>
-        <div className=" w-full p-2">
+    <section
+      ref={ref}
+      className="relative py-16 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 dark:from-gray-950 dark:via-slate-900 dark:to-black overflow-hidden"
+    >
+      {/* Background decoration matching hero */}
+      <div className="absolute inset-0 bg-[url('/placeholder.svg?height=100&width=100')] opacity-5 dark:opacity-3"></div>
+      <div className="absolute top-20 left-20 w-72 h-72 bg-purple-500 dark:bg-purple-600 rounded-full mix-blend-multiply filter blur-xl opacity-20 dark:opacity-15 animate-pulse"></div>
+      <div className="absolute bottom-20 right-20 w-72 h-72 bg-cyan-500 dark:bg-cyan-600 rounded-full mix-blend-multiply filter blur-xl opacity-20 dark:opacity-15 animate-pulse delay-1000"></div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        <h2 className="text-4xl lg:text-5xl font-bold text-center mb-12 mt-3 font-['Inter',_'system-ui',_sans-serif]">
+          <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 dark:from-purple-300 dark:via-pink-300 dark:to-cyan-300 bg-clip-text text-transparent">
+            Client Reviews
+          </span>
+        </h2>
+
+        <div className="max-w-4xl mx-auto">
           <AnimatePresence mode="wait">
             {isVisible && (
               <motion.div
@@ -136,44 +144,84 @@ export default function ReviewSection() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5 }}
-                className="bg-white border-yellow-300 dark:border-gray-400 border-b-4 border-l-4 rounded-tr-[50%] rounded-[2px] shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300"
+                className="relative group"
               >
-                <div className="p-4 ">
-                  <div className="flex items-center mb-2 review-inside">
-                    <img
-                      src={reviews[currentReview].image || "/placeholder.svg"}
-                      alt={reviews[currentReview].name}
-                      className="w-16 h-16 rounded-full border-4 border-primary mr-4 object-cover review-inside-1"
-                    />
+                {/* Decorative gradient border */}
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-3xl opacity-20 blur-sm group-hover:opacity-30 transition-opacity duration-300"></div>
 
-                 <h3 className="text-2xl font-semibold text-gray-900 review-inside-2">{reviews[currentReview].name}</h3>
-                    
-                  </div>
-                  
-                  <p className="text-lg italic text-gray-700">"{reviews[currentReview].text}"</p>
-                  <div className="flex w-[100%]  gap-2">
-                     <p className="text-gray-700 font-bold">Rating:</p>
-                      <StarRating rating={reviews[currentReview].rating} />
+                <div className="relative bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-purple-200/30 dark:border-purple-500/30 overflow-hidden transform hover:scale-105 transition-all duration-300">
+                  <div className="p-8 md:p-10">
+                    <div className="flex items-center mb-6">
+                      <div className="relative">
+                        <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full blur-sm opacity-30"></div>
+                        <img
+                          src={reviews[currentReview].image || "/placeholder.svg"}
+                          alt={reviews[currentReview].name}
+                          className="relative w-20 h-20 rounded-full border-4 border-purple-400/30 mr-6 object-cover"
+                        />
+                      </div>
+                      <div>
+                        <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-slate-800 via-purple-700 to-slate-900 dark:from-slate-200 dark:via-purple-300 dark:to-slate-100 bg-clip-text text-transparent font-['Inter',_'system-ui',_sans-serif]">
+                          {reviews[currentReview].name}
+                        </h3>
+                        <div className="flex items-center gap-2 mt-2">
+                          <p className="text-slate-600 dark:text-slate-400 font-medium">Rating:</p>
+                          <StarRating rating={reviews[currentReview].rating} />
+                        </div>
+                      </div>
                     </div>
+
+                    <blockquote className="text-xl md:text-2xl italic text-slate-700 dark:text-slate-300 leading-relaxed font-['Inter',_'system-ui',_sans-serif]">
+                      "{reviews[currentReview].text}"
+                    </blockquote>
+                  </div>
+
+                  {/* Bottom gradient accent */}
+                  <div className="h-2 bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-500"></div>
                 </div>
               </motion.div>
             )}
           </AnimatePresence>
         </div>
+
+        {/* Review indicators */}
+        <div className="flex justify-center mt-8 space-x-2">
+          {reviews.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                setIsVisible(false)
+                setTimeout(() => {
+                  setCurrentReview(index)
+                  setIsVisible(true)
+                }, 300)
+              }}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                index === currentReview
+                  ? "bg-gradient-to-r from-purple-500 to-pink-500 scale-125"
+                  : "bg-white/30 hover:bg-white/50"
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Floating elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(12)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute bg-gradient-to-r from-purple-500/10 to-pink-500/10 dark:from-purple-600/8 dark:to-pink-600/8 rounded-full"
+            style={{
+              width: `${Math.random() * 50 + 25}px`,
+              height: `${Math.random() * 50 + 25}px`,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animation: `float ${12 + Math.random() * 18}s infinite ease-in-out ${Math.random() * 12}s`,
+            }}
+          />
+        ))}
       </div>
     </section>
   )
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

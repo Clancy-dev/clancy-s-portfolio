@@ -53,11 +53,11 @@ export default function Herosection() {
 
   return (
     <main>
-      <section className="min-h-screen mt-[72px] bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center px-4 py-12 relative overflow-hidden">
+      <section className="min-h-screen mt-[72px] bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 dark:from-gray-950 dark:via-slate-900 dark:to-black flex items-center justify-center px-4 py-12 relative overflow-hidden">
         {/* Background decoration */}
-        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=100&width=100')] opacity-5"></div>
-        <div className="absolute top-20 left-20 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-72 h-72 bg-cyan-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-1000"></div>
+        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=100&width=100')] opacity-5 dark:opacity-3"></div>
+        <div className="absolute top-20 left-20 w-72 h-72 bg-purple-500 dark:bg-purple-600 rounded-full mix-blend-multiply filter blur-xl opacity-20 dark:opacity-15 animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-72 h-72 bg-cyan-500 dark:bg-cyan-600 rounded-full mix-blend-multiply filter blur-xl opacity-20 dark:opacity-15 animate-pulse delay-1000"></div>
 
         <div className="container mx-auto max-w-7xl relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -67,32 +67,32 @@ export default function Herosection() {
                 {/* Name with animation */}
                 <div className="overflow-hidden">
                   <h1
-                    className={`text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight transform transition-all duration-1000 ease-out ${
+                    className={`text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white dark:text-gray-100 leading-tight transform transition-all duration-1000 ease-out ${
                       isNameVisible ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
                     }`}
                   >
-                    <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
+                    <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 dark:from-purple-300 dark:via-pink-300 dark:to-cyan-300 bg-clip-text text-transparent">
                       Clancy
                     </span>
                     <br />
-                    <span className="text-white">Ssekisambu</span>
+                    <span className="text-white dark:text-gray-100">Ssekisambu</span>
                   </h1>
                 </div>
 
                 {/* Typewriter text */}
                 <div className="h-20 sm:h-16 lg:h-20 flex items-center">
-                  <p className="text-xl sm:text-2xl lg:text-3xl text-gray-300 font-light">
-                    <span className="text-purple-400">{currentText}</span>
-                    <span className="animate-pulse text-cyan-400">|</span>
+                  <p className="text-xl sm:text-2xl lg:text-3xl text-gray-300 dark:text-gray-400 font-light">
+                    <span className="text-purple-400 dark:text-purple-300">{currentText}</span>
+                    <span className="animate-pulse text-cyan-400 dark:text-cyan-300">|</span>
                   </p>
                 </div>
 
                 {/* Call to action buttons */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
-                  <button className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-full hover:from-purple-700 hover:to-pink-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-purple-500/25">
+                  <button className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-700 dark:to-pink-700 text-white font-semibold rounded-full hover:from-purple-700 hover:to-pink-700 dark:hover:from-purple-800 dark:hover:to-pink-800 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-purple-500/25 dark:hover:shadow-purple-400/20">
                     View My Work
                   </button>
-                  <button className="px-8 py-4 border-2 border-purple-400 text-purple-400 font-semibold rounded-full hover:bg-purple-400 hover:text-white transition-all duration-300 backdrop-blur-sm">
+                  <button className="px-8 py-4 border-2 border-purple-400 dark:border-purple-300 text-purple-400 dark:text-purple-300 font-semibold rounded-full hover:bg-purple-400 hover:text-white dark:hover:bg-purple-300 dark:hover:text-gray-900 transition-all duration-300 backdrop-blur-sm">
                     Get In Touch
                   </button>
                 </div>
@@ -101,10 +101,10 @@ export default function Herosection() {
                 <div className="flex justify-center lg:justify-start space-x-6 pt-8">
                   <a
                     href="#"
-                    className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 cursor-pointer group"
+                    className="w-12 h-12 bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300 cursor-pointer group"
                   >
                     <svg
-                      className="w-6 h-6 text-white group-hover:text-green-400 transition-colors"
+                      className="w-6 h-6 text-white dark:text-gray-300 group-hover:text-green-400 dark:group-hover:text-green-300 transition-colors"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
@@ -113,10 +113,10 @@ export default function Herosection() {
                   </a>
                   <a
                     href="#"
-                    className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 cursor-pointer group"
+                    className="w-12 h-12 bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300 cursor-pointer group"
                   >
                     <svg
-                      className="w-6 h-6 text-white group-hover:text-pink-400 transition-colors"
+                      className="w-6 h-6 text-white dark:text-gray-300 group-hover:text-pink-400 dark:group-hover:text-pink-300 transition-colors"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
@@ -125,10 +125,10 @@ export default function Herosection() {
                   </a>
                   <a
                     href="#"
-                    className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 cursor-pointer group"
+                    className="w-12 h-12 bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300 cursor-pointer group"
                   >
                     <svg
-                      className="w-6 h-6 text-white group-hover:text-blue-400 transition-colors"
+                      className="w-6 h-6 text-white dark:text-gray-300 group-hover:text-blue-400 dark:group-hover:text-blue-300 transition-colors"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
@@ -144,13 +144,13 @@ export default function Herosection() {
               <div className="relative">
                 {/* Decorative rings */}
                 <div
-                  className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 opacity-20 scale-110 animate-spin"
+                  className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 dark:from-purple-600 dark:to-pink-600 opacity-20 dark:opacity-15 scale-110 animate-spin"
                   style={{ animationDuration: "8s" }}
                 ></div>
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 animate-pulse opacity-30 scale-105"></div>
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 dark:from-cyan-600 dark:to-purple-600 animate-pulse opacity-30 dark:opacity-20 scale-105"></div>
 
                 {/* Main image container */}
-                <div className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-[450px] lg:h-[450px] rounded-full overflow-hidden border-4 border-white/20 backdrop-blur-sm shadow-2xl">
+                <div className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-[450px] lg:h-[450px] rounded-full overflow-hidden border-4 border-white/20 dark:border-white/10 backdrop-blur-sm shadow-2xl dark:shadow-black/50">
                   <Image
                     src="/newprofilepic.png?height=450&width=450&text=Your+Photo+Here"
                     alt="Clancy Ssekisambu - Full Stack Developer"
@@ -158,16 +158,15 @@ export default function Herosection() {
                     className="object-cover hover:scale-110 transition-transform duration-700"
                     priority
                   />
-
                   {/* Overlay gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-purple-900/20 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-purple-900/20 dark:from-black/30 to-transparent"></div>
                 </div>
 
                 {/* Floating elements */}
-                <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-sm animate-bounce shadow-lg">
+                <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 dark:from-purple-600 dark:to-pink-600 rounded-full flex items-center justify-center text-white dark:text-gray-100 font-bold text-sm animate-bounce shadow-lg dark:shadow-black/30">
                   <span>{"<dev/>"}</span>
                 </div>
-                <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xs animate-pulse shadow-lg">
+                <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-500 dark:from-cyan-600 dark:to-blue-600 rounded-full flex items-center justify-center text-white dark:text-gray-100 font-bold text-xs animate-pulse shadow-lg dark:shadow-black/30">
                   <span>✨</span>
                 </div>
               </div>
@@ -175,11 +174,11 @@ export default function Herosection() {
           </div>
 
           {/* Scroll indicator */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/60 animate-bounce">
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/60 dark:text-gray-400/60 animate-bounce">
             <div className="flex flex-col items-center space-y-2">
               <span className="text-sm">Scroll to explore</span>
-              <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-                <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-pulse"></div>
+              <div className="w-6 h-10 border-2 border-white/30 dark:border-gray-400/30 rounded-full flex justify-center">
+                <div className="w-1 h-3 bg-white/60 dark:bg-gray-400/60 rounded-full mt-2 animate-pulse"></div>
               </div>
             </div>
           </div>

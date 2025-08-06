@@ -2,7 +2,7 @@
 import AnimatedSection from '@/components/AnimatedSection'
 import HeroSection from '@/components/HeroSection'
 import { LatestProjectsPage } from '@/components/latest-projects-page'
-import PortfolioSection from '@/components/PortfolioSection'
+import PortfolioSection from '@/components/InfiniteSection'
 import ReviewSection from '@/components/ReviewSection'
 import StatisticsSection from '@/components/StatisticsSection'
 import { TechStack } from '@/components/TechStack'  
@@ -26,10 +26,9 @@ export default async function Home() {
         <StatisticsSection/>
         </AnimatedSection>
         {/* Tech Stack Section */}
-        <AnimatedSection className='w-[100%] h-[50vh] bg-gray-100 dark:bg-black flex items-center justify-center flex-col'>
-        <h2 className="text-4xl font-semibold text-center mb-4 mt-3 text-gray-800 dark:text-white name-header">My Tech Stack</h2>
-        <TechStack/>   
-        </AnimatedSection>
+        <AnimatedSection>
+        <TechStack />
+        </AnimatedSection> 
         {/* Review Section */}
         <AnimatedSection>
         <ReviewSection/>
