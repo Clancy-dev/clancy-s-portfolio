@@ -25,8 +25,13 @@ export default function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false) // This would come from your auth system
   const pathname = usePathname()
 
-  // Combine links based on auth status
-  const links = isLoggedIn ? [...baseLinks, ...authLinks] : baseLinks
+  // Replace the existing links definition with this:
+  const [links, setLinks] = useState(baseLinks)
+
+  // Add this useEffect after the existing useEffect:
+  useEffect(() => {
+    setLinks(isLoggedIn ? [...baseLinks, ...authLinks] : baseLinks)
+  }, [isLoggedIn])
 
   const handleAuthAction = () => {
     if (isLoggedIn) {
@@ -236,10 +241,13 @@ export default function Header() {
       {/* <div className="fixed bottom-4 right-4 z-50">
         <button
           onClick={() => setIsLoggedIn(!isLoggedIn)}
-          className="bg-blue-500 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-blue-600 transition-colors text-sm"
+          className="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-600 transition-colors text-sm font-semibold"
         >
-          {isLoggedIn ? 'Simulate Logout' : 'Simulate Login'}
+          {isLoggedIn ? 'Demo: Logout' : 'Demo: Login'}
         </button>
+        <div className="text-xs text-center mt-1 text-gray-600 dark:text-gray-400">
+          Status: {isLoggedIn ? 'Logged In' : 'Logged Out'}
+        </div>
       </div> */}
       
       <style jsx>{`
