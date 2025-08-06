@@ -1,12 +1,14 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useTransition } from "react"
 import { Home, User, Tag, Network, PhoneCall, Menu, X, Database, Settings } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { ModeToggle } from "./ModeToggle"
+import { logoutAction} from "@/lib/actions/auth"
+import { Button } from "./ui/button"
 
 const links = [
   { name: "Home", icon: <Home className="w-4 h-4" />, href: "/" },
@@ -22,6 +24,13 @@ const links = [
 export default function BackHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const pathname = usePathname()
+  const [isPendingLogout, startLogoutTransition] = useTransition()
+
+  const handleLogout = () => {
+      startLogoutTransition(() => {
+        logoutAction()
+      })
+    }
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -77,14 +86,14 @@ export default function BackHeader() {
               <div className="mx-2">
                 <ModeToggle />
               </div>
-              {/* Login Button */}
-              <Link
-                href="/login"
-                className="relative overflow-hidden bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-6 py-2 rounded-full font-semibold transition-all duration-300 hover:from-cyan-600 hover:to-purple-700 hover:scale-105 shadow-lg hover:shadow-cyan-500/25 font-['Inter',_'system-ui',_sans-serif]"
+              {/* Log out Button */}
+              <Button
+               onClick={handleLogout}
+                className="relative overflow-hidden bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-2 rounded-full font-semibold transition-all duration-300 hover:from-cyan-600 hover:to-purple-700 hover:scale-105 shadow-lg hover:shadow-cyan-500/25 font-['Inter',_'system-ui',_sans-serif]"
               >
-                <span className="relative z-10">Login</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-cyan-500 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
-              </Link>
+                <span className="relative z-10">Log Out</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-red-500 to-red-600 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+              </Button>
             </div>
 
             {/* Mobile Menu Button */}
@@ -176,14 +185,13 @@ export default function BackHeader() {
                   </div>
                 </div>
                 {/* Login Button */}
-                <Link
-                  href="/login"
-                  className="block w-full text-center bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-4 xs:px-6 py-3 xs:py-4 rounded-xl xs:rounded-2xl font-semibold transition-all duration-300 hover:from-cyan-600 hover:to-purple-700 hover:scale-105 shadow-lg hover:shadow-cyan-500/25 font-['Inter',_'system-ui',_sans-serif] text-sm xs:text-base"
-                  onClick={() => setIsMenuOpen(false)}
+                <Button
+                  className="block w-full text-center bg-gradient-to-r from-red-400 to-red-600 text-white px-4 xs:px-6 py-3 xs:py-4 rounded-xl xs:rounded-2xl font-semibold transition-all duration-300 hover:from-cyan-600 hover:to-purple-700 hover:scale-105 shadow-lg hover:shadow-cyan-500/25 font-['Inter',_'system-ui',_sans-serif] text-sm xs:text-base"
+                  onClick={handleLogout}
                 >
-                  <span className="hidden xs:inline">Login to Account</span>
-                  <span className="xs:hidden">Login</span>
-                </Link>
+                  <span className="hidden xs:inline">Log Out Account</span>
+                  <span className="xs:hidden">Log Out</span>
+                </Button>
               </div>
             </div>
           </div>
