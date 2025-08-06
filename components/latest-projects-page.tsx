@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { Clock, Sparkles } from "lucide-react"
 import { ProjectCard } from "@/components/project-card"
 import { ViewProjectDialog } from "@/components/view-project-dialog"
-import { getProjectsAction } from "@/lib/actions/projects"
+import { getAllProjectsPublic } from "@/lib/actions/projects"
 import type { Project } from "@/lib/storage"
 
 export function LatestProjectsPage() {
@@ -15,7 +15,7 @@ export function LatestProjectsPage() {
   const loadProjects = async () => {
     setIsLoading(true)
     try {
-      const projectsData = await getProjectsAction()
+      const projectsData = await getAllProjectsPublic()
       setProjects(
         projectsData.map((project) => ({
           ...project,
