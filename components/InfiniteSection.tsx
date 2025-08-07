@@ -14,7 +14,7 @@ const projects = [
   { id: 6, image: "/brand/brand6.png?height=100&width=100" },
   { id: 7, image: "/brand/brand7.jpg?height=100&width=100" },
   { id: 8, image: "/brand/brand8.jpg?height=100&width=100" },
-  { id: 9, image: "/brand/gm.jpg?height=100&width=100" },
+  { id: 9, image: "/brand/gm.png?height=100&width=100" },
   { id: 10, image: "/brand/brand91.png?height=100&width=100" },
   { id: 11, image: "/brand/brand101.png?height=100&width=100" },
   { id: 12, image: "/brand/brand11.jpg?height=100&width=100" },
