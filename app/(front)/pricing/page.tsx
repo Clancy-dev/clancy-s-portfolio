@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
+import Head from "next/head"
 
 export default function PricingPage() {
   const [currency, setCurrency] = useState<"UGX" | "USD">("UGX")
@@ -182,6 +183,12 @@ export default function PricingPage() {
   }
 
   return (
+    <>
+    <Head>
+       <title>Pricing | Affordable Web Development in Uganda – Clancy Ssekisambu</title>
+       <meta name="description" content="Explore transparent and affordable website pricing by Clancy Ssekisambu. Get high-quality web development services tailored to your business needs and budget in Uganda." />
+       <meta name="keywords" content="Clancy Ssekisambu, web developer in Uganda, website designer Uganda, full stack web developer Uganda, freelance web developer Uganda, React developer Uganda, Next.js developer Uganda, Tailwind CSS developer, web developer near me, website developer Kampala, web development Uganda, affordable website design Uganda, website design near me, hire a web developer Uganda, custom websites Uganda, professional web development Uganda, mobile-friendly websites Uganda, SEO-friendly websites Uganda" />
+    </Head>
     <div className={`min-h-screen mt-[72px] transition-colors duration-300 ${darkMode ? "dark" : ""}`}>
       <div className="min-h-screen pt-[2rem] sm:pt-0 sm:pb-0 pb-[2rem] bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 dark:from-gray-950 dark:via-slate-900 dark:to-black relative overflow-hidden">
         {/* Background decoration matching hero */}
@@ -337,5 +344,7 @@ export default function PricingPage() {
         </div>
       </div>
     </div>
+    </>
+    
   )
 }

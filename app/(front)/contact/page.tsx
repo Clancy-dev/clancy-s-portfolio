@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Mail, Phone, MapPin } from 'lucide-react'
+import Head from "next/head"
 
 export default function ContactPage() {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false)
@@ -20,6 +21,12 @@ export default function ContactPage() {
   }
 
   return (
+    <>
+    <Head>
+     <title>Contact Clancy Ssekisambu | Let's Build Something Great</title>
+     <meta name="description" content="Get in touch with Clancy Ssekisambu, a full stack web developer in Uganda. Whether you have a project in mind or just want to connect, Clancy is ready to collaborate and bring your ideas to life. Tel:+256 707013121 / +256 770983239" />
+     <meta name="keywords" content="Clancy Ssekisambu, web developer in Uganda, website designer Uganda, full stack web developer Uganda, freelance web developer Uganda, React developer Uganda, Next.js developer Uganda, Tailwind CSS developer, web developer near me, website developer Kampala, web development Uganda, affordable website design Uganda, website design near me, hire a web developer Uganda, custom websites Uganda, professional web development Uganda, mobile-friendly websites Uganda, SEO-friendly websites Uganda" />
+    </Head>
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 dark:from-gray-950 dark:via-slate-900 dark:to-black pt-20">
       <main className="container mx-auto px-4 py-8">
         <motion.section
@@ -139,5 +146,7 @@ export default function ContactPage() {
         </div>
       </main>
     </div>
+    </>
+    
   )
 }
