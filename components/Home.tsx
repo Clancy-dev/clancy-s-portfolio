@@ -13,14 +13,8 @@ export default function Home() {
   
   return (
     <div>
-        {/* Hero Section */}
-        <AnimatedSection>
-        <HeroSection />
-       </AnimatedSection>
-       {/* Some Projects */}
-        <AnimatedSection>
-        <LatestProjectsPage />
-        </AnimatedSection>
+      <HeroSection />
+      <LatestProjectsPage />
         {/* Statistics Section */}
         <AnimatedSection>
         <StatisticsSection/>
