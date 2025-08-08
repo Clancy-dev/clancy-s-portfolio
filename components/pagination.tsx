@@ -74,7 +74,7 @@ export function Pagination({ currentPage, totalPages, onPageChange }: Pagination
         disabled={currentPage === totalPages}
         className="border-purple-300 dark:border-purple-500/50 text-purple-600 dark:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-500/10 disabled:opacity-50"
       >
-        {ChevronRight} {/* Updated to use the component directly */}
+        <ChevronRight className="h-4 w-4" />
       </Button>
     </div>
   )
