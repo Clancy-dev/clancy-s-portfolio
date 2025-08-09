@@ -133,7 +133,7 @@ export function LoginPage() {
               </Button>
             </form>
 
-            <div className="mt-6 text-center">
+            {/* <div className="mt-6 text-center">
               <p className="text-sm text-slate-600 dark:text-slate-400">
                 Don't have an account?{" "}
                 <Link
@@ -143,7 +143,7 @@ export function LoginPage() {
                   Create one here
                 </Link>
               </p>
-            </div>
+            </div> */}
           </CardContent>
         </Card>
       </div>
