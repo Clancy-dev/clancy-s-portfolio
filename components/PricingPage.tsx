@@ -15,13 +15,13 @@ export default function PricingPage() {
     {
       name: "Basic",
       description: "Perfect for small businesses ready to establish their digital footprint",
-      priceUGX: 150000,
-      priceUSD: 41.74,
+      priceUGX: 300000,
+      priceUSD: 83,
       popular: false,
       tier: "basic",
       benefits: [
         "Establish a credible online presence that builds trust",
-        "Professional design that reflects your brand values",
+        "premiumfessional design that reflects your brand values",
         "Mobile-optimized experience for all your customers",
         "Search engine visibility to help clients find you",
         "Fast loading speeds that keep visitors engaged",
@@ -32,8 +32,8 @@ export default function PricingPage() {
     {
       name: "Standard",
       description: "Ideal for growing businesses ready to attract and convert clients",
-      priceUGX: 300000,
-      priceUSD: 83.47,
+      priceUGX: 600000,
+      priceUSD: 166,
       popular: true,
       tier: "standard",
       benefits: [
@@ -43,21 +43,21 @@ export default function PricingPage() {
         "Analytics integration to track your success",
         "Social media integration to expand your reach",
         "Lead generation optimization",
-        "Professional email setup with your domain",
+        "premiumfessional email setup with your domain",
       ],
       outcome: "Turn your website into a powerful client acquisition machine",
     },
     {
-      name: "Pro",
+      name: "Premium",
       description: "For ambitious businesses ready to dominate their market online",
-      priceUGX: 600000,
-      priceUSD: 166.95,
+      priceUGX: 1100000,
+      priceUSD: 303,
       popular: false,
-      tier: "pro",
+      tier: "premium",
       benefits: [
         "Position your business for growth, scale, and online dominance",
         "Advanced functionality tailored to your unique needs",
-        "E-commerce capabilities to sell products/services online",
+        "E-commerce capabilities to sell premiumducts/services online",
         "Custom integrations with your existing business tools",
         "Advanced SEO optimization for market leadership",
         "Comprehensive analytics and reporting dashboard",
@@ -91,7 +91,7 @@ export default function PricingPage() {
             ? "border-blue-500 dark:border-blue-400 border-2 shadow-xl dark:shadow-2xl lg:scale-105 bg-gradient-to-br from-blue-600 via-cyan-700 to-blue-800 dark:bg-gradient-to-br dark:from-blue-700 dark:via-cyan-800 dark:to-blue-900"
             : "border-blue-200 dark:border-blue-700 hover:shadow-lg bg-gradient-to-br from-blue-600 via-cyan-700 to-blue-800 dark:bg-gradient-to-br dark:from-blue-700 dark:via-cyan-800 dark:to-blue-900 hover:border-blue-300 dark:hover:border-blue-600"
         }`
-      case "pro":
+      case "premium":
         return `${baseStyles} ${
           popular
             ? "border-purple-500 dark:border-purple-400 border-2 shadow-xl dark:shadow-2xl lg:scale-105 bg-gradient-to-br from-purple-600 via-pink-700 to-purple-800 dark:bg-gradient-to-br dark:from-purple-700 dark:via-pink-800 dark:to-purple-900"
@@ -108,7 +108,7 @@ export default function PricingPage() {
         return "bg-gradient-to-r from-green-500 to-emerald-600 dark:from-green-600 dark:to-emerald-700 text-white"
       case "standard":
         return "bg-gradient-to-r from-blue-500 to-cyan-600 dark:from-blue-600 dark:to-cyan-700 text-white"
-      case "pro":
+      case "premium":
         return "bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-700 dark:to-pink-700 text-white"
       default:
         return "bg-gray-600 text-white"
@@ -131,7 +131,7 @@ export default function PricingPage() {
             ? "bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 dark:from-blue-600 dark:to-cyan-700 dark:hover:from-blue-700 dark:hover:to-cyan-800 text-white shadow-lg hover:shadow-xl"
             : "bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 dark:from-blue-600 dark:to-cyan-700 dark:hover:from-blue-700 dark:hover:to-cyan-800 text-white"
         }`
-      case "pro":
+      case "premium":
         return `${baseStyles} ${
           popular
             ? "bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 dark:from-purple-700 dark:to-pink-700 dark:hover:from-purple-800 dark:hover:to-pink-800 text-white shadow-lg hover:shadow-xl"
@@ -148,7 +148,7 @@ export default function PricingPage() {
         return "bg-white/10 backdrop-blur-sm border-l-4 border-green-300"
       case "standard":
         return "bg-white/10 backdrop-blur-sm border-l-4 border-blue-300"
-      case "pro":
+      case "premium":
         return "bg-white/10 backdrop-blur-sm border-l-4 border-purple-300"
       default:
         return "bg-white/10 backdrop-blur-sm border-l-4 border-gray-300"
@@ -161,7 +161,7 @@ export default function PricingPage() {
         return "text-green-200"
       case "standard":
         return "text-blue-200"
-      case "pro":
+      case "premium":
         return "text-purple-200"
       default:
         return "text-gray-200"
@@ -174,7 +174,7 @@ export default function PricingPage() {
         return "text-green-100"
       case "standard":
         return "text-blue-100"
-      case "pro":
+      case "premium":
         return "text-purple-100"
       default:
         return "text-gray-100"
@@ -330,7 +330,7 @@ export default function PricingPage() {
                 Trusted by businesses across Uganda
               </p>
               <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 opacity-60">
-                <div className="text-xs text-gray-400 dark:text-gray-500">✓ 100+ Projects Delivered</div>
+                <div className="text-xs text-gray-400 dark:text-gray-500">✓ 100+ premiumjects Delivered</div>
                 <div className="text-xs text-gray-400 dark:text-gray-500">✓ 5-Star Client Reviews</div>
                 <div className="text-xs text-gray-400 dark:text-gray-500">✓ Local Uganda Team</div>
               </div>
