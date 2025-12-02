@@ -16,7 +16,7 @@ export default function PricingPage() {
       name: "Basic",
       description: "Perfect for small businesses ready to establish their digital footprint",
       priceUGX: 300000,
-      priceUSD: 83,
+      priceUSD: 84,
       popular: false,
       tier: "basic",
       benefits: [
@@ -33,7 +33,7 @@ export default function PricingPage() {
       name: "Standard",
       description: "Ideal for growing businesses ready to attract and convert clients",
       priceUGX: 600000,
-      priceUSD: 166,
+      priceUSD: 168,
       popular: true,
       tier: "standard",
       benefits: [
@@ -50,8 +50,8 @@ export default function PricingPage() {
     {
       name: "Premium",
       description: "For ambitious businesses ready to dominate their market online",
-      priceUGX: 1100000,
-      priceUSD: 303,
+      priceUGX: 1200000,
+      priceUSD: 336,
       popular: false,
       tier: "premium",
       benefits: [
