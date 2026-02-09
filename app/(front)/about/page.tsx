@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-    <main className="min-h-screen bg-gray-50 mt-[72px]">
+    <main className="min-h-screen bg-gray-50">
       <GreetingSection />
       <ServicesSection />
       <JourneySection />

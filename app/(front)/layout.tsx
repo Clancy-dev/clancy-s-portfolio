@@ -8,9 +8,11 @@ export default function Frontlayout({
   children: React.ReactNode
 }) {
   return (
-    <div>
+    <div className='w-full min-h-screen'>
       <Header/>
+      <div className='mt-[72px]'>
         {children}
+      </div>
       <Footer/>    
     </div>
   )

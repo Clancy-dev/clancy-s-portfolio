@@ -161,8 +161,8 @@ export default function ProjectsPage() {
   return (
     <main className="min-h-screen bg-background">
       {/* Header */}
-      <div className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur-sm">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className=" top-0 pt-3 z-40 bg-background/95 backdrop-blur-sm ">
+        <div className="mx-auto max-w-7xl px-4  sm:px-6 lg:px-8">
           <div className="flex items-center justify-end gap-2 py-4 sm:gap-3">
             <button
               onClick={() => setShowCategorySearch(true)}
@@ -274,13 +274,13 @@ export default function ProjectsPage() {
       )}
 
       {/* Category Tabs */}
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-3 pb-12 sm:px-6 lg:px-8">
         <div className="mb-12">
           <h1 className="text-4xl font-bold text-foreground text-balance">
             {getCategoryLabel(selectedCategory)}
           </h1>
           <p className="mt-2 text-muted-foreground">
-            Explore our portfolio of premium web solutions
+            Explore my portfolio of premium web solutions
           </p>
         </div>
 
