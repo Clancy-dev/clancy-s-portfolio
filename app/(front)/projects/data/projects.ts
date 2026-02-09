@@ -144,8 +144,8 @@ export const projectsData: Project[] = [
     image: '/standard.png',
     tier: 'basic',
     categories: ['charity-websites'],
-    priceUGX: 5000000,
-    priceUSD: 1350,
+    priceUGX: 3000000,
+    priceUSD: 844,
     liveLink: 'https://standard-charity-website-fw7w.vercel.app/',
     techStack: ['React', 'Tailwind CSS', 'Firebase'],
     features: [
