@@ -11,16 +11,13 @@ interface Statistic {
 }
 
 const statistics: Statistic[] = [
-  { value: 250, label: "Cross-Functional Synergies Realized", suffix: "+" },
-  { value: 4, label: "Years of Multidisciplinary Paradigm Expertise", suffix: "+" },
+  { value: 100, label: "Cross-Functional Synergies Realized", suffix: "+" },
+  { value: 3, label: "Years of Experience", suffix: "+" },
   { value: 45000, label: "Quantum Units of Scalable Outputs Delivered", suffix: "+" },
   { value: 150, label: "Strategic Partnerships Cultivated", suffix: "+" },
   { value: 180, label: "Hyper-Niche Client Engagements Executed", suffix: "+" },
-  { value: 96.8, label: "Empirical Optimization Index", suffix: "%" },
   { value: 20, label: "Open Source Contributions", suffix: "+" },
-  { value: 97.5, label: "Client Retention Metric", suffix: "%" },
   { value: 15, label: "Hackathons Participated", suffix: "+" },
-  { value: 65, label: "Neuro-Adaptive Process Iterations Orchestrated", suffix: "+" },
 ]
 
 export default function StatisticsSection() {

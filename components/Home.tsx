@@ -1,7 +1,6 @@
 
 import AnimatedSection from '@/components/AnimatedSection'
 import HeroSection from '@/components/HeroSection'
-import { LatestProjectsPage } from '@/components/latest-projects-page'
 import PortfolioSection from '@/components/InfiniteSection'
 import ReviewSection from '@/components/ReviewSection'
 import StatisticsSection from '@/components/StatisticsSection'
@@ -14,7 +13,7 @@ export default function Home() {
   return (
     <div>
       <HeroSection />
-      <LatestProjectsPage />
+      {/* <LatestProjectsPage /> */}
         {/* Statistics Section */}
         <AnimatedSection>
         <StatisticsSection/>
@@ -27,9 +26,7 @@ export default function Home() {
         <AnimatedSection>
         <ReviewSection/>
         </AnimatedSection>
-        <AnimatedSection>
-        <PortfolioSection/>
-        </AnimatedSection>  
+      
     </div>
   )
 }

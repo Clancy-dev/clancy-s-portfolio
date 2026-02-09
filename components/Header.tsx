@@ -11,7 +11,6 @@ import { ModeToggle } from "./ModeToggle"
 const links = [
   { name: "Home", icon: <Home className="w-4 h-4" />, href: "/" },
   { name: "About me", icon: <User className="w-4 h-4" />, href: "/about" },
-  { name: "Pricing", icon: <Tag className="w-4 h-4" />, href: "/pricing" },
   { name: "My Projects", icon: <Network className="w-4 h-4" />, href: "/projects" },
   { name: "Contact Me", icon: <PhoneCall className="w-4 h-4" />, href: "/contact" },
 ]
