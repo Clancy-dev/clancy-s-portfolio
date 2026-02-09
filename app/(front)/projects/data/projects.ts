@@ -4,7 +4,7 @@ export interface Project {
   companyName: string;
   description: string;
   image: string;
-  tier: 'basic' | 'standard' | 'premium';
+  tier: 'basic' | 'standard' | 'premium' | 'premium-plus';
   categories: string[];
   priceUGX: number;
   priceUSD: number;
@@ -165,7 +165,7 @@ export const projectsData: Project[] = [
   },
   {
     id: 'charity-basic-3',
-    title: 'Education Foundation Website',
+    title: 'Premium Charity Website',
     companyName: 'Bright Minds Institute',
     description:
       'A simple yet impactful website for an education charity with scholarship information and donation options.',
@@ -195,15 +195,15 @@ export const projectsData: Project[] = [
   {
     id: 'charity-standard-1',
     title: 'Standard Charity Website',
-    companyName: 'Global Aid Foundation',
+    companyName: 'Beacon',
     description:
       'A comprehensive charity platform with campaign management, volunteer scheduling, donation tracking, and impact measurement.',
-    image: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=500&h=300&fit=crop',
+    image: '/standard.png',
     tier: 'standard',
     categories: ['charity-websites'],
-    priceUGX: 12000000,
-    priceUSD: 3250,
-    liveLink: 'https://example.com',
+    priceUGX: 3000000,
+    priceUSD: 844,
+    liveLink: 'https://standard-charity-website-fw7w.vercel.app/',
     techStack: ['Next.js', 'PostgreSQL', 'TypeScript', 'Stripe'],
     features: [
       'Campaign management dashboard',
@@ -290,7 +290,7 @@ export const projectsData: Project[] = [
     image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=500&h=300&fit=crop',
     tier: 'premium',
     categories: ['charity-websites'],
-    priceUGX: 25000000,
+    priceUGX: 6000000,
     priceUSD: 6800,
     liveLink: 'https://example.com',
     techStack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Stripe', 'AWS', 'AI/ML'],
@@ -375,6 +375,34 @@ export const projectsData: Project[] = [
       'Donor transparency demands',
     ],
   },
+  {
+  id: 'charity-premium-plus-1',
+  title: 'Premium (+) Charity Website',
+  companyName: 'World Impact Network',
+  description:
+    'A top-tier charity ecosystem with AI governance, global compliance, donor NFTs, and real-time transparency.',
+  image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=500&h=300&fit=crop',
+  tier: 'premium-plus',
+  categories: ['charity-websites'],
+  priceUGX: 9000000,
+  priceUSD: 12000,
+  techStack: ['Next.js', 'AI/ML', 'Blockchain', 'AWS', 'PostgreSQL'],
+  features: [
+    'Global compliance automation',
+    'AI fraud detection',
+    'Blockchain donation verification',
+    'Donor NFTs & digital recognition',
+    'Real-time public transparency dashboard',
+    'Multi-country tax compliance',
+  ],
+  problems: [
+    'Global trust issues',
+    'Regulatory compliance complexity',
+    'Large-scale donor transparency',
+  ],
+  isMainProject: true,
+},
+
 
   // ECOMMERCE WEBSITES
   {

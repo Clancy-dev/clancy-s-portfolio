@@ -23,6 +23,7 @@ export default function ProjectsPage() {
     basic: 3,
     standard: 3,
     premium: 3,
+    "premium-plus": 2,
   });
 
   // Load category from URL params on mount
@@ -72,16 +73,25 @@ export default function ProjectsPage() {
   const allProjects = getProjectsForDisplay();
 
   const projectsByTier = {
-    basic: allProjects
-      .filter(p => p.tier === 'basic')
-      .slice(0, displayCounts.basic ?? 3),
-    standard: allProjects
-      .filter(p => p.tier === 'standard')
-      .slice(0, displayCounts.standard ?? 3),
-    premium: allProjects
-      .filter(p => p.tier === 'premium')
-      .slice(0, displayCounts.premium ?? 3),
-  };
+  basic: allProjects
+    .filter(p => p.tier === 'basic')
+    .slice(0, displayCounts.basic ?? 3),
+
+  standard: allProjects
+    .filter(p => p.tier === 'standard')
+    .slice(0, displayCounts.standard ?? 3),
+
+  premium: allProjects
+    .filter(p => p.tier === 'premium')
+    .slice(0, displayCounts.premium ?? 3),
+
+  "premium-plus": allProjects
+    .filter(p => p.tier === 'premium-plus')
+    .slice(0, displayCounts["premium-plus"] ?? 2),
+};
+
+
+
 
   const hasMoreProjects = {
     basic:
@@ -92,9 +102,12 @@ export default function ProjectsPage() {
     premium:
       allProjects.filter(p => p.tier === 'premium').length >
       (displayCounts.premium ?? 3),
+    "premium-plus":
+      allProjects.filter(p => p.tier === 'premium-plus').length >
+      (displayCounts["premium-plus"] ?? 3),
   };
 
-  const handleLoadMore = (tier: 'basic' | 'standard' | 'premium') => {
+  const handleLoadMore = (tier: 'basic' | 'standard' | 'premium' | "premium-plus") => {
     setDisplayCounts(prev => ({
       ...prev,
       [tier]: (prev[tier] ?? 3) + 3,
@@ -131,6 +144,8 @@ export default function ProjectsPage() {
       basic: 3,
       standard: 3,
       premium: 3,
+      "premium-plus":3
+
     });
 
     requestAnimationFrame(() => {
