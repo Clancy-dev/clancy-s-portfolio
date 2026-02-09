@@ -137,16 +137,16 @@ export const projectsData: Project[] = [
   },
   {
     id: 'charity-basic-2',
-    title: 'Clean Water Initiative Website',
-    companyName: 'AquaLife NGO',
+    title: 'Standard Charity Website',
+    companyName: 'Beacon',
     description:
       'A professional website for a clean water charity with donation tracking, impact stories, and volunteer sign-up forms.',
-    image: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=500&h=300&fit=crop',
+    image: '/standard.png',
     tier: 'basic',
     categories: ['charity-websites'],
     priceUGX: 5000000,
     priceUSD: 1350,
-    liveLink: 'https://example.com',
+    liveLink: 'https://standard-charity-website-fw7w.vercel.app/',
     techStack: ['React', 'Tailwind CSS', 'Firebase'],
     features: [
       'Mission statement and vision pages',
