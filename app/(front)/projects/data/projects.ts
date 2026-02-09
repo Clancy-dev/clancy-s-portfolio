@@ -112,12 +112,12 @@ export const projectsData: Project[] = [
     companyName: 'Hope Foundation',
     description:
       'A professional charity website with donation system, impact stories, and volunteer management.',
-    image: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=500&h=300&fit=crop',
+    image: '/basic-image.png',
     tier: 'basic',
     categories: ['charity-websites'],
-    priceUGX: 5000000,
-    priceUSD: 1350,
-    liveLink: 'https://example.com',
+    priceUGX: 1500000,
+    priceUSD: 422,
+    liveLink: 'https://basic-charity-website.vercel.app/',
     techStack: ['React', 'Tailwind CSS', 'Firebase'],
     features: [
       'Mission statement and vision pages',
