@@ -377,7 +377,7 @@ export const projectsData: Project[] = [
   },
   {
   id: 'charity-premium-plus-1',
-  title: 'Premium (+) Charity Website',
+  title: 'Premium + Charity Website',
   companyName: 'Heart Bridge',
   description:
     'A top-tier charity ecosystem with AI governance, global compliance, donor NFTs, and real-time transparency.',
