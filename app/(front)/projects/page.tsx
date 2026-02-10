@@ -23,7 +23,9 @@ export default function ProjectsPage() {
     basic: 3,
     standard: 3,
     premium: 3,
-    "premium-plus": 2,
+    "premium-plus": 3,
+    pro: 3,
+    enterprise: 3,
   });
 
   // Load category from URL params on mount
@@ -88,6 +90,14 @@ export default function ProjectsPage() {
   "premium-plus": allProjects
     .filter(p => p.tier === 'premium-plus')
     .slice(0, displayCounts["premium-plus"] ?? 2),
+
+  pro: allProjects
+    .filter(p => p.tier === 'pro')
+    .slice(0, displayCounts.pro ?? 3),
+
+  enterprise: allProjects
+    .filter(p => p.tier === 'enterprise')
+    .slice(0, displayCounts.enterprise ?? 3),
 };
 
 
@@ -105,6 +115,9 @@ export default function ProjectsPage() {
     "premium-plus":
       allProjects.filter(p => p.tier === 'premium-plus').length >
       (displayCounts["premium-plus"] ?? 3),
+    pro: allProjects.filter(p => p.tier === 'pro').length > 
+      displayCounts.pro,
+    enterprise: allProjects.filter(p => p.tier === 'enterprise').length >          displayCounts.enterprise,
   };
 
   const handleLoadMore = (tier: 'basic' | 'standard' | 'premium' | "premium-plus") => {
@@ -323,8 +336,8 @@ export default function ProjectsPage() {
         {/* Projects */}
         {selectedCategory === 'all' ? (
           <div className="space-y-12">
-            {['basic', 'standard', 'premium'].map(tier => {
-              const tierProjects = projectsByTier[tier as 'basic' | 'standard' | 'premium'];
+            {['basic', 'standard', 'premium','premium-plus', 'pro', 'enterprise'].map(tier => {
+              const tierProjects = projectsByTier[tier as 'basic' | 'standard' | 'premium' | 'premium-plus' | 'pro' | 'enterprise'];
               const allTierProjects = allProjects.filter(p => p.tier === tier);
               if (!allTierProjects.length) return null;
 
@@ -338,7 +351,7 @@ export default function ProjectsPage() {
                       <ProjectCard key={p.id} project={p} currency={currency} />
                     ))}
                   </div>
-                  {hasMoreProjects[tier as 'basic' | 'standard' | 'premium'] && (
+                  {hasMoreProjects[tier as 'basic' | 'standard' | 'premium' | 'pro' | 'enterprise'] && (
                     <div className="flex justify-center">
                       <Button
                         onClick={() =>

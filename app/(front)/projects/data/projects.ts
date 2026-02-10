@@ -4,7 +4,7 @@ export interface Project {
   companyName: string;
   description: string;
   image: string;
-  tier: 'basic' | 'standard' | 'premium' | 'premium-plus';
+  tier: 'basic' | 'standard' | 'premium' | 'premium-plus' | 'pro' | 'enterprise';
   categories: string[];
   priceUGX: number;
   priceUSD: number;
@@ -284,15 +284,15 @@ export const projectsData: Project[] = [
   {
     id: 'charity-premium-1',
     title: 'Premium Charity Website',
-    companyName: 'Impact Leaders Global',
+    companyName: 'Elevate Foundation',
     description:
       'An enterprise charity platform with AI donor profiling, multi-project management, advanced analytics, and mobile app.',
-    image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=500&h=300&fit=crop',
+    image: '/premium.png',
     tier: 'premium',
     categories: ['charity-websites'],
     priceUGX: 6000000,
     priceUSD: 6800,
-    liveLink: 'https://example.com',
+    liveLink: 'https://premium-charity-website-sp96.vercel.app/',
     techStack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Stripe', 'AWS', 'AI/ML'],
     features: [
       'AI donor segmentation and targeting',
@@ -386,6 +386,7 @@ export const projectsData: Project[] = [
   categories: ['charity-websites'],
   priceUGX: 9000000,
   priceUSD: 12000,
+  liveLink: 'https://example.com',
   techStack: ['Next.js', 'AI/ML', 'Blockchain', 'AWS', 'PostgreSQL'],
   features: [
     'Global compliance automation',
@@ -402,6 +403,63 @@ export const projectsData: Project[] = [
   ],
   isMainProject: true,
 },
+{
+  id: 'charity-pro-1',
+  title: 'Pro Multi-Charity Website & System',
+  companyName: 'Regional Charity Network',
+  description:
+    'A unified platform for managing up to 5 independent charity organizations under one system.',
+  image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=500&h=300&fit=crop',
+  tier: 'pro',
+  categories: ['charity-websites'],
+  priceUGX: 25000000,
+  priceUSD: 6800,
+  liveLink: 'https://example.com',
+  techStack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Stripe', 'AWS'],
+  features: [
+    'Manage up to 5 charity organizations',
+    'Separate dashboards per charity',
+    'Unified donor management',
+    'Centralized reporting',
+    'Local + international payments',
+    'Role-based access control',
+  ],
+  problems: [
+    'Managing multiple charities separately',
+    'Duplicate systems and costs',
+    'Lack of centralized oversight',
+  ],
+  isMainProject: true,
+},
+{
+  id: 'charity-enterprise-1',
+  title: 'Enterprise Multi-Charity Website & System',
+  companyName: 'Global Humanitarian Alliance',
+  description:
+    'An enterprise-grade ecosystem for managing unlimited charity organizations globally.',
+  image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=500&h=300&fit=crop',
+  tier: 'enterprise',
+  categories: ['charity-websites'],
+  priceUGX: 50000000,
+  priceUSD: 13500,
+  liveLink: 'https://example.com',
+  techStack: ['Next.js', 'TypeScript', 'PostgreSQL', 'AWS', 'AI/ML'],
+  features: [
+    'Unlimited charity organizations',
+    'Global compliance automation',
+    'Advanced analytics & AI insights',
+    'Multi-country payment support',
+    'Custom integrations',
+    'Dedicated infrastructure',
+  ],
+  problems: [
+    'Scaling charity operations globally',
+    'Complex governance requirements',
+    'High compliance overhead',
+  ],
+  isMainProject: true,
+},
+
 
 
   // ECOMMERCE WEBSITES
