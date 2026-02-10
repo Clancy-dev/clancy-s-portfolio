@@ -379,8 +379,7 @@ export const projectsData: Project[] = [
   id: 'charity-premium-plus-1',
   title: 'Premium + Charity Website',
   companyName: 'Heart Bridge',
-  description:
-    'A top-tier charity ecosystem with AI governance, global compliance, donor NFTs, and real-time transparency.',
+  description: 'A top-tier charity ecosystem with AI governance, global compliance, donor NFTs, and real-time transparency.',
   image: '/premium plus.png',
   tier: 'premium-plus',
   categories: ['charity-websites'],
@@ -406,15 +405,15 @@ export const projectsData: Project[] = [
 {
   id: 'charity-pro-1',
   title: 'Pro Multi-Charity Website & System',
-  companyName: 'Regional Charity Network',
+  companyName: 'Charity Hub',
   description:
     'A unified platform for managing up to 5 independent charity organizations under one system.',
-  image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=500&h=300&fit=crop',
+  image: '/pro-multi-charity.png',
   tier: 'pro',
   categories: ['charity-websites'],
   priceUGX: 25000000,
-  priceUSD: 6800,
-  liveLink: 'https://example.com',
+  priceUSD: 7035,
+  liveLink: 'https://pro-multi-charity-website.vercel.app/',
   techStack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Stripe', 'AWS'],
   features: [
     'Manage up to 5 charity organizations',
