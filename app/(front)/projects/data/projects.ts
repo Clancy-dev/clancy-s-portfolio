@@ -291,7 +291,7 @@ export const projectsData: Project[] = [
     tier: 'premium',
     categories: ['charity-websites'],
     priceUGX: 6000000,
-    priceUSD: 6800,
+    priceUSD: 1691,
     liveLink: 'https://premium-charity-website-sp96.vercel.app/',
     techStack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Stripe', 'AWS', 'AI/ML'],
     features: [
@@ -378,15 +378,15 @@ export const projectsData: Project[] = [
   {
   id: 'charity-premium-plus-1',
   title: 'Premium (+) Charity Website',
-  companyName: 'World Impact Network',
+  companyName: 'Heart Bridge',
   description:
     'A top-tier charity ecosystem with AI governance, global compliance, donor NFTs, and real-time transparency.',
-  image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=500&h=300&fit=crop',
+  image: '/premium plus.png',
   tier: 'premium-plus',
   categories: ['charity-websites'],
   priceUGX: 9000000,
-  priceUSD: 12000,
-  liveLink: 'https://example.com',
+  priceUSD: 2537,
+  liveLink: 'https://premium-plus-charity-website.vercel.app/',
   techStack: ['Next.js', 'AI/ML', 'Blockchain', 'AWS', 'PostgreSQL'],
   features: [
     'Global compliance automation',
