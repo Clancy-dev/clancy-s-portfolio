@@ -13,6 +13,7 @@ export interface Project {
   features: string[];
   problems: string[];
   isMainProject?: boolean;
+  isPopular?: boolean; 
 }
 
 export const projectsData: Project[] = [
@@ -111,7 +112,7 @@ export const projectsData: Project[] = [
     title: 'Basic Charity Website',
     companyName: 'Hope Foundation',
     description:
-      'A basic charity website built to establish credibility and create a strong online presence.',
+      'A basic charity website is built to establish credibility and create a strong online presence.',
     image: '/basic-charity-website-image.png',
     tier: 'basic',
     categories: ['charity-websites'],
@@ -144,7 +145,7 @@ export const projectsData: Project[] = [
     companyName: 'Beacon',
     description:
       'A professional website for a clean water charity with donation tracking, impact stories, and volunteer sign-up forms.',
-    image: '/standard.png',
+    image: '/standard-charity-website-image.png',
     tier: 'basic',
     categories: ['charity-websites'],
     priceUGX: 3000000,
@@ -201,7 +202,7 @@ export const projectsData: Project[] = [
     companyName: 'Beacon',
     description:
       'A comprehensive charity platform with campaign management, volunteer scheduling, donation tracking, and impact measurement.',
-    image: '/standard.png',
+    image: '/standard-charity-website-image.png',
     tier: 'standard',
     categories: ['charity-websites'],
     priceUGX: 3000000,
@@ -224,6 +225,7 @@ export const projectsData: Project[] = [
       'No impact visibility',
     ],
     isMainProject: true,
+    isPopular: true,
   },
   {
     id: 'charity-standard-2',
