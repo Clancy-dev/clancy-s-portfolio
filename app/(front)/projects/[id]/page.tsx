@@ -22,13 +22,18 @@ export default function ProjectDetailPage() {
     return (
       <main className="min-h-screen bg-background">
         <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
-          <Link href="/projects" className="mb-6 inline-flex items-center gap-2 text-primary hover:underline">
+          <Link
+            href="/projects"
+            className="mb-6 inline-flex items-center gap-2 text-primary hover:underline"
+          >
             <ArrowLeft className="h-4 w-4" />
             Back to Projects
           </Link>
           <div className="text-center py-20">
             <h1 className="text-2xl font-bold text-foreground">Project not found</h1>
-            <p className="text-muted-foreground mt-2">The project you're looking for doesn't exist.</p>
+            <p className="text-muted-foreground mt-2">
+              The project you're looking for doesn't exist.
+            </p>
           </div>
         </div>
       </main>
@@ -49,8 +54,11 @@ export default function ProjectDetailPage() {
   return (
     <main className="min-h-screen bg-background">
       <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
-        {/* Back Button */}
-        <Link href="/projects" className="mb-6 inline-flex items-center gap-2 text-primary hover:underline">
+        {/* Back Button with category preservation */}
+        <Link
+          href={`/projects${project.categories[0] ? `?category=${project.categories[0]}` : ''}`}
+          className="mb-6 inline-flex items-center gap-2 text-primary hover:underline"
+        >
           <ArrowLeft className="h-4 w-4" />
           Back to Projects
         </Link>
