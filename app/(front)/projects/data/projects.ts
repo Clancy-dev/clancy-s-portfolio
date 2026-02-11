@@ -436,12 +436,12 @@ export const projectsData: Project[] = [
   companyName: 'Global Humanitarian Alliance',
   description:
     'An enterprise-grade ecosystem for managing unlimited charity organizations globally.',
-  image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=500&h=300&fit=crop',
+  image: '/enterprise-multi-charity.png',
   tier: 'enterprise',
   categories: ['charity-websites'],
   priceUGX: 50000000,
-  priceUSD: 13500,
-  liveLink: 'https://example.com',
+  priceUSD: 14070,
+  liveLink: 'https://enterprise-multi-charity-website.vercel.app/',
   techStack: ['Next.js', 'TypeScript', 'PostgreSQL', 'AWS', 'AI/ML'],
   features: [
     'Unlimited charity organizations',
