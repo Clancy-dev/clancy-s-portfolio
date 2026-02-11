@@ -111,7 +111,7 @@ export const projectsData: Project[] = [
     title: 'Basic Charity Website',
     companyName: 'Hope Foundation',
     description:
-      'A basic charity website built to establish credibility and create a strong online presence. It gives donors and partners a trusted place to verify legitimacy, understand the mission, and connect with the organization.',
+      'A basic charity website built to establish credibility and create a strong online presence.',
     image: '/basic-charity-website-image.png',
     tier: 'basic',
     categories: ['charity-websites'],
@@ -120,12 +120,12 @@ export const projectsData: Project[] = [
     liveLink: 'https://basic-charity-website.vercel.app/',
     techStack: ['Next.js', 'Tailwind CSS', 'Typescript'],
     features: [
-      'Clear presentation of the charity’s mission, vision, and values',
-      'Showcase the Core Values',
-      'Eye-catching hero section with key message or image',
-      'Showcase the leadership of the organsation',
+      'Clear presentation of the charity’s mission, vision, and values.',
+      'Showcase the Core Values.',
+      'Eye-catching hero section with key message or image.',
+      'Showcase the leadership of the organsation.',
       'Contact information',
-      'How to Donate instructions',
+      'How to Donate instructions.',
       'Mobile responsive design',
     ],
     problems: [
