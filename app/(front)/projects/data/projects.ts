@@ -112,7 +112,7 @@ export const projectsData: Project[] = [
     companyName: 'Hope Foundation',
     description:
       'A professional charity website with donation system, impact stories, and volunteer management.',
-    image: '/basic-image.png',
+    image: '/basic-charity-website-image.png',
     tier: 'basic',
     categories: ['charity-websites'],
     priceUGX: 1500000,
