@@ -346,7 +346,7 @@ export default function ProjectsPage() {
                   <h2 className="mb-6 text-2xl font-semibold capitalize text-foreground">
                     {tier} Solutions
                   </h2>
-                  <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-8">
+                  <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 items-start mb-8">
                     {tierProjects.map(p => (
                       <ProjectCard key={p.id} project={p} currency={currency} />
                     ))}
@@ -377,7 +377,7 @@ export default function ProjectsPage() {
                 </p>
               </div>
             ) : (
-              <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-start">
                 {allProjects.map(p => (
                   <ProjectCard key={p.id} project={p} currency={currency} />
                 ))}

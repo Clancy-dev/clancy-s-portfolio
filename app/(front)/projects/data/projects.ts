@@ -11,7 +11,12 @@ export interface Project {
   liveLink?: string;
   techStack: string[];
   features: string[];
-  problems: string[];
+  problems: {
+  problemTitle: string;
+  problemDescription: string;
+  solutionTitle: string;
+  solutionDescription: string;
+  }[];
   isMainProject?: boolean;
   isPopular?: boolean; 
 }
@@ -40,10 +45,10 @@ export const projectsData: Project[] = [
       'Mobile responsive',
     ],
     problems: [
-      'No professional online presence',
-      'Difficulty attracting new clients',
-      'Lost leads due to poor inquiry handling',
-      'Low search engine visibility',
+      // 'No professional online presence',
+      // 'Difficulty attracting new clients',
+      // 'Lost leads due to poor inquiry handling',
+      // 'Low search engine visibility',
     ],
     isMainProject: true,
   },
@@ -69,10 +74,10 @@ export const projectsData: Project[] = [
       'Analytics tracking',
     ],
     problems: [
-      'Cannot showcase past projects effectively',
-      'Difficulty managing client inquiries',
-      'No lead scoring system',
-      'Limited customer insights',
+      // 'Cannot showcase past projects effectively',
+      // 'Difficulty managing client inquiries',
+      // 'No lead scoring system',
+      // 'Limited customer insights',
     ],
     isMainProject: true,
   },
@@ -98,10 +103,10 @@ export const projectsData: Project[] = [
       'API integrations',
     ],
     problems: [
-      'Difficulty managing relationships at scale',
-      'No project visibility for clients',
-      'Manual reporting is time-consuming',
-      'Cannot integrate with existing tools',
+      // 'Difficulty managing relationships at scale',
+      // 'No project visibility for clients',
+      // 'Manual reporting is time-consuming',
+      // 'Cannot integrate with existing tools',
     ],
     isMainProject: true,
   },
@@ -119,7 +124,7 @@ export const projectsData: Project[] = [
     priceUGX: 1500000,
     priceUSD: 422,
     liveLink: 'https://basic-charity-website.vercel.app/',
-    techStack: ['Next.js', 'Tailwind CSS', 'Typescript'],
+    techStack: ['Next.js', 'Tailwind CSS', 'TypeScript'],
     features: [
       'Clear presentation of the charity’s mission, vision, and values.',
       'Showcase the Core Values.',
@@ -131,12 +136,55 @@ export const projectsData: Project[] = [
       'Basic SEO'
     ],
     problems: [
-      'The Trust Problem - Donors don’t give to organizations they can’t verify. Without an official website, trust drops immediately. (Solution - This website builds confidence by showing Mission, Vision, Core Values, Photos and more)',
-      'The Legitimacy Problem - When people hear about a charity, the first thing they do is search online. If nothing appears, they question whether it’s real. (Solution - This website proves the organization exists and is structured.)',
-      'The Visibility Problem - Without a website, the charity is invisible on Google. They only depend on social media or word of mouth. (Solution - This website makes them searchable and discoverable.)',
-      'No Professionalism - Serious partners and companies expect an official website. Without one, the charity looks informal or temporary. (Solution - This website positions them as serious.)',
-      'Information Scattering - Information spread across WhatsApp, Facebook, and conversations creates confusion. (Solution - This website centralizes all official information in one trusted place.)',
-      'The Partnership Barrier - Many NGOs and corporates research before partnering. No website = automatic red flag. (Solution - This website removes that barrier.)'
+           {
+    problemTitle: 'The Trust Problem',
+    problemDescription:
+      'Donors don’t give to organizations they can’t verify. Without an official website, trust drops immediately.',
+    solutionTitle: 'Confidence',
+    solutionDescription:
+      'This website builds confidence by showing Mission, Vision, Core Values, Photos and more.',
+  },
+  {
+    problemTitle: 'The Legitimacy Problem',
+    problemDescription:
+      'When people hear about a charity, the first thing they do is search online. If nothing appears, they question whether it is real.',
+    solutionTitle: 'Proof of Existence',
+    solutionDescription:
+      'This website proves the organization exists and is properly structured.',
+  },
+  {
+    problemTitle: 'The Visibility Problem',
+    problemDescription:
+      'Without a website, the charity is invisible on Google and only depends on social media or word of mouth.',
+    solutionTitle: 'Searchability',
+    solutionDescription:
+      'This website makes the charity searchable and discoverable online.',
+  },
+  {
+    problemTitle: 'Lack of Professionalism',
+    problemDescription:
+      'Serious partners and companies expect an official website. Without one, the charity appears informal or temporary.',
+    solutionTitle: 'Professional Positioning',
+    solutionDescription:
+      'This website positions the charity as serious and credible.',
+  },
+  {
+    problemTitle: 'Information Scattering',
+    problemDescription:
+      'Information spread across WhatsApp, Facebook, and conversations creates confusion.',
+    solutionTitle: 'Centralized Information',
+    solutionDescription:
+      'This website centralizes all official information in one trusted place.',
+  },
+  {
+    problemTitle: 'The Partnership Barrier',
+    problemDescription:
+      'Many NGOs and corporates research organizations before partnering. No website becomes an automatic red flag.',
+    solutionTitle: 'Partnership Readiness',
+    solutionDescription:
+      'This website removes that barrier and builds confidence for partnerships.',
+  },
+      
     ],
     isMainProject: true,
   },
@@ -162,10 +210,10 @@ export const projectsData: Project[] = [
       'Mobile responsive design',
     ],
     problems: [
-      'Limited reach to donors',
-      'Difficulty accepting online donations',
-      'No volunteer management system',
-      'Poor search engine visibility',
+      // 'Limited reach to donors',
+      // 'Difficulty accepting online donations',
+      // 'No volunteer management system',
+      // 'Poor search engine visibility',
     ],
   },
   {
@@ -190,10 +238,10 @@ export const projectsData: Project[] = [
       'Mobile optimized',
     ],
     problems: [
-      'Lack of online presence',
-      'Difficulty reaching donors',
-      'No secure donation system',
-      'Limited communication channels',
+      // 'Lack of online presence',
+      // 'Difficulty reaching donors',
+      // 'No secure donation system',
+      // 'Limited communication channels',
     ],
   },
 
@@ -227,14 +275,72 @@ export const projectsData: Project[] = [
 
     ],
     problems: [
-      'The Transparency Problem - Donors and partners need proof of activity. Without updates or blogs: People doubt the charity’s work, Funding and partnerships are lost. (Solution - This website enables posting events, project updates, and galleries builds credibility and trust, showing accountability.)',
-      'Volunteer & Contact Management Loss - Without proper forms, volunteer applications and donor inquiries get lost in WhatsApp, email, or social media messages. (Solution - This website include volunteer and contact forms, capturing data in an organized way and improving response time.)',
-      'Perception of Inactivity - Even active charities look small or unprofessional online if their site is static or outdated, partnerships hesitate, donations drop. (Solution - Dynamic content via dashboard updates keeps the charity looking active, organized, and credible.)',
-      'Limited management and control over the website - Every small update like adding a photo, changing donation numbers, or posting an event requires a developer, which delays updates and costs money (Solution - A standard website’s dashboard gives the charity full control to update content instantly.)',
-      'Growth Limitation - A basic website can’t scale with campaigns, multiple events, or growing outreach, limits expansion, missed opportunities for volunteers and donors. (Solution - A standard website supports ongoing growth with scalable, manageable content.)',
-      'Difficulty tracking campaign performance',
-      'Complex volunteer management',
-      'No impact visibility',
+
+       {
+    problemTitle: 'The Transparency Problem',
+    problemDescription:
+      'Donors and partners need proof of activity. Without updates or blogs: people doubt the charity’s work, funding and partnerships are lost.',
+    solutionTitle: 'Credibility & Accountability',
+    solutionDescription:
+      'This website enables posting events, project updates, and galleries, building credibility and trust, showing accountability.',
+  },
+  {
+    problemTitle: 'Volunteer & Contact Management Loss',
+    problemDescription:
+      'Without proper forms, volunteer applications and donor inquiries get lost in WhatsApp, email, or social media messages.',
+    solutionTitle: 'Organized Data Capture',
+    solutionDescription:
+      'This website includes volunteer and contact forms, capturing data in an organized way and improving response time.',
+  },
+  {
+    problemTitle: 'Perception of Inactivity',
+    problemDescription:
+      'Even active charities look small or unprofessional online if their site is static or outdated, partnerships hesitate, donations drop.',
+    solutionTitle: 'Dynamic Online Presence',
+    solutionDescription:
+      'Dynamic content via dashboard updates keeps the charity looking active, organized, and credible.',
+  },
+  {
+    problemTitle: 'Limited management and control over the website',
+    problemDescription:
+      'Every small update like adding a photo, changing donation numbers, or posting an event requires a developer, which delays updates and costs money.',
+    solutionTitle: 'Full Content Control',
+    solutionDescription:
+      'A standard website’s dashboard gives the charity full control to update content instantly.',
+  },
+  {
+    problemTitle: 'Growth Limitation',
+    problemDescription:
+      'A basic website can’t scale with campaigns, multiple events, or growing outreach, limiting expansion and opportunities for volunteers and donors.',
+    solutionTitle: 'Scalable Website',
+    solutionDescription:
+      'A standard website supports ongoing growth with scalable, manageable content.',
+  },
+  {
+    problemTitle: 'Difficulty tracking campaign performance',
+    problemDescription:
+      'Charities cannot track which campaigns are effective or measure impact easily.',
+    solutionTitle: 'Analytics Dashboard',
+    solutionDescription:
+      'This website provides reporting tools to track campaign performance efficiently.',
+  },
+  {
+    problemTitle: 'Complex volunteer management',
+    problemDescription:
+      'Managing volunteers manually is error-prone and hard to scale.',
+    solutionTitle: 'Volunteer Management',
+    solutionDescription:
+      'Dashboard tools allow organized volunteer scheduling and tracking.',
+  },
+  {
+    problemTitle: 'No impact visibility',
+    problemDescription:
+      'Donors and staff cannot see the measurable impact of charity efforts.',
+    solutionTitle: 'Impact Reporting',
+    solutionDescription:
+      'The platform provides clear visualizations of ongoing projects and achievements.',
+  },   
+     
     ],
     isMainProject: true,
     isPopular: true,
@@ -262,10 +368,10 @@ export const projectsData: Project[] = [
       'Multilingual content',
     ],
     problems: [
-      'Difficulty tracking campaign performance',
-      'Complex volunteer management',
-      'Limited donor engagement tools',
-      'No impact visibility',
+      // 'Difficulty tracking campaign performance',
+      // 'Complex volunteer management',
+      // 'Limited donor engagement tools',
+      // 'No impact visibility',
     ],
   },
   {
@@ -291,10 +397,10 @@ export const projectsData: Project[] = [
       'Multi-language support',
     ],
     problems: [
-      'Manual adoption tracking',
-      'Volunteer coordination challenges',
-      'Limited donor engagement',
-      'Difficulty managing fundraising',
+      // 'Manual adoption tracking',
+      // 'Volunteer coordination challenges',
+      // 'Limited donor engagement',
+      // 'Difficulty managing fundraising',
     ],
   },
 
@@ -322,14 +428,64 @@ export const projectsData: Project[] = [
       'Newsletter Subscription Integration',
     ],
     problems: [
-      'The “Interested But Didn’t Donate” Problem - Someone visits the website, they feel touched, they want to donate. They find phone, bank number or instructions. They feel lazy going through instructions and they either post pone or leave the website. (Solution - This website has a clear and more direct way to donate, which captures donations when emotions are high.)',
-      'The Manual Payment Chaos Problem - Donations come through mobile money screenshots, bank transfers, whatsApp confirmations which creates tracking confusion, missed payments, human errors, no proper records. (Solution - This website has automated transaction tracking, organized donation records, verified payment status and everything is structured and clean.)',
-      'The Professionalism Gap Problem - Manual instructions like "Send to this number and confirm" feels informal. Serious donors think: “Why don’t they have a secure payment system?” It reduces trust. (Solution - This website has a secure gateway, professional checkout page, structured confirmation which makes it look modern and credible. ',
-      'The Lost Impulse Funding Problem - Online donors expect instant transactions. If donation is complicated: they close the page, they forget, They change their mind and impulse giving disappears. (Solution - This website has a fast checkout, mobile-friendly donation page, simple amount selection and friction is removed. More completed donations.)',
-      'The Transparency & Reporting Problem - No automated donation data means: hard to calculate totals, hard to show progress, hard to generate reports and yet donors love transparency. Without it, trust weakens. (Solution - This website has live fundraising totals, campaign tracking, clear progress display. This increases confidence.)',
-      'The Scaling Problem - A charity can only accept offline donations, manual transfers. This limits growth. They cannot run online campaigns, emergency fundraising drives, target-based digital campaigns so they stay small. (Solution - This website has online fundraising campaigns, target-based donations, campaign performance tracking. It allows digital growth.)',
-      'The Time Wastage Problem - Staff must confirm payments manually, respond to donation inquiries, record transactions manually. Time wasted = productivity lost. (Solution - This website has automated confirmations, organized dashboard, reduced manual workload. It saves operational time.)'
-    ],
+      {
+    problemTitle: 'The “Interested But Didn’t Donate” Problem',
+    problemDescription:
+      'Someone visits the website, they feel touched, they want to donate. They find phone, bank number or instructions, feel lazy going through them, and either postpone or leave the website.',
+    solutionTitle: 'Direct & Easy Donations',
+    solutionDescription:
+      'This website provides a clear and direct way to donate, capturing donations when emotions are high.',
+  },
+  {
+    problemTitle: 'The Manual Payment Chaos Problem',
+    problemDescription:
+      'Donations come through mobile money screenshots, bank transfers, WhatsApp confirmations, creating tracking confusion, missed payments, human errors, and no proper records.',
+    solutionTitle: 'Automated Payment Tracking',
+    solutionDescription:
+      'This website automates transaction tracking, organizes donation records, verifies payment status, and keeps everything structured and clean.',
+  },
+  {
+    problemTitle: 'The Professionalism Gap Problem',
+    problemDescription:
+      'Manual instructions like "Send to this number and confirm" feel informal. Serious donors think: “Why don’t they have a secure payment system?” reducing trust.',
+    solutionTitle: 'Secure & Professional Checkout',
+    solutionDescription:
+      'This website offers a secure gateway, professional checkout page, and structured confirmation, making it look modern and credible.',
+  },
+  {
+    problemTitle: 'The Lost Impulse Funding Problem',
+    problemDescription:
+      'Online donors expect instant transactions. If donation is complicated, they close the page, forget, or change their mind, and impulse giving disappears.',
+    solutionTitle: 'Fast & Mobile-Friendly Donations',
+    solutionDescription:
+      'The website has a fast checkout, mobile-friendly donation page, and simple amount selection, reducing friction and increasing completed donations.',
+  },
+  {
+    problemTitle: 'The Transparency & Reporting Problem',
+    problemDescription:
+      'No automated donation data makes it hard to calculate totals, show progress, or generate reports. Donors love transparency; without it, trust weakens.',
+    solutionTitle: 'Live Reporting & Transparency',
+    solutionDescription:
+      'This website provides live fundraising totals, campaign tracking, and clear progress display, increasing donor confidence.',
+  },
+  {
+    problemTitle: 'The Scaling Problem',
+    problemDescription:
+      'A charity can only accept offline donations and manual transfers, limiting growth. They cannot run online campaigns, emergency fundraising drives, or target-based digital campaigns.',
+    solutionTitle: 'Online Campaign Scalability',
+    solutionDescription:
+      'This website enables online fundraising campaigns, target-based donations, and campaign performance tracking, allowing digital growth.',
+  },
+  {
+    problemTitle: 'The Time Wastage Problem',
+    problemDescription:
+      'Staff must confirm payments manually, respond to donation inquiries, and record transactions manually, wasting time and productivity.',
+    solutionTitle: 'Automated Workflows',
+    solutionDescription:
+      'This website automates confirmations, organizes the dashboard, and reduces manual workload, saving operational time.',
+  },
+],
+
     isMainProject: true,
   },
   {
@@ -356,11 +512,11 @@ export const projectsData: Project[] = [
       'Blockchain verification',
     ],
     problems: [
-      'Scaling fundraising efforts globally',
-      'Complex multi-project operations',
-      'Limited donor insights',
-      'Manual reporting processes',
-      'Transparency concerns',
+      // 'Scaling fundraising efforts globally',
+      // 'Complex multi-project operations',
+      // 'Limited donor insights',
+      // 'Manual reporting processes',
+      // 'Transparency concerns',
     ],
   },
   {
@@ -387,11 +543,11 @@ export const projectsData: Project[] = [
       'AI-powered insights',
     ],
     problems: [
-      'Measuring social impact accurately',
-      'Managing beneficiary data at scale',
-      'Complex reporting requirements',
-      'Limited field team tools',
-      'Donor transparency demands',
+      // 'Measuring social impact accurately',
+      // 'Managing beneficiary data at scale',
+      // 'Complex reporting requirements',
+      // 'Limited field team tools',
+      // 'Donor transparency demands',
     ],
   },
   {
@@ -415,9 +571,9 @@ export const projectsData: Project[] = [
     'Multi-country tax compliance',
   ],
   problems: [
-    'Global trust issues',
-    'Regulatory compliance complexity',
-    'Large-scale donor transparency',
+    // 'Global trust issues',
+    // 'Regulatory compliance complexity',
+    // 'Large-scale donor transparency',
   ],
   isMainProject: true,
 },
@@ -443,9 +599,9 @@ export const projectsData: Project[] = [
     'Role-based access control',
   ],
   problems: [
-    'Managing multiple charities separately',
-    'Duplicate systems and costs',
-    'Lack of centralized oversight',
+    // 'Managing multiple charities separately',
+    // 'Duplicate systems and costs',
+    // 'Lack of centralized oversight',
   ],
   isMainProject: true,
 },
@@ -471,9 +627,9 @@ export const projectsData: Project[] = [
     'Dedicated infrastructure',
   ],
   problems: [
-    'Scaling charity operations globally',
-    'Complex governance requirements',
-    'High compliance overhead',
+    // 'Scaling charity operations globally',
+    // 'Complex governance requirements',
+    // 'High compliance overhead',
   ],
   isMainProject: true,
 },
@@ -503,10 +659,10 @@ export const projectsData: Project[] = [
       'Mobile responsive',
     ],
     problems: [
-      'Limited online sales channels',
-      'Manual order processing',
-      'No customer insights',
-      'Low conversion rates',
+      // 'Limited online sales channels',
+      // 'Manual order processing',
+      // 'No customer insights',
+      // 'Low conversion rates',
     ],
     isMainProject: true,
   },
@@ -532,10 +688,10 @@ export const projectsData: Project[] = [
       'Mobile responsive',
     ],
     problems: [
-      'Limited online sales channels',
-      'Manual order processing',
-      'No customer insights',
-      'Low conversion rates',
+      // 'Limited online sales channels',
+      // 'Manual order processing',
+      // 'No customer insights',
+      // 'Low conversion rates',
     ],
   },
   {
@@ -560,10 +716,10 @@ export const projectsData: Project[] = [
       'Mobile responsive',
     ],
     problems: [
-      'Limited online sales channels',
-      'Manual order processing',
-      'No customer insights',
-      'Low conversion rates',
+      // 'Limited online sales channels',
+      // 'Manual order processing',
+      // 'No customer insights',
+      // 'Low conversion rates',
     ],
   },
 
@@ -590,10 +746,10 @@ export const projectsData: Project[] = [
       'Advanced SEO optimization',
     ],
     problems: [
-      'Inventory management challenges',
-      'Limited customer insights',
-      'Manual marketing campaigns',
-      'Scaling difficulties',
+      // 'Inventory management challenges',
+      // 'Limited customer insights',
+      // 'Manual marketing campaigns',
+      // 'Scaling difficulties',
     ],
     isMainProject: true,
   },
@@ -620,10 +776,10 @@ export const projectsData: Project[] = [
       'API integrations',
     ],
     problems: [
-      'Inventory management challenges',
-      'Limited customer insights',
-      'Manual marketing campaigns',
-      'Scaling difficulties',
+      // 'Inventory management challenges',
+      // 'Limited customer insights',
+      // 'Manual marketing campaigns',
+      // 'Scaling difficulties',
     ],
   },
   {
@@ -649,10 +805,10 @@ export const projectsData: Project[] = [
       'Reporting tools',
     ],
     problems: [
-      'Inventory management challenges',
-      'Limited customer insights',
-      'Manual marketing campaigns',
-      'Scaling difficulties',
+      // 'Inventory management challenges',
+      // 'Limited customer insights',
+      // 'Manual marketing campaigns',
+      // 'Scaling difficulties',
     ],
   },
 
@@ -680,11 +836,11 @@ export const projectsData: Project[] = [
       'API ecosystem',
     ],
     problems: [
-      'Difficulty personalizing at scale',
-      'Complex multi-channel operations',
-      'Limited customer insights',
-      'Manual content management',
-      'Inventory complexities',
+      // 'Difficulty personalizing at scale',
+      // 'Complex multi-channel operations',
+      // 'Limited customer insights',
+      // 'Manual content management',
+      // 'Inventory complexities',
     ],
     isMainProject: true,
   },
@@ -712,11 +868,11 @@ export const projectsData: Project[] = [
       'Integrated payment processing',
     ],
     problems: [
-      'Difficulty personalizing at scale',
-      'Complex multi-channel operations',
-      'Limited customer insights',
-      'Manual content management',
-      'Inventory complexities',
+      // 'Difficulty personalizing at scale',
+      // 'Complex multi-channel operations',
+      // 'Limited customer insights',
+      // 'Manual content management',
+      // 'Inventory complexities',
     ],
   },
   {
@@ -743,11 +899,11 @@ export const projectsData: Project[] = [
       'API ecosystem',
     ],
     problems: [
-      'Difficulty personalizing at scale',
-      'Complex multi-channel operations',
-      'Limited customer insights',
-      'Manual content management',
-      'Inventory complexities',
+      // 'Difficulty personalizing at scale',
+      // 'Complex multi-channel operations',
+      // 'Limited customer insights',
+      // 'Manual content management',
+      // 'Inventory complexities',
     ],
   },
 
@@ -774,10 +930,10 @@ export const projectsData: Project[] = [
       'Mobile responsive',
     ],
     problems: [
-      'Low online visibility',
-      'Manual booking handling',
-      'Limited guest engagement',
-      'Poor reservation management',
+      // 'Low online visibility',
+      // 'Manual booking handling',
+      // 'Limited guest engagement',
+      // 'Poor reservation management',
     ],
     isMainProject: true,
   },
@@ -803,10 +959,10 @@ export const projectsData: Project[] = [
       'Mobile responsive',
     ],
     problems: [
-      'Low online visibility',
-      'Manual booking handling',
-      'Limited guest engagement',
-      'Poor reservation management',
+      // 'Low online visibility',
+      // 'Manual booking handling',
+      // 'Limited guest engagement',
+      // 'Poor reservation management',
     ],
   },
   {
@@ -831,10 +987,10 @@ export const projectsData: Project[] = [
       'Mobile optimized',
     ],
     problems: [
-      'Limited online bookings',
-      'Difficulty showcasing uniqueness',
-      'Manual reservation handling',
-      'Low search visibility',
+      // 'Limited online bookings',
+      // 'Difficulty showcasing uniqueness',
+      // 'Manual reservation handling',
+      // 'Low search visibility',
     ],
   },
 
@@ -861,10 +1017,10 @@ export const projectsData: Project[] = [
       'Guest feedback system',
     ],
     problems: [
-      'Manual payment handling',
-      'Limited guest insights',
-      'Inefficient communications',
-      'No availability management',
+      // 'Manual payment handling',
+      // 'Limited guest insights',
+      // 'Inefficient communications',
+      // 'No availability management',
     ],
     isMainProject: true,
   },
@@ -891,10 +1047,10 @@ export const projectsData: Project[] = [
       'Guest feedback system',
     ],
     problems: [
-      'Complex activity management',
-      'Manual payment handling',
-      'Limited guest insights',
-      'Inefficient communications',
+      // 'Complex activity management',
+      // 'Manual payment handling',
+      // 'Limited guest insights',
+      // 'Inefficient communications',
     ],
   },
   {
@@ -920,10 +1076,10 @@ export const projectsData: Project[] = [
       'Reporting dashboard',
     ],
     problems: [
-      'Managing group bookings manually',
-      'Complex rate structures',
-      'Difficulty processing payments',
-      'Limited visibility on bookings',
+      // 'Managing group bookings manually',
+      // 'Complex rate structures',
+      // 'Difficulty processing payments',
+      // 'Limited visibility on bookings',
     ],
   },
 
@@ -951,11 +1107,11 @@ export const projectsData: Project[] = [
       'Real-time reporting',
     ],
     problems: [
-      'Limited personalization at scale',
-      'Complex multi-property operations',
-      'Difficulty in guest retention',
-      'Manual concierge services',
-      'Limited integration capabilities',
+      // 'Limited personalization at scale',
+      // 'Complex multi-property operations',
+      // 'Difficulty in guest retention',
+      // 'Manual concierge services',
+      // 'Limited integration capabilities',
     ],
     isMainProject: true,
   },
@@ -983,11 +1139,11 @@ export const projectsData: Project[] = [
       'Real-time reporting',
     ],
     problems: [
-      'Limited personalization at scale',
-      'Complex multi-property operations',
-      'Difficulty in guest retention',
-      'Manual concierge services',
-      'Limited integration capabilities',
+      // 'Limited personalization at scale',
+      // 'Complex multi-property operations',
+      // 'Difficulty in guest retention',
+      // 'Manual concierge services',
+      // 'Limited integration capabilities',
     ],
   },
   {
@@ -1014,11 +1170,11 @@ export const projectsData: Project[] = [
       'API ecosystem',
     ],
     problems: [
-      'Maximizing revenue globally',
-      'Complex operations management',
-      'Predictive maintenance needs',
-      'Limited guest insights across properties',
-      'Difficulty scaling operations',
+      // 'Maximizing revenue globally',
+      // 'Complex operations management',
+      // 'Predictive maintenance needs',
+      // 'Limited guest insights across properties',
+      // 'Difficulty scaling operations',
     ],
   },
 ];
