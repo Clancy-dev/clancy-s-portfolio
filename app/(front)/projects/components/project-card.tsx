@@ -20,9 +20,12 @@ import {
   SiPaypal,
   SiFlutter,
   SiAuth0,
+  SiSupabase,
+  SiTwilio,
+  SiOpenai
 } from 'react-icons/si';
 
-import { FaReact, FaNodeJs, FaEnvelope } from 'react-icons/fa';
+import { FaReact, FaNodeJs, FaEnvelope, FaMoneyBillWave } from 'react-icons/fa';
 
 interface ProjectCardProps {
   project: Project;
@@ -47,6 +50,11 @@ const techIcons: Record<string, React.ElementType> = {
   React: FaReact,
   'Node.js': FaNodeJs,
   Resend: FaEnvelope, 
+  'Pesa Pal': FaMoneyBillWave,
+  Supabase: SiSupabase,
+  Twilio: SiTwilio,
+  'AI/ML': SiOpenai,
+  
 };
 
 /* --------------------------------------------------- */
