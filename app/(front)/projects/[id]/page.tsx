@@ -30,8 +30,10 @@ import {
 } from 'react-icons/si';
 
 import { FaReact, FaNodeJs } from 'react-icons/fa';
+import { useAuth } from '@/hooks/use-auth';
 
 export default function ProjectDetailPage() {
+  const { isAuthenticated, isLoading } = useAuth()
   const params = useParams();
   const projectId = params.id as string;
 
@@ -279,7 +281,7 @@ export default function ProjectDetailPage() {
         </div>
 
         {/* ✅ Project Details Section */}
-{project.projectOtherData && (
+   {isAuthenticated && project.projectOtherData && (
   <div className="mt-12 border-t border-border pt-8 space-y-8">
     <h2 className="text-2xl font-bold text-foreground">
       Project Details
