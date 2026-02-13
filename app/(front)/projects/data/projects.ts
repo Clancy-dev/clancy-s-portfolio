@@ -115,74 +115,59 @@ export const projectsData: Project[] = [
   {
     id: 'charity-basic-1',
     title: 'Basic Charity Website',
-    companyName: 'Hope Foundation',
+    companyName: 'Hope Crest Foundation',
     description:
-      'A basic charity website is built to establish credibility and create a strong online presence.',
+      'A basic charity website is built to establish trust, credibility and create online presence.',
     image: '/basic-charity-website-image.png',
     tier: 'basic',
     categories: ['charity-websites'],
     priceUGX: 1500000,
     priceUSD: 422,
-    liveLink: 'https://basic-charity-website.vercel.app/',
+    liveLink: 'https://hopecrestfoundation.vercel.app/',
     techStack: ['Next.js', 'Tailwind CSS', 'TypeScript'],
     features: [
-      'Clear presentation of the charity’s mission, vision, and values.',
-      'Showcase the Core Values.',
-      'Eye-catching hero section with key message or image.',
-      'Showcase the leadership of the organsation.',
-      'Contact information',
-      'How to Donate instructions.',
-      'Mobile responsive design',
-      'Basic SEO'
+      'Clear presentation of mission, vision, and core values',
+      'Compelling hero section with impactful message and call-to-action',
+      'About Us page highlighting the organization’s story and purpose',
+      'Leadership or team showcase to build trust and credibility',
+      'Donation information page with simple giving instructions',
+      'Programs or initiatives overview section',
+      'Contact page with form, email, phone, and location details',
+      'Fully mobile-responsive design',
+      'Basic SEO setup'
     ],
     problems: [
+       {
+    problemTitle: 'Your charity organisation is not on Google.',
+    problemDescription:
+      'When someone searches for your charity organisation on Google, it is not there. A potential donor then thinks you are not serious, you might be fake or a scam to steal money for other people.',
+    solutionTitle: 'Your charity organisation can be found on Google when someone searches for it.',
+    solutionDescription:
+      'After building for you this website, someone can search for your charity organisation on Google and he can find it. Here a potential donor can know that your charity organisation is serious and realistic.',
+  },
            {
-    problemTitle: 'The Trust Problem',
+    problemTitle: 'People do not trust our charity organisation.',
     problemDescription:
-      'Donors don’t give to organizations they can’t verify. Without an official website, trust drops immediately.',
-    solutionTitle: 'Confidence',
+      'People find it very difficult to trust your charity organisation. Donors don’t give to organizations they can’t verify. Without an official website, trust drops immediately and you end up loosing people who could have suppoted your charity organisation.',
+    solutionTitle: 'After building for you this website, people can easily trust your charity organisation.',
     solutionDescription:
-      'This website builds confidence by showing Mission, Vision, Core Values, Photos and more.',
+      'People can easily verify that your charity organisation exists. Your website will even show your Mission, Vision, Core Values, Photos and more. This enables them to trust you easily.',
   },
   {
-    problemTitle: 'The Legitimacy Problem',
+    problemTitle: 'Information about your charity organisation is scattered in many places.',
     problemDescription:
-      'When people hear about a charity, the first thing they do is search online. If nothing appears, they question whether it is real.',
-    solutionTitle: 'Proof of Existence',
+      'Information spread across WhatsApp, Facebook, Instagram books and creates confusion especially when explaining to potential donor.',
+    solutionTitle: 'After building for you this website, all the information about your charity organisation will be put in one place.',
     solutionDescription:
-      'This website proves the organization exists and is properly structured.',
+      'This website centralizes all official information in one trusted place where anyone interested in getting to know your charity organisation can easily access it, read and trust you.',
   },
   {
-    problemTitle: 'The Visibility Problem',
+    problemTitle: 'It is difficult for your charity organisation to partner with other organisations',
     problemDescription:
-      'Without a website, the charity is invisible on Google and only depends on social media or word of mouth.',
-    solutionTitle: 'Searchability',
+      'Many NGOs and corporates research organizations before partnering. Having no website becomes an automatic red flag and it becomes really hard for them to partner with your charity organisation.',
+    solutionTitle: 'After this website is built for you, it becomes easy for your charity organisation to partner with others.',
     solutionDescription:
-      'This website makes the charity searchable and discoverable online.',
-  },
-  {
-    problemTitle: 'Lack of Professionalism',
-    problemDescription:
-      'Serious partners and companies expect an official website. Without one, the charity appears informal or temporary.',
-    solutionTitle: 'Professional Positioning',
-    solutionDescription:
-      'This website positions the charity as serious and credible.',
-  },
-  {
-    problemTitle: 'Information Scattering',
-    problemDescription:
-      'Information spread across WhatsApp, Facebook, and conversations creates confusion.',
-    solutionTitle: 'Centralized Information',
-    solutionDescription:
-      'This website centralizes all official information in one trusted place.',
-  },
-  {
-    problemTitle: 'The Partnership Barrier',
-    problemDescription:
-      'Many NGOs and corporates research organizations before partnering. No website becomes an automatic red flag.',
-    solutionTitle: 'Partnership Readiness',
-    solutionDescription:
-      'This website removes that barrier and builds confidence for partnerships.',
+      'This website removes that barrier and builds confidence for possible future partnerships.',
   },
       
     ],
