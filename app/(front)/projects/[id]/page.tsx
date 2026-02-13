@@ -281,11 +281,13 @@ export default function ProjectDetailPage() {
         </div>
 
         {/* ✅ Project Details Section */}
-   {isAuthenticated && project.projectOtherData && (
+        {isLoading ? (
+  <div className="mt-12 text-center text-muted-foreground">
+    Loading project details...
+  </div>
+) : isAuthenticated && project.projectOtherData ? (
   <div className="mt-12 border-t border-border pt-8 space-y-8">
-    <h2 className="text-2xl font-bold text-foreground">
-      Project Details
-    </h2>
+    <h2 className="text-2xl font-bold text-foreground">Project Details</h2>
 
     {/* Technical Requirements */}
     <div>
@@ -343,7 +345,13 @@ export default function ProjectDetailPage() {
       </ul>
     </div>
   </div>
+) : (
+  <div className="mt-12 text-center text-muted-foreground">
+    Please <Link href="/login" className="text-primary underline">log in</Link> to view project details.
+  </div>
 )}
+
+ 
 
         
       </div>
