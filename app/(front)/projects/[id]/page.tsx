@@ -32,6 +32,7 @@ import {
 import { FaReact, FaNodeJs } from 'react-icons/fa';
 import { useAuth } from '@/hooks/use-auth';
 
+
 export default function ProjectDetailPage() {
   const { isAuthenticated, isLoading } = useAuth()
   const params = useParams();
