@@ -206,7 +206,7 @@ export default function ProjectDetailPage() {
 
           <ul className="space-y-3">
             {featuresToShow.map((feature, i) => (
-              <li key={i} className="flex gap-3 text-foreground">
+              <li key={i} className="flex gap-3 text-muted-foreground">
                 <span className="text-primary mt-0.5">•</span>
                 <span>{feature}</span>
               </li>
@@ -277,6 +277,73 @@ export default function ProjectDetailPage() {
             </button>
           )}
         </div>
+
+        {/* ✅ Project Details Section */}
+{project.projectOtherData && (
+  <div className="mt-12 border-t border-border pt-8 space-y-8">
+    <h2 className="text-2xl font-bold text-foreground">
+      Project Details
+    </h2>
+
+    {/* Technical Requirements */}
+    <div>
+      <h3 className="font-semibold mb-2">Technical Requirements</h3>
+      <ul className="list-disc list-inside text-muted-foreground space-y-1 marker:text-blue-500">
+        {project.projectOtherData.technicalRequirements.map((item, i) => (
+          <li key={i}>{item}</li>
+        ))}
+      </ul>
+    </div>
+
+    {/* Duration */}
+    <div>
+      <h3 className="font-semibold mb-2">Project Duration</h3>
+      <p className="text-muted-foreground">
+        {project.projectOtherData.duration}
+      </p>
+    </div>
+
+    {/* Payment Terms */}
+    <div>
+      <h3 className="font-semibold mb-2">Payment Terms</h3>
+      <ul className="list-disc list-inside text-muted-foreground space-y-1 marker:text-blue-500">
+        {project.projectOtherData.paymentTerms.map((item, i) => (
+          <li key={i}>{item}</li>
+        ))}
+      </ul>
+    </div>
+
+    {/* Client Requirement Days */}
+    <div>
+      <h3 className="font-semibold mb-2">
+        Days for Providing Client Requirements
+      </h3>
+      <p className="text-muted-foreground">
+        {project.projectOtherData.clientRequirementDays}
+      </p>
+    </div>
+
+    {/* Pause Policy */}
+    <div>
+      <h3 className="font-semibold mb-2">Project Pause Policy</h3>
+      <p className="text-muted-foreground">
+        {project.projectOtherData.projectPausePolicy}
+      </p>
+    </div>
+
+    {/* Client Requirements */}
+    <div>
+      <h3 className="font-semibold mb-2">Client Requirements</h3>
+      <ul className="list-disc list-inside text-muted-foreground space-y-1 marker:text-blue-500">
+        {project.projectOtherData.clientRequirements.map((item, i) => (
+          <li key={i}>{item}</li>
+        ))}
+      </ul>
+    </div>
+  </div>
+)}
+
+        
       </div>
     </main>
   );

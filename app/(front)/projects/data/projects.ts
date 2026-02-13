@@ -17,6 +17,14 @@ export interface Project {
   solutionTitle: string;
   solutionDescription: string;
   }[];
+  projectOtherData?: {
+    technicalRequirements: string[];
+    duration: string;
+    paymentTerms: string[];
+    clientRequirementDays: string;
+    projectPausePolicy: string;
+    clientRequirements: string[];
+  };
   isMainProject?: boolean;
   isPopular?: boolean; 
 }
@@ -122,7 +130,7 @@ export const projectsData: Project[] = [
     tier: 'basic',
     categories: ['charity-websites'],
     priceUGX: 1500000,
-    priceUSD: 422,
+    priceUSD: 424,
     liveLink: 'https://hopecrestfoundation.vercel.app/',
     techStack: ['Next.js', 'Tailwind CSS', 'TypeScript'],
     features: [
@@ -168,66 +176,51 @@ export const projectsData: Project[] = [
     solutionTitle: 'After this website is built for you, it becomes easy for your charity organisation to partner with others.',
     solutionDescription:
       'This website removes that barrier and builds confidence for possible future partnerships.',
-  },
+  },   
+    ],
+
+    projectOtherData: {
+    technicalRequirements: [
+      'Domain & Hosting – UGX 100,000',
+      'V0 Deployment – UGX 100,000'
+    ],
+
+    duration: '1 Week',
+
+    paymentTerms: [
+      'Full Payment – UGX 1,500,000 (Withdraw charges: UGX 17,000)',
+      'Half Payment – UGX 750,000 (Withdraw charges: UGX 13,000)'
+    ],
+
+    clientRequirementDays: '3 Days',
+
+    projectPausePolicy:
+      'If the project is paused for more than 14 days due to missing content or approvals, a reactivation fee of UGX 100,000 will apply before work resumes, as the project will need to be rescheduled.',
+
+    clientRequirements: [
+      'Logo of the charity organisation',
+      'Colors you want in the website',
+      'Font style you want in the website',
+      'Full Name of the charity organisation',
+      'Email of the charity organisation',
+      '2 Contact numbers of the charity organisation',
+      'Location of the charity organisation ie P.O Box Number, Town, City/District',
+      '2 Phone numbers which will receive the donations',
+      'The Bank account information of the account which will receive the donations ie Bank Name, Account Holder Name, Account Number, Branch location of the Bank.',
+      'Your Story ie when the charity organsation was made.',
+      'Your Mission as a charity organisation',
+      'Your Vision as a charity organisation',
+      '1 powerful & strong image of people in the charity organisation doing the charity work (This will be the welcome photo of the charity website)',
+      'I need the full names of 3 main members of the charity organisation. Also their main profile picture each, and the role they play in the charity organisation.',
+      'Number of children / people the charity organisation is helping.',
+      'Number of communities served.',
+      'Number of funds raised',
+      'Number of active volunteers'
       
     ],
+  },
+
     isMainProject: true,
-  },
-  {
-    id: 'charity-basic-2',
-    title: 'Standard Charity Website',
-    companyName: 'Beacon',
-    description:
-      'A professional website for a clean water charity with donation tracking, impact stories, and volunteer sign-up forms.',
-    image: '/standard-charity-website-image.png',
-    tier: 'basic',
-    categories: ['charity-websites'],
-    priceUGX: 3000000,
-    priceUSD: 844,
-    liveLink: 'https://standard-charity-website-fw7w.vercel.app/',
-    techStack: ['React', 'Tailwind CSS', 'Firebase'],
-    features: [
-      'Mission statement and vision pages',
-      'Donation system integration',
-      'Impact stories section',
-      'Volunteer registration',
-      'Newsletter signup',
-      'Mobile responsive design',
-    ],
-    problems: [
-      // 'Limited reach to donors',
-      // 'Difficulty accepting online donations',
-      // 'No volunteer management system',
-      // 'Poor search engine visibility',
-    ],
-  },
-  {
-    id: 'charity-basic-3',
-    title: 'Premium Charity Website',
-    companyName: 'Bright Minds Institute',
-    description:
-      'A simple yet impactful website for an education charity with scholarship information and donation options.',
-    image: 'https://images.unsplash.com/photo-1427504494785-cddc3be3b337?w=500&h=300&fit=crop',
-    tier: 'basic',
-    categories: ['charity-websites'],
-    priceUGX: 5000000,
-    priceUSD: 1350,
-    liveLink: 'https://example.com',
-    techStack: ['React', 'Tailwind CSS', 'Node.js'],
-    features: [
-      'Scholarship program information',
-      'Student success stories',
-      'Donation portal',
-      'Contact and inquiry forms',
-      'Photo gallery',
-      'Mobile optimized',
-    ],
-    problems: [
-      // 'Lack of online presence',
-      // 'Difficulty reaching donors',
-      // 'No secure donation system',
-      // 'Limited communication channels',
-    ],
   },
 
   {
