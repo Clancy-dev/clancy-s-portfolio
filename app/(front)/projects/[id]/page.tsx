@@ -280,6 +280,16 @@ export default function ProjectDetailPage() {
           )}
         </div>
 
+        {isAuthenticated && (
+  <div className="mt-12 border-t border-border pt-8 space-y-8">
+    <h2 className="text-2xl font-bold text-foreground">
+      Project Details Testing
+    </h2>
+    <p className="text-muted-foreground">No additional project data available.</p>
+  </div>
+)}
+
+
         {/* ✅ Project Details Section */}
         {isLoading ? (
   <div className="mt-12 text-center text-muted-foreground">
