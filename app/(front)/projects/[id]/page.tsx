@@ -347,7 +347,7 @@ export default function ProjectDetailPage() {
   </div>
 ) : (
   <div className="mt-12 text-center text-muted-foreground">
-    Please <Link href="/login" className="text-primary underline">log in</Link> to view project details.
+    Please <Link href="/login" className="text-primary underline">log in</Link> to view more project details.
   </div>
 )}
 
