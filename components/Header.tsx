@@ -186,7 +186,7 @@ export default function Header() {
                   >
                     <div
                       className={cn(
-                        "flex-shrink-0 p-1.5 xs:p-2 rounded-lg xs:rounded-xl transition-all duration-300",
+                        "flex-shrink-0 p-1.5 xs:p-2 rounded-lg flex items-center justify-center xs:rounded-xl transition-all duration-300",
                         pathname === link.href ? "bg-white/20" : "bg-purple-100 dark:bg-purple-900/30 group-hover:bg-purple-200 dark:group-hover:bg-purple-800/40"
                       )}
                     >
