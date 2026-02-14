@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Home, User, Tag, Network, PhoneCall, Menu, X } from "lucide-react"
+import { Home, User, Tag, Network, PhoneCall, Menu, X, LayoutDashboard } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
@@ -59,7 +59,7 @@ export default function Header() {
                     "flex items-center space-x-2 px-4 py-2 rounded-full font-medium transition-all duration-300 text-sm",
                     pathname === link.href
                       ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-500/25 scale-105"
-                      : "text-slate-700 dark:text-slate-300 hover:bg-gradient-to-r hover:from-purple-100 hover:to-pink-100 dark:hover:from-purple-900/30 dark:hover:to-pink-900/30 hover:text-purple-700 dark:hover:text-purple-300",
+                      : "text-slate-700 dark:text-slate-300 hover:bg-gradient-to-r hover:from-purple-100 hover:to-pink-100 dark:hover:from-purple-900/30 dark:hover:to-pink-900/30 hover:text-purple-700 dark:hover:text-purple-300 hover:scale-105",
                   )}
                 >
                   {link.icon}
@@ -69,11 +69,11 @@ export default function Header() {
 
     
               {/* Dashboard link */}
-{isAuthenticated && (
-  <Link
+               {isAuthenticated && (
+                 <Link
     href="/dashboard"
     className={cn(
-      "flex items-center space-x-3 xs:space-x-4 p-3 xs:p-4 rounded-xl xs:rounded-2xl font-medium transition-all duration-300 text-sm xs:text-base group",
+      "flex items-center space-x-2 px-4 py-2 rounded-full font-medium transition-all duration-300 text-sm ",
       pathname === "/dashboard"
         ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg transform scale-105"
         : "text-slate-700 dark:text-slate-300 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 dark:hover:from-purple-900/20 dark:hover:to-pink-900/20 hover:text-purple-700 dark:hover:text-purple-300 hover:scale-105"
@@ -88,12 +88,12 @@ export default function Header() {
           : "bg-purple-100 dark:bg-purple-900/30 group-hover:bg-purple-200 dark:group-hover:bg-purple-800/40"
       )}
     >
-      <Network className="w-3 h-3 xs:w-4 xs:h-4" />
+      <LayoutDashboard className="w-3 h-3 xs:w-4 xs:h-4" />
     </div>
     <span className="font-['Inter',_'system-ui',_sans-serif] font-medium flex-1 text-left">
       Dashboard
     </span>
-  </Link>
+                 </Link>
 )}
 
 
