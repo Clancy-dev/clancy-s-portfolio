@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Home, User, Tag, Network, PhoneCall, Menu, X, LayoutDashboard } from "lucide-react"
+import { Home, User, Tag, Network, PhoneCall, Menu, X, LayoutDashboard, LogIn } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
@@ -126,7 +126,6 @@ export default function Header() {
       </header>
 
       {/* Mobile Menu */}
-      {/* Mobile Menu (UNCHANGED except X) */}
 {isMenuOpen && (
   <div className="fixed inset-0 z-[100] md:hidden">
     
@@ -196,7 +195,7 @@ export default function Header() {
                     : "bg-purple-100 dark:bg-purple-900/30 group-hover:bg-purple-200 dark:group-hover:bg-purple-800/40"
                 )}
               >
-                <div className="w-3 h-3 xs:w-4 xs:h-4">
+                <div className="w-3 h-3 xs:w-4 xs:h-4 flex items-center justify-center">
                   {link.icon}
                 </div>
               </div>
@@ -207,31 +206,54 @@ export default function Header() {
           ))}
 
           {isAuthenticated && (
-            <Link
-              href="/dashboard"
-              className="flex items-center space-x-3 p-3 rounded-xl font-medium bg-purple-500 text-white"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <LayoutDashboard className="w-4 h-4" />
-              <span>Dashboard</span>
-            </Link>
-          )}
+          <Link
+      href="/dashboard"
+      className={cn(
+        "flex items-center space-x-3 xs:space-x-4 p-3 xs:p-4 rounded-xl xs:rounded-2xl font-medium transition-all duration-300 text-sm xs:text-base group",
+        pathname === "/dashboard"
+          ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg transform scale-105"
+          : "text-slate-700 dark:text-slate-300 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 dark:hover:from-purple-900/20 dark:hover:to-pink-900/20 hover:text-purple-700 dark:hover:text-purple-300 hover:scale-105"
+      )}
+      onClick={() => setIsMenuOpen(false)}
+    >
+      <div
+        className={cn(
+          "flex-shrink-0 p-1.5 xs:p-2 rounded-lg flex items-center justify-center xs:rounded-xl transition-all duration-300",
+          pathname === "/dashboard"
+            ? "bg-white/20"
+            : "bg-purple-100 dark:bg-purple-900/30 group-hover:bg-purple-200 dark:group-hover:bg-purple-800/40"
+        )}
+      >
+        <LayoutDashboard className="w-3 h-3 xs:w-4 xs:h-4" />
+      </div>
+      <span className="font-['Inter',_'system-ui',_sans-serif] font-medium flex-1 text-left">
+        Dashboard
+      </span>
+    </Link>
+           
+           )}
 
           {!isAuthenticated ? (
-            <Link
+            <div className="w-full flex items-center justify-center">
+              <Link
               href="/login"
-              className="block w-full text-center px-4 py-3 bg-cyan-500 text-white rounded-xl font-semibold"
+              className=" w-1/2 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-cyan-500 to-purple-600 text-white rounded-xl font-semibold"
               onClick={() => setIsMenuOpen(false)}
             >
+              <div className="w-3 h-3 xs:w-4 xs:h-4 flex items-center justify-center">
+                <LogIn className="w-4 h-4" /> 
+              </div>
               Login
             </Link>
+            </div>
+            
           ) : (
             <button
               onClick={() => {
                 setIsMenuOpen(false)
                 setShowLogoutModal(true)
               }}
-              className="block w-full text-center px-4 py-3 bg-red-500 text-white rounded-xl font-semibold"
+              className=" w-1/2 flex items-center justify-center gap-2 text-center px-4 py-3 bg-gradient-to-r from-red-500 to-pink-600 text-white rounded-xl font-semibold"
             >
               Logout
             </button>
