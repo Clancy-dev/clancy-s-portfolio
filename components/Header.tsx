@@ -67,15 +67,37 @@ export default function Header() {
                 </Link>
               ))}
 
-              {/* Dashboard link for authenticated users */}
-              {isAuthenticated && (
-                <Link
-                  href="/dashboard"
-                  className="px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full font-semibold hover:scale-105 shadow-lg"
-                >
-                  Dashboard
-                </Link>
-              )}
+    
+              {/* Dashboard link */}
+{isAuthenticated && (
+  <Link
+    href="/dashboard"
+    className={cn(
+      "flex items-center space-x-3 xs:space-x-4 p-3 xs:p-4 rounded-xl xs:rounded-2xl font-medium transition-all duration-300 text-sm xs:text-base group",
+      pathname === "/dashboard"
+        ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg transform scale-105"
+        : "text-slate-700 dark:text-slate-300 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 dark:hover:from-purple-900/20 dark:hover:to-pink-900/20 hover:text-purple-700 dark:hover:text-purple-300 hover:scale-105"
+    )}
+    onClick={() => setIsMenuOpen(false)}
+  >
+    <div
+      className={cn(
+        "flex-shrink-0 p-1.5 xs:p-2 rounded-lg xs:rounded-xl transition-all duration-300",
+        pathname === "/dashboard"
+          ? "bg-white/20"
+          : "bg-purple-100 dark:bg-purple-900/30 group-hover:bg-purple-200 dark:group-hover:bg-purple-800/40"
+      )}
+    >
+      <Network className="w-3 h-3 xs:w-4 xs:h-4" />
+    </div>
+    <span className="font-['Inter',_'system-ui',_sans-serif] font-medium flex-1 text-left">
+      Dashboard
+    </span>
+  </Link>
+)}
+
+
+
 
               {/* Login / Logout Button */}
              {/* Login / Logout Button */}
@@ -174,16 +196,23 @@ export default function Header() {
                   </Link>
                 ))}
 
-                {/* Dashboard link */}
-                {isAuthenticated && (
-                  <Link
-                    href="/dashboard"
-                    className="block w-full text-center px-4 py-3 bg-purple-500 text-white rounded-xl font-semibold"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Dashboard
-                  </Link>
-                )}
+                
+                {/* Dashboard link for authenticated users */}
+  {isAuthenticated && (
+  <Link
+    href="/dashboard"
+    className={cn(
+      "flex items-center space-x-2 px-4 py-2 rounded-full font-medium transition-all duration-300 text-sm",
+      pathname === "/dashboard"
+        ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-500/25 scale-105"
+        : "text-slate-700 dark:text-slate-300 hover:bg-gradient-to-r hover:from-purple-100 hover:to-pink-100 dark:hover:from-purple-900/30 dark:hover:to-pink-900/30 hover:text-purple-700 dark:hover:text-purple-300"
+    )}
+  >
+    <Network className="w-4 h-4" />
+    <span className="font-['Inter',_'system-ui',_sans-serif] font-medium">Dashboard</span>
+  </Link>
+)}
+
 
                 {/* Login / Logout */}
                 {!isAuthenticated ? (
