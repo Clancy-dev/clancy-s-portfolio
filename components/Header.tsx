@@ -228,39 +228,54 @@ export default function Header() {
       )}
 
       {/* Logout Confirmation Modal */}
-      {showLogoutModal && (
-        <div className="fixed inset-0 z-[300] flex items-center justify-center">
-          <div
-            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
-            onClick={() => setShowLogoutModal(false)}
-          />
-          <div className="relative z-10 w-[90%] max-w-md bg-white dark:bg-slate-900 rounded-2xl shadow-2xl p-6 border border-purple-200/30 dark:border-purple-500/30">
-            <h3 className="text-lg font-semibold text-slate-800 dark:text-slate-200 mb-2">
-              Confirm Logout
-            </h3>
-            <p className="text-sm text-slate-600 dark:text-slate-400 mb-6">
-              Are you sure you want to log out?
-            </p>
-            <div className="flex justify-end space-x-3">
-              <button
-                onClick={() => setShowLogoutModal(false)}
-                className="px-4 py-2 rounded-full text-sm font-medium bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-200 hover:scale-105 transition"
-              >
-                Cancel
-              </button>
-              <button
-                onClick={() => {
-                  setShowLogoutModal(false)
-                  logout()
-                }}
-                className="px-4 py-2 rounded-full text-sm font-semibold bg-gradient-to-r from-red-500 to-pink-600 text-white hover:scale-105 transition shadow-lg"
-              >
-                Yes, Log me out
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      {/* Logout Confirmation Modal */}
+{showLogoutModal && (
+  <div className="fixed inset-0 z-[300] flex items-center justify-center">
+    <div
+      className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+      onClick={() => setShowLogoutModal(false)}
+    />
+
+    <div className="relative z-10 w-[90%] max-w-md bg-white dark:bg-slate-900 rounded-2xl shadow-2xl p-6 border border-purple-200/30 dark:border-purple-500/30">
+
+      {/* Close X Button */}
+      <button
+        onClick={() => setShowLogoutModal(false)}
+        className="absolute top-4 right-4 text-slate-500 hover:text-slate-800 dark:hover:text-white transition"
+      >
+        <X className="w-5 h-5" />
+      </button>
+
+      <h3 className="text-lg font-semibold text-slate-800 dark:text-slate-200 mb-2">
+        Confirm Logout
+      </h3>
+
+      <p className="text-sm text-slate-600 dark:text-slate-400 mb-6">
+        Are you sure you want to log out?
+      </p>
+
+      <div className="flex justify-end space-x-3">
+        <button
+          onClick={() => setShowLogoutModal(false)}
+          className="px-4 py-2 rounded-full text-sm font-medium bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-200 hover:scale-105 transition"
+        >
+          Cancel
+        </button>
+
+        <button
+          onClick={() => {
+            setShowLogoutModal(false)
+            logout()
+          }}
+          className="px-4 py-2 rounded-full text-sm font-semibold bg-gradient-to-r from-red-500 to-pink-600 text-white hover:scale-105 transition shadow-lg"
+        >
+          Yes, Log me out
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
 
       <style jsx>{`
         @keyframes slideInUp {
