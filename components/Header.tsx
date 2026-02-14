@@ -248,7 +248,8 @@ export default function Header() {
             </div>
             
           ) : (
-            <button
+            <div className="w-full flex items-center justify-center">
+              <button
               onClick={() => {
                 setIsMenuOpen(false)
                 setShowLogoutModal(true)
@@ -257,6 +258,8 @@ export default function Header() {
             >
               Logout
             </button>
+
+            </div>       
           )}
         </div>
       </div>
