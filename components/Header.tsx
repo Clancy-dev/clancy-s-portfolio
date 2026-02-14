@@ -202,13 +202,13 @@ export default function Header() {
   <Link
     href="/dashboard"
     className={cn(
-      "flex items-center space-x-2 px-4 py-2 rounded-full font-medium transition-all duration-300 text-sm",
+      "flex items-center space-x-3 xs:space-x-4 p-3 xs:p-4 rounded-xl xs:rounded-2xl font-medium transition-all duration-300 text-sm xs:text-base group",
       pathname === "/dashboard"
         ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-500/25 scale-105"
         : "text-slate-700 dark:text-slate-300 hover:bg-gradient-to-r hover:from-purple-100 hover:to-pink-100 dark:hover:from-purple-900/30 dark:hover:to-pink-900/30 hover:text-purple-700 dark:hover:text-purple-300"
     )}
   >
-    <Network className="w-4 h-4" />
+    <LayoutDashboard className="w-4 h-4" />
     <span className="font-['Inter',_'system-ui',_sans-serif] font-medium">Dashboard</span>
   </Link>
 )}
