@@ -1,5 +1,6 @@
 import BackHeader from '@/components/BackHeader'
 import Footer from '@/components/Footer'
+import Header from '@/components/Header'
 import React from 'react'
 
 export default function Frontlayout({
@@ -9,7 +10,8 @@ export default function Frontlayout({
 }) {
   return (
     <div>
-      <BackHeader/>
+      <Header/>
+      {/* <BackHeader/> */}
       {children}
       <Footer/>
          
