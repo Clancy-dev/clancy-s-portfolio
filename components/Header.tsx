@@ -228,24 +228,26 @@ export default function Header() {
       )}
 
       {/* Logout Confirmation Modal */}
-      {/* Logout Confirmation Modal */}
 {showLogoutModal && (
   <div className="fixed inset-0 z-[300] flex items-center justify-center">
+
+    {/* Overlay */}
     <div
       className="absolute inset-0 bg-black/50 backdrop-blur-sm"
       onClick={() => setShowLogoutModal(false)}
     />
 
+    {/* Floating X (outside modal box) */}
+    <button
+      onClick={() => setShowLogoutModal(false)}
+      className="absolute top-6 right-6 p-2 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg hover:scale-110 transition-all duration-300 z-[301]"
+    >
+      <X className="w-6 h-6" />
+    </button>
+
+    {/* Modal Box */}
     <div className="relative z-10 w-[90%] max-w-md bg-white dark:bg-slate-900 rounded-2xl shadow-2xl p-6 border border-purple-200/30 dark:border-purple-500/30">
-
-      {/* Close X Button */}
-      <button
-        onClick={() => setShowLogoutModal(false)}
-        className="absolute top-4 right-4 text-slate-500 hover:text-slate-800 dark:hover:text-white transition"
-      >
-        <X className="w-5 h-5" />
-      </button>
-
+      
       <h3 className="text-lg font-semibold text-slate-800 dark:text-slate-200 mb-2">
         Confirm Logout
       </h3>
@@ -275,6 +277,8 @@ export default function Header() {
     </div>
   </div>
 )}
+
+  
 
 
       <style jsx>{`
