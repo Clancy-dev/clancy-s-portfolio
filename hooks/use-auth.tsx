@@ -122,7 +122,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, [isAuthenticated])
 
   const login = async (email: string, password: string): Promise<boolean> => {
-    // Simulate API call delay
+    // Simulate A PI call delay
     await new Promise((resolve) => setTimeout(resolve, 1000))
 
     if (email === DEMO_USER.email && password === DEMO_USER.password) {

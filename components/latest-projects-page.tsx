@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { Clock, Sparkles } from "lucide-react"
 import { ProjectCard } from "@/components/project-card"
 import { ViewProjectDialog } from "@/components/view-project-dialog"
-import { getAllProjectsPublic } from "@/lib/actions/projects"
+import { getAllProjectsPublic } from "@/actions/projects"
 import type { Project } from "@/lib/storage"
 
 export function LatestProjectsPage() {

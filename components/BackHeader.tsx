@@ -7,7 +7,7 @@ import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { ModeToggle } from "./ModeToggle"
-import { logoutAction} from "@/lib/actions/auth"
+import { logoutAction} from "@/actions/auth"
 import { Button } from "./ui/button"
 
 const links = [

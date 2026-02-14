@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { ProjectForm } from "@/components/project-form"
-import { createProjectAction, type ProjectFormData } from "@/lib/actions/projects"
+import { createProjectAction, type ProjectFormData } from "@/actions/projects"
 
 interface CreateProjectDialogProps {
   open: boolean

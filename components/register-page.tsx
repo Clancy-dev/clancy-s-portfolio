@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { registerAction } from "@/lib/actions/auth"
+import { registerAction } from "@/actions/auth"
 
 export function RegisterPage() {
   const [showPassword, setShowPassword] = useState(false)

@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Trash2, AlertTriangle } from "lucide-react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
-import { deleteProjectAction } from "@/lib/actions/projects"
+import { deleteProjectAction } from "@/actions/projects"
 import type { Project } from "@/lib/storage"
 
 interface DeleteProjectDialogProps {

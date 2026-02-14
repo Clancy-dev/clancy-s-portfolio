@@ -5,7 +5,7 @@ import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import { LayoutDashboard, FolderOpen, Clock, Menu, X, LogOut, User, ArrowLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { logoutAction, getSessionInfo } from "@/lib/actions/auth"
+import { logoutAction, getSessionInfo } from "@/actions/auth"
 import { useEffect, useTransition } from "react"
 
 export function Navigation() {

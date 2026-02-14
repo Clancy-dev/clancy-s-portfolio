@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { ProjectForm } from "@/components/project-form"
-import { updateProjectAction, type ProjectFormData } from "@/lib/actions/projects"
+import { updateProjectAction, type ProjectFormData } from "@/actions/projects"
 import type { Project } from "@/lib/storage"
 
 interface EditProjectDialogProps {
