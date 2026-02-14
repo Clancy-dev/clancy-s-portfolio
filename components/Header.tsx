@@ -19,7 +19,7 @@ const links = [
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const pathname = usePathname()
-  const { isAuthenticated, logout } = useAuth()
+  const { isAuthenticated, isLoading, logout } = useAuth()
 
   useEffect(() => {
     if (isMenuOpen) document.body.style.overflow = "hidden"
@@ -78,22 +78,26 @@ export default function Header() {
               )}
 
               {/* Login / Logout Button */}
-              {!isAuthenticated ? (
-                <Link
-                  href="/login"
-                  className="relative overflow-hidden bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-6 py-2 rounded-full font-semibold transition-all duration-300 hover:from-cyan-600 hover:to-purple-700 hover:scale-105 shadow-lg hover:shadow-cyan-500/25 font-['Inter',_'system-ui',_sans-serif]"
-                >
-                  <span className="relative z-10">Login</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-cyan-500 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
-                </Link>
-              ) : (
-                <button
-                  onClick={logout}
-                  className="relative overflow-hidden bg-gradient-to-r from-red-500 to-pink-600 text-white px-6 py-2 rounded-full font-semibold transition-all duration-300 hover:from-red-600 hover:to-pink-700 hover:scale-105 shadow-lg"
-                >
-                  <span className="relative z-10">Logout</span>
-                </button>
-              )}
+             {/* Login / Logout Button */}
+{!isLoading && (
+  !isAuthenticated ? (
+    <Link
+      href="/login"
+      className="relative overflow-hidden bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-6 py-2 rounded-full font-semibold transition-all duration-300 hover:from-cyan-600 hover:to-purple-700 hover:scale-105 shadow-lg hover:shadow-cyan-500/25 font-['Inter',_'system-ui',_sans-serif]"
+    >
+      <span className="relative z-10">Login</span>
+      <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-cyan-500 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+    </Link>
+  ) : (
+    <button
+      onClick={logout}
+      className="relative overflow-hidden bg-gradient-to-r from-red-500 to-pink-600 text-white px-6 py-2 rounded-full font-semibold transition-all duration-300 hover:from-red-600 hover:to-pink-700 hover:scale-105 shadow-lg"
+    >
+      <span className="relative z-10">Logout</span>
+    </button>
+  )
+)}
+
 
               <div className="mx-2">
                 <ModeToggle />
