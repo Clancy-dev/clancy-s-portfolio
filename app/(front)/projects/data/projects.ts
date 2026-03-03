@@ -226,7 +226,7 @@ export const projectsData: Project[] = [
   {
     id: 'charity-standard-1',
     title: 'Standard Charity Website',
-    companyName: 'Beacon',
+    companyName: 'Beacon Light Initiative',
     description:
       'A standard charity website is designed for full control and professional online management.',
     image: '/standard-charity-website-image.png',
@@ -255,12 +255,12 @@ export const projectsData: Project[] = [
     problems: [
 
        {
-    problemTitle: 'The Transparency Problem',
+    problemTitle: 'Lack of Proof of Activity',
     problemDescription:
-      'Donors and partners need proof of activity. Without updates or blogs: people doubt the charity’s work, funding and partnerships are lost.',
-    solutionTitle: 'Credibility & Accountability',
+      'Donors and partners need proof of activity. Without fresh updates or blogs: people doubt the charity’s work, funding and partnerships are lost.',
+    solutionTitle: 'Showing Proof of Activity',
     solutionDescription:
-      'This website enables posting events, project updates, and galleries, building credibility and trust, showing accountability.',
+      'This website enables posting events, project updates and galleries which shows that a charity organsation is active.',
   },
   {
     problemTitle: 'Volunteer & Contact Management Loss',
@@ -271,20 +271,12 @@ export const projectsData: Project[] = [
       'This website includes volunteer and contact forms, capturing data in an organized way and improving response time.',
   },
   {
-    problemTitle: 'Perception of Inactivity',
-    problemDescription:
-      'Even active charities look small or unprofessional online if their site is static or outdated, partnerships hesitate, donations drop.',
-    solutionTitle: 'Dynamic Online Presence',
-    solutionDescription:
-      'Dynamic content via dashboard updates keeps the charity looking active, organized, and credible.',
-  },
-  {
     problemTitle: 'Limited management and control over the website',
     problemDescription:
       'Every small update like adding a photo, changing donation numbers, or posting an event requires a developer, which delays updates and costs money.',
     solutionTitle: 'Full Content Control',
     solutionDescription:
-      'A standard website’s dashboard gives the charity full control to update content instantly.',
+      'A standard website’s dashboard gives the charity full control to update content instantly onto the charity website',
   },
   {
     problemTitle: 'Growth Limitation',
@@ -301,14 +293,6 @@ export const projectsData: Project[] = [
     solutionTitle: 'Analytics Dashboard',
     solutionDescription:
       'This website provides reporting tools to track campaign performance efficiently.',
-  },
-  {
-    problemTitle: 'Complex volunteer management',
-    problemDescription:
-      'Managing volunteers manually is error-prone and hard to scale.',
-    solutionTitle: 'Volunteer Management',
-    solutionDescription:
-      'Dashboard tools allow organized volunteer scheduling and tracking.',
   },
   {
     problemTitle: 'No impact visibility',
