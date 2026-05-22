@@ -23,9 +23,6 @@ export default function ProjectsPage() {
     basic: 3,
     standard: 3,
     premium: 3,
-    "premium-plus": 3,
-    pro: 3,
-    enterprise: 3,
   });
 
   // Load category from URL params on mount
@@ -75,33 +72,18 @@ export default function ProjectsPage() {
   const allProjects = getProjectsForDisplay();
 
   const projectsByTier = {
-  basic: allProjects
-    .filter(p => p.tier === 'basic')
-    .slice(0, displayCounts.basic ?? 3),
+    basic: allProjects
+      .filter(p => p.tier === 'basic')
+      .slice(0, displayCounts.basic ?? 3),
 
-  standard: allProjects
-    .filter(p => p.tier === 'standard')
-    .slice(0, displayCounts.standard ?? 3),
+    standard: allProjects
+      .filter(p => p.tier === 'standard')
+      .slice(0, displayCounts.standard ?? 3),
 
-  premium: allProjects
-    .filter(p => p.tier === 'premium')
-    .slice(0, displayCounts.premium ?? 3),
-
-  "premium-plus": allProjects
-    .filter(p => p.tier === 'premium-plus')
-    .slice(0, displayCounts["premium-plus"] ?? 2),
-
-  pro: allProjects
-    .filter(p => p.tier === 'pro')
-    .slice(0, displayCounts.pro ?? 3),
-
-  enterprise: allProjects
-    .filter(p => p.tier === 'enterprise')
-    .slice(0, displayCounts.enterprise ?? 3),
-};
-
-
-
+    premium: allProjects
+      .filter(p => p.tier === 'premium')
+      .slice(0, displayCounts.premium ?? 3),
+  };
 
   const hasMoreProjects = {
     basic:
@@ -112,15 +94,9 @@ export default function ProjectsPage() {
     premium:
       allProjects.filter(p => p.tier === 'premium').length >
       (displayCounts.premium ?? 3),
-    "premium-plus":
-      allProjects.filter(p => p.tier === 'premium-plus').length >
-      (displayCounts["premium-plus"] ?? 3),
-    pro: allProjects.filter(p => p.tier === 'pro').length > 
-      displayCounts.pro,
-    enterprise: allProjects.filter(p => p.tier === 'enterprise').length >          displayCounts.enterprise,
   };
 
-  const handleLoadMore = (tier: 'basic' | 'standard' | 'premium' | "premium-plus") => {
+  const handleLoadMore = (tier: 'basic' | 'standard' | 'premium') => {
     setDisplayCounts(prev => ({
       ...prev,
       [tier]: (prev[tier] ?? 3) + 3,
@@ -157,8 +133,6 @@ export default function ProjectsPage() {
       basic: 3,
       standard: 3,
       premium: 3,
-      "premium-plus":3
-
     });
 
     requestAnimationFrame(() => {
@@ -189,8 +163,8 @@ export default function ProjectsPage() {
   return (
     <main className="min-h-screen bg-background">
       {/* Header */}
-      <div className=" top-0 pt-3 z-40 bg-background/95 backdrop-blur-sm ">
-        <div className="mx-auto max-w-7xl px-4  sm:px-6 lg:px-8">
+      <div className="top-0 pt-3 z-40 bg-background/95 backdrop-blur-sm">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-end gap-2 py-4 sm:gap-3">
             <button
               onClick={() => setShowCategorySearch(true)}
@@ -336,22 +310,22 @@ export default function ProjectsPage() {
         {/* Projects */}
         {selectedCategory === 'all' ? (
           <div className="space-y-12">
-            {['basic', 'standard', 'premium','premium-plus', 'pro', 'enterprise'].map(tier => {
-              const tierProjects = projectsByTier[tier as 'basic' | 'standard' | 'premium' | 'premium-plus' | 'pro' | 'enterprise'];
+            {['basic', 'standard', 'premium'].map(tier => {
+              const tierProjects = projectsByTier[tier as 'basic' | 'standard' | 'premium'];
               const allTierProjects = allProjects.filter(p => p.tier === tier);
               if (!allTierProjects.length) return null;
 
               return (
                 <div key={tier}>
                   <h2 className="mb-6 text-2xl font-semibold capitalize text-foreground">
-                    {tier} Solutions
+                    Type {tier === 'basic' ? 'I' : tier === 'standard' ? 'II' : 'III'} - {tier}
                   </h2>
                   <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 items-start mb-8">
                     {tierProjects.map(p => (
                       <ProjectCard key={p.id} project={p} currency={currency} />
                     ))}
                   </div>
-                  {hasMoreProjects[tier as 'basic' | 'standard' | 'premium' | 'pro' | 'enterprise'] && (
+                  {hasMoreProjects[tier as 'basic' | 'standard' | 'premium'] && (
                     <div className="flex justify-center">
                       <Button
                         onClick={() =>
@@ -360,7 +334,7 @@ export default function ProjectsPage() {
                         variant="outline"
                         className="px-6"
                       >
-                        See More {tier} Solutions
+                        See More Type {tier === 'basic' ? 'I' : tier === 'standard' ? 'II' : 'III'}
                       </Button>
                     </div>
                   )}

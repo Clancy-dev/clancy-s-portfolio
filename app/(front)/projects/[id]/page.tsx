@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
+import Image from 'next/image';
 import {
   ArrowLeft,
   ExternalLink,
@@ -10,6 +11,12 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
 import { projectsData } from '../data/projects';
 import { CurrencyToggle } from '../components/currency-toggle';
 
@@ -31,8 +38,6 @@ import {
 
 import { FaReact, FaNodeJs } from 'react-icons/fa';
 import { useAuth } from '@/hooks/use-auth';
-
-// test
 
 export default function ProjectDetailPage() {
   const { isAuthenticated, isLoading } = useAuth()
@@ -131,7 +136,7 @@ export default function ProjectDetailPage() {
                 </Badge>
               </div>
 
-              <h1 className="text-4xl font-bold text-foreground text-balance">
+              <h1 className="text-3xl font-bold text-foreground text-balance">
                 {project.title}
               </h1>
             </div>
@@ -139,12 +144,7 @@ export default function ProjectDetailPage() {
             <CurrencyToggle currency={currency} onChange={setCurrency} />
           </div>
 
-          <p className="text-muted-foreground">{project.companyName}</p>
-        </div>
-
-        {/* Price */}
-        <div className="mb-8 text-3xl font-bold text-primary">
-          {price}
+          {/* <p className="text-muted-foreground">{project.companyName}</p> */}
         </div>
 
         {/* Image */}
@@ -158,10 +158,28 @@ export default function ProjectDetailPage() {
           </div>
         )}
 
-        {/* Description */}
-        <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-          {project.description}
-        </p>
+        {/* Content Section */}
+        {/* Major Purpose - Prominent Highlight */}
+        <div className="mb-8 pt-8">
+          <h2 className="text-xl font-semibold text-primary mb-4">
+            Major Purpose
+          </h2>
+          <h3 className="text-3xl font-bold text-foreground leading-snug">
+            {project.majorPurpose}
+          </h3>          
+        </div>
+
+         <div className="mb-8 border-t border-border pt-8">
+          <h2 className="text-lg font-semibold text-muted-foreground  mb-4">
+            Website Information
+          </h2>
+          <h3 className="text-lg font-bold text-foreground leading-snug">
+            {project.companyName}
+          </h3>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            {project.description}
+          </p>          
+        </div> 
 
         {/* Live Link */}
         {project.liveLink && (
@@ -235,7 +253,7 @@ export default function ProjectDetailPage() {
         </div>
 
         {/* Problems Solved */}
-        <div className="border-t border-border pt-8">
+        <div className="mb-8 border-t border-border pt-8">
           <h2 className="text-xl font-semibold text-foreground mb-4">
             Problems Solved
           </h2>
@@ -281,6 +299,54 @@ export default function ProjectDetailPage() {
             </button>
           )}
         </div>
+
+        {/* Value for this Website - Accordion with Price */}
+        <div className="mb-8 border-t border-border pt-8">
+          <Accordion type="single" collapsible>
+            <AccordionItem value="price">
+              <AccordionTrigger className="text-xl font-semibold hover:no-underline">
+                Value for this Website
+              </AccordionTrigger>
+              <AccordionContent className="pt-4">
+                <div className="text-3xl font-bold text-primary">
+                  {price}
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </div>
+
+        {/* Online Tools Used */}
+        <div className="border-t border-border pt-8 mb-8">
+          <h2 className="text-xl font-semibold text-foreground mb-6">
+            Online Tools Used to Build This Website
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {project.tools.map((tool) => (
+              <div
+                key={tool.id}
+                className="flex flex-col items-center text-center p-4 rounded-lg border border-border hover:border-primary/50 transition-colors"
+              >
+                <div className="relative w-20 h-20 mb-3">
+                  <img
+                    src={tool.image}
+                    alt={tool.name}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <h3 className="font-semibold text-foreground mb-2">
+                  {tool.name}
+                </h3>
+                <p className="text-sm text-primary font-medium">
+                  {tool.priceUSD === 0 ? 'Free' : `USD $${tool.priceUSD}`}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+       
 
         {/* ✅ Project Details Section */}
         {isLoading ? (
@@ -352,8 +418,6 @@ export default function ProjectDetailPage() {
     Please <Link href="/login" className="text-primary underline">log in</Link> to view more technical project details.
   </div>
 )}
-
- 
 
         
       </div>
