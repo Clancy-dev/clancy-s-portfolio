@@ -282,7 +282,7 @@ export const projectsData: Project[] = [
   // CHARITY WEBSITES
   {
     id: 'charity-basic-1',
-    title: 'Type I',
+    title: 'Category I',
     companyName: 'Hope Crest Foundation',
     description:
       'A basic charity website is built to establish trust, credibility and create online presence.',
@@ -422,10 +422,10 @@ export const projectsData: Project[] = [
 
   {
     id: 'charity-standard-1',
-    title: 'Standard Charity Website',
+    title: 'Category II',
     companyName: 'Beacon Light Initiative',
     description:
-      'A standard charity website is designed for full control and professional online management.',
+      'A Category II is designed for full control and professional online management.',
     image: '/standard-charity-website-image.png',
     tier: 'standard',
     categories: ['charity-websites'],
@@ -1021,9 +1021,9 @@ export const projectsData: Project[] = [
 
   {
     id: 'charity-premium-1',
-    title: 'Premium Charity Website',
+    title: 'Category III',
     companyName: 'Elevate Foundation',
-    description: 'A premium charity website is built to turn support into instant funding through either local or international payment gateways.',
+    description: 'A Category III is built to turn support into instant funding through either local or international payment gateways.',
     image: '/enterprise-multi-charity-website-image.png',
     tier: 'premium',
     categories: ['charity-websites'],

@@ -31,7 +31,7 @@ export function ProjectCard({ project, currency }: ProjectCardProps) {
           {getTierName()} {getCategoryName()}
         </p>
         <h2 className="text-3xl font-bold text-foreground">
-          Type {project.tier === 'basic' ? 'I' : project.tier === 'standard' ? 'II' : 'III'}
+          Category {project.tier === 'basic' ? 'I' : project.tier === 'standard' ? 'II' : 'III'}
         </h2>
       </div>
 

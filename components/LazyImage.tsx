@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import Image, { type ImageProps } from "next/image"
+import Image, { Category ImageProps } from "next/image"
 
 interface LazyImageProps extends ImageProps {
   threshold?: number
