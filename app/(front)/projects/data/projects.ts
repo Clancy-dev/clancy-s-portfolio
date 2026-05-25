@@ -426,13 +426,13 @@ export const projectsData: Project[] = [
     companyName: 'Beacon Light Initiative',
     description:
       'A Category II is designed for full control and professional online management.',
-    image: '/standard-charity-website-image.png',
+    image: '/standard thumbnail.png',
     tier: 'standard',
     categories: ['charity-websites'],
     priceUGX: 3000000,
     majorPurpose: 'Trust',
     priceUSD: 844,
-    liveLink: 'https://standard-charity-website-fw7w.vercel.app/',
+    liveLink: 'https://benevorainitiative.vercel.app',
     techStack: ['Next.js', 'Tailwind CSS', 'TypeScript', 'Mongo db', 'Prisma', 'Auth', 'Resend'],
     features: [
       'All features of basic',
