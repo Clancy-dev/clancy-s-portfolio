@@ -302,6 +302,7 @@ export default function ProjectsPage() {
                 >
                   {getCategoryLabel(cat)}
                 </button>
+                // sample
               ))}
             </div>
           </div>
