@@ -292,7 +292,7 @@ export const projectsData: Project[] = [
     priceUGX: 1500000,
     priceUSD: 424,
     majorPurpose: 'Google Online Presence',
-    liveLink: 'https://hopecrestfoundation.vercel.app/',
+    liveLink: 'https://hopecrestfoundation1.vercel.app/',
     techStack: ['Next.js', 'Tailwind CSS', 'TypeScript'],
     features: [
       'Clear presentation of mission, vision, and core values',
