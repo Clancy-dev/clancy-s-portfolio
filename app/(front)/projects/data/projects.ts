@@ -285,7 +285,7 @@ export const projectsData: Project[] = [
     title: 'Category I',
     companyName: 'Hope Crest Foundation',
     description:
-      'A basic charity website is built to establish trust, credibility and create online presence.',
+      'To support children and communities by providing education, healthcare, and basic needs.',
     image: '/basic-charity-website-image.png',
     tier: 'basic',
     categories: ['charity-websites'],
@@ -425,7 +425,7 @@ export const projectsData: Project[] = [
     title: 'Category II',
     companyName: 'Beacon Light Initiative',
     description:
-      'A Category II is designed for full control and professional online management.',
+      'To empower lives and inspire change in our communities.',
     image: '/standard thumbnail.png',
     tier: 'standard',
     categories: ['charity-websites'],
