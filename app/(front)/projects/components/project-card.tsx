@@ -24,7 +24,7 @@ export function ProjectCard({ project, currency }: ProjectCardProps) {
   };
 
   return (
-    <div className="group flex flex-col gap-0 rounded-2xl border border-border bg-card overflow-hidden transition-all hover:shadow-2xl hover:border-primary/30 duration-300">
+    <div className="group w-full max-w-md flex flex-col gap-0 rounded-2xl border border-border bg-card overflow-hidden transition-all hover:shadow-2xl hover:border-primary/30 duration-300">
       {/* Header Section - Compact */}
       <div className="px-6 pt-5 pb-0">
         <p className="text-xs font-medium text-muted-foreground mb-1">

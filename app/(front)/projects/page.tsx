@@ -13,13 +13,14 @@ import { categoriesData } from './data/categories';
 export default function ProjectsPage() {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedCategory, setSelectedCategory] = useState(
+  categoriesData[0]?.id || ''
+);
   const [currency, setCurrency] = useState<'UGX' | 'USD'>('UGX');
   const [showCategorySearch, setShowCategorySearch] = useState(false);
   const [categorySearchTerm, setCategorySearchTerm] = useState('');
   const [searchInput, setSearchInput] = useState('');
   const [displayCounts, setDisplayCounts] = useState<Record<string, number>>({
-    all: 3,
     basic: 3,
     standard: 3,
     premium: 3,
@@ -38,20 +39,16 @@ export default function ProjectsPage() {
 
   // Update URL when category changes
   useEffect(() => {
-    const newUrl =
-      selectedCategory === 'all'
-        ? '/projects'
-        : `/projects?category=${selectedCategory}`;
+    const newUrl = `/projects?category=${selectedCategory}`;
     router.push(newUrl);
   }, [selectedCategory, router]);
 
-  const categories = useMemo(() => ['all', ...categoriesData.map(c => c.id)], []);
+  const categories = useMemo(() => categoriesData.map(c => c.id), []);
 
-  const getCategoryLabel = (cat: string) => {
-    if (cat === 'all') return 'All Projects';
-    const category = categoriesData.find(c => c.id === cat);
-    return category?.name || cat;
-  };
+ const getCategoryLabel = (cat: string) => {
+  const category = categoriesData.find(c => c.id === cat);
+  return category?.name || cat;
+};
 
   const filteredCategories = useMemo(() => {
     if (!categorySearchTerm.trim()) return categories;
@@ -62,12 +59,10 @@ export default function ProjectsPage() {
   }, [categorySearchTerm, categories]);
 
   const getProjectsForDisplay = () => {
-    let projects = projectsData.filter(p => p.isMainProject);
-    if (selectedCategory !== 'all') {
-      projects = projects.filter(p => p.categories.includes(selectedCategory));
-    }
-    return projects;
-  };
+  return projectsData
+    .filter(p => p.isMainProject)
+    .filter(p => p.categories.includes(selectedCategory));
+};
 
   const allProjects = getProjectsForDisplay();
 
@@ -129,7 +124,6 @@ export default function ProjectsPage() {
     setCategorySearchTerm('');
     setShowCategorySearch(false);
     setDisplayCounts({
-      all: 3,
       basic: 3,
       standard: 3,
       premium: 3,
@@ -308,58 +302,31 @@ export default function ProjectsPage() {
         </div>
 
         {/* Projects */}
-        {selectedCategory === 'all' ? (
-          <div className="space-y-12">
-            {['basic', 'standard', 'premium'].map(tier => {
-              const tierProjects = projectsByTier[tier as 'basic' | 'standard' | 'premium'];
-              const allTierProjects = allProjects.filter(p => p.tier === tier);
-              if (!allTierProjects.length) return null;
-
-              return (
-                <div key={tier}>
-                  <h2 className="mb-6 text-2xl font-semibold capitalize text-foreground">
-                    Type {tier === 'basic' ? 'I' : tier === 'standard' ? 'II' : 'III'} - {tier}
-                  </h2>
-                  <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 items-start mb-8">
-                    {tierProjects.map(p => (
-                      <ProjectCard key={p.id} project={p} currency={currency} />
-                    ))}
-                  </div>
-                  {hasMoreProjects[tier as 'basic' | 'standard' | 'premium'] && (
-                    <div className="flex justify-center">
-                      <Button
-                        onClick={() =>
-                          handleLoadMore(tier as 'basic' | 'standard' | 'premium')
-                        }
-                        variant="outline"
-                        className="px-6"
-                      >
-                        See More Type {tier === 'basic' ? 'I' : tier === 'standard' ? 'II' : 'III'}
-                      </Button>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
+             <div className="space-y-8">
+  {allProjects.length === 0 ? (
+    <div className="py-12 text-center">
+      <p className="text-muted-foreground">
+        No projects found in this category.
+      </p>
+    </div>
+  ) : (
+    <div
+      className={`grid gap-6 items-start ${
+        allProjects.length === 1
+          ? 'grid-cols-1 place-items-center'
+          : allProjects.length === 2
+          ? 'grid-cols-2 place-items-center'
+          : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
+      }`}
+    >
+      {allProjects.map(p => (
+        <ProjectCard key={p.id} project={p} currency={currency} />
+      ))}
+    </div>
+  )}
+</div>
+        
           </div>
-        ) : (
-          <div className="space-y-8">
-            {allProjects.length === 0 ? (
-              <div className="py-12 text-center">
-                <p className="text-muted-foreground">
-                  No projects found in this category.
-                </p>
-              </div>
-            ) : (
-              <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-start">
-                {allProjects.map(p => (
-                  <ProjectCard key={p.id} project={p} currency={currency} />
-                ))}
-              </div>
-            )}
-          </div>
-        )}
-      </div>
     </main>
   );
 }
