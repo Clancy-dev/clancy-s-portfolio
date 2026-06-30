@@ -45,12 +45,12 @@ export const projectsData: Project[] = [
     companyName: 'Hope Crest Foundation',
     description:
       'To support children and communities by providing education, healthcare, and basic needs.',
-    image: '/basic-charity-website-image.png',
+    image: '/basic-charity-website-thumbnail.png',
     tier: 'basic',
     categories: ['charity-websites'],
     priceUGX: 1500000,
     priceUSD: 411,
-    majorPurpose: 'Google Online Presence',
+    majorPurpose: 'Starter Trust',
     liveLink: 'https://hopecrestfoundation1.vercel.app/',
     techStack: ['Next.js', 'Tailwind CSS', 'TypeScript'],
     features: [
@@ -185,13 +185,134 @@ export const projectsData: Project[] = [
     companyName: 'Benevora Initiative',
     description:
       'To empower lives and inspire change in our communities.',
-    image: '/standard thumbnail.png',
+    image: '/standard-charity-website-thumbnail.png',
     tier: 'standard',
     categories: ['charity-websites'],
     priceUGX: 4000000,
-    majorPurpose: 'Trust',
+    majorPurpose: 'Growing Trust',
     priceUSD: 1096,
     liveLink: 'https://benevorainitiative.vercel.app',
+    techStack: ['Next.js', 'Tailwind CSS', 'TypeScript', 'Mongo db', 'Prisma', 'Auth', 'Resend'],
+    features: [
+      'All features of basic',
+      'Secure User Dashboard',
+      'Content Management System (CMS)',
+      'Volunteer Application Form',
+      'Contact Form',
+      'Donation Information Management',
+      'Blog / News Section',
+      'Photo & Media Gallery',
+      'Location Map Integration',
+      'Social Media Integration',
+      'Fully Responsive Design',
+      'Events Management System',
+      'Advanced SEO',
+
+    ],
+        tools: [
+  {
+    id: 'vercel',
+    name: 'Vercel',
+    image: '/vercel.png',
+    priceUSD: 76,
+  },
+  {
+    id: 'google-workspace',
+    name: 'Google Workspace',
+    image: '/google-workspace.png',
+    priceUSD: 50,
+  },
+  {
+    id: 'cloudflare',
+    name: 'Cloudflare',
+    image: '/cloudfare.png',
+    priceUSD: 22,
+  },
+  {
+    id: 'zoho',
+    name: 'Zoho',
+    image: '/zoho.png',
+    priceUSD: 48,
+  },
+   
+  {
+    id: 'github-copilot',
+    name: 'GitHub Copilot',
+    image: '/github-copilot.png',
+    priceUSD: 17,
+  },
+  
+],
+
+    problems: [
+
+       {
+    problemTitle: 'Lack of Proof of Activity',
+    problemDescription:
+      'Donors and partners need proof of activity. Without fresh updates or blogs: people doubt the charity’s work, funding and partnerships are lost.',
+    solutionTitle: 'Showing Proof of Activity',
+    solutionDescription:
+      'This website enables posting events, project updates and galleries which shows that a charity organsation is active.',
+  },
+  {
+    problemTitle: 'Volunteer & Contact Management Loss',
+    problemDescription:
+      'Without proper forms, volunteer applications and donor inquiries get lost in WhatsApp, email, or social media messages.',
+    solutionTitle: 'Organized Data Capture',
+    solutionDescription:
+      'This website includes volunteer and contact forms, capturing data in an organized way and improving response time.',
+  },
+  {
+    problemTitle: 'Limited management and control over the website',
+    problemDescription:
+      'Every small update like adding a photo, changing donation numbers, or posting an event requires a developer, which delays updates and costs money.',
+    solutionTitle: 'Full Content Control',
+    solutionDescription:
+      'A standard website’s dashboard gives the charity full control to update content instantly onto the charity website',
+  },
+  {
+    problemTitle: 'Growth Limitation',
+    problemDescription:
+      'A basic website can’t scale with campaigns, multiple events, or growing outreach, limiting expansion and opportunities for volunteers and donors.',
+    solutionTitle: 'Scalable Website',
+    solutionDescription:
+      'A standard website supports ongoing growth with scalable, manageable content.',
+  },
+  {
+    problemTitle: 'Difficulty tracking campaign performance',
+    problemDescription:
+      'Charities cannot track which campaigns are effective or measure impact easily.',
+    solutionTitle: 'Analytics Dashboard',
+    solutionDescription:
+      'This website provides reporting tools to track campaign performance efficiently.',
+  },
+  {
+    problemTitle: 'No impact visibility',
+    problemDescription:
+      'Donors and staff cannot see the measurable impact of charity efforts.',
+    solutionTitle: 'Impact Reporting',
+    solutionDescription:
+      'The platform provides clear visualizations of ongoing projects and achievements.',
+  },   
+     
+    ],
+    isMainProject: true,
+    isPopular: true,
+  },
+
+  {
+    id: 'charity-premium-1',
+    title: 'Category III',
+    companyName: '  Watoto',
+    description:
+      'To bring hope and healing to vulnerable children, women, and families in Uganda.',
+    image: '/premium-charity-website-thumbnail.png',
+    tier: 'premium',
+    categories: ['charity-websites'],
+    priceUGX: 10000000,
+    majorPurpose: 'Maximum Trust',
+    priceUSD: 2728,
+    liveLink: 'https://www.watoto.com',
     techStack: ['Next.js', 'Tailwind CSS', 'TypeScript', 'Mongo db', 'Prisma', 'Auth', 'Resend'],
     features: [
       'All features of basic',
